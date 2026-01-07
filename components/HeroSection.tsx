@@ -3,7 +3,7 @@
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-export default function HeroSection() {
+export default function HeroSection(rogg: any) {
   return (
     <section className="relative h-screen w-full bg-black overflow-hidden text-white">
       {/* Background video */}
@@ -57,19 +57,20 @@ export default function HeroSection() {
           </p>
 
           {/* THIRD LINE / BUTTON */}
-         <Link
-  href="/about"
-  className="
+          <Link
+            href="/about"
+            className="
     inline-block bg-transparent border border-white text-white
     hover:bg-white hover:text-black
     px-4 py-2 mt-3 transition-colors duration-200
     font-sans text-sm md:text-base
   "
->
-  Learn More
-</Link>
+          >
+            Learn More
+          </Link>
         </div>
       </div>
     </section>
   )
 }
+

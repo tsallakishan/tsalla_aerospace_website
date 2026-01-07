@@ -6,18 +6,20 @@ import Testimonials1 from "@/components/Testimonials1"
 import Newsletter from "@/components/Newsletter"
 import PageWrapper from "@/components/PageWrapper"
 import Missions from "@/components/Missions"
+import ContactSection from "@/components/ContactSection"
 
 
 export default function HomePage() {
   return (
     <PageWrapper hasHero={true}>
       <HeroSection />
-      <Missions/>
+      <Missions />
       <CommitmentSection />
       <Testimonials />
       <TechTools />
-      
+
       <Newsletter />
+      <ContactSection />
     </PageWrapper>
   )
 }
