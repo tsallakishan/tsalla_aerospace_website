@@ -12,7 +12,7 @@ importers:
         specifier: latest
         version: 1.4.0
       '@gsap/react':
-        specifier: ^2.1.2
+        specifier: 2.1.2
         version: 2.1.2(gsap@3.14.1)(react@19.0.0)
       '@hookform/resolvers':
         specifier: ^3.9.1
