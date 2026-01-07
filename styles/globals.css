@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*---------------------------------------
+ * Typography & Reset Enhancements
+ *----------------------------------------*/
+ @import url('https://fonts.googleapis.com/css2?family=Anton&family=Pontano+Sans&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: #000;
+    color: #fff;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply text-white bg-black;
+  }
+
+  a {
+    @apply transition-all duration-200;
+  }
+
+  ::selection {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+}
+
+/*---------------------------------------
+ * Custom Component Styles
+ *----------------------------------------*/
+@layer components {
+  .animated-underline {
+    @apply relative inline-block text-white;
+  }
+
+  .animated-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .animated-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* New custom class to apply the Orbit font */
+  .font-orbit {
+    font-family: var(--font-orbit, 'Orbit', sans-serif); /* Use the CSS variable, with 'Orbit' and 'sans-serif' as fallbacks */
+  }
+}
