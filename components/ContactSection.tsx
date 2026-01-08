@@ -87,7 +87,7 @@ export default function ContactSection() {
                     transition={{ duration: 0.6 }}
                     className="text-center mb-16"
                 >
-                    <h1 className="uppercase text-4xl md:text-6xl font-bold text-white mb-3 tracking-tight">Reach Out to Us</h1>
+                    <h1 className="uppercase te xt-4xl md:text-6xl font-bold text-white mb-3 tracking-tight">Reach Out to Us</h1>
                     <p className="font-light text-sm font-inter text-zinc-400 max-w-2xl mx-auto leading-relaxed">
                         Got a question, idea, or collaboration in mind? Reach out using the form below — our team will be in touch
                         soon.
