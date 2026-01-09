@@ -221,9 +221,9 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
             />
             <div className="relative z-20 p-8 h-full flex flex-col justify-between">
                 <div className="flex justify-between items-start">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/40 border border-white/10 text-white backdrop-blur-md">
+                    {/* <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/40 border border-white/10 text-white backdrop-blur-md">
                         {product.tag}
-                    </span>
+                    </span> */}
                     {product.glitchEffect && <Zap className="w-4 h-4 text-blue-500 animate-pulse" />}
                 </div>
                 <div className="flex justify-between items-end">
