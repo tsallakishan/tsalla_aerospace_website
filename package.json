@@ -60,6 +60,7 @@
     "next-themes": "latest",
     "node-mailjet": "^6.0.11",
     "nodemailer": "latest",
+    "ogl": "^1.0.11",
     "react": "^19",
     "react-day-picker": "latest",
     "react-dom": "^19",

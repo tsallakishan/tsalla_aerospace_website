@@ -341,8 +341,8 @@ export const CompanyMenu: React.FC<CompanyMenuProps> = ({ onClose }) => {
                                 ${borderClass}
                             `}
                         >
-                            {/* Hover Overlay - Subtle Light Blue */}
-                            <div className="absolute inset-0 bg-[#5ce1e6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            {/* Hover Overlay - Bright White Glow */}
+                            <div className="absolute inset-0 bg-white/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[inset_0_0_50px_rgba(255,255,255,0.8)]" />
 
                             {/* Content */}
                             <div className="relative z-10 w-full">
