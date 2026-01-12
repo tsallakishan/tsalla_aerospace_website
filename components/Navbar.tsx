@@ -189,7 +189,7 @@ const megaMenuData = {
 
 const navigationItems = [
   { name: "MAVERICK", href: "/maverick" },
-  { name: "UNCREWED SYSTEMS", href: "/uncrewedsystems" },
+  { name: "UNCREWED SYSTEMS", href: "#" },
   { name: "COUNTER SYSTEMS", href: "/countersystems" },
   { name: "SPACE SYSTEMS", href: "/hardware" },
   { name: "COMPANY", href: "/about" },
@@ -354,7 +354,7 @@ export default function Navbar() {
                 <div
                   key={item.name}
                   className="relative h-full"
-                  onMouseEnter={() => handleMouseEnterNav(item.href)}
+                  onMouseEnter={() => handleMouseEnterNav(item.name === "UNCREWED SYSTEMS" ? "/uncrewedsystems" : item.href)}
                   onMouseLeave={handleMouseLeaveNav}
                 >
                   <Link
@@ -362,11 +362,11 @@ export default function Navbar() {
                     className={`
                       px-6 text-sm font-medium tracking-wider transition-colors h-full flex items-center
                       ${index < navigationItems.length - 1 ? "border-r border-white/30" : ""}
-                      ${activeMegaMenu === item.href ? "bg-white/10" : ""}
+                      ${(activeMegaMenu === item.href || (item.name === "UNCREWED SYSTEMS" && activeMegaMenu === "/uncrewedsystems")) ? "bg-white/10" : ""}
                     `}
                   >
                     <span
-                      className={`animated-underline font-orbit font-normal ${pathname === item.href ? "text-[#5ce1e6]" : "text-white hover:text-[#5ce1e6]"
+                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#5ce1e6]" : "text-white hover:text-[#5ce1e6]"
                         }`}
                     >
                       {item.name}
@@ -588,8 +588,9 @@ export default function Navbar() {
                   <button
                     key={item.name}
                     onClick={() => {
-                      if (["/uncrewedsystems", "/countersystems", "/about", "/careers", "/maverick", "/hardware"].includes(item.href)) {
-                        setActiveMegaMenu(item.href);
+                      const megaKey = item.name === "UNCREWED SYSTEMS" ? "/uncrewedsystems" : item.href;
+                      if (["/uncrewedsystems", "/countersystems", "/about", "/careers", "/maverick", "/hardware"].includes(megaKey)) {
+                        setActiveMegaMenu(megaKey);
                       } else {
                         // For other links, we can just navigate
                         window.location.href = item.href;
@@ -597,7 +598,7 @@ export default function Navbar() {
                       }
                     }}
                     className={`px-6 py-5 text-base font-medium border-b border-white/10 transition-colors flex justify-between items-center font-orbit w-full text-left
-                      ${pathname === item.href
+                      ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems")))
                         ? "text-[#5ce1e6] bg-white/5"
                         : "text-white hover:text-[#5ce1e6] hover:bg-white/5"
                       }
@@ -605,7 +606,7 @@ export default function Navbar() {
                   >
                     <span className="animated-underline font-orbit uppercase tracking-widest">{item.name}</span>
                     <Plus className={cn("w-4 h-4 transition-transform",
-                      ["/uncrewedsystems", "/countersystems", "/about", "/careers", "/maverick", "/hardware"].includes(item.href) ? "" : "rotate-45"
+                      ["/uncrewedsystems", "/countersystems", "/about", "/careers", "/maverick", "/hardware"].includes(item.name === "UNCREWED SYSTEMS" ? "/uncrewedsystems" : item.href) ? "" : "rotate-45"
                     )} />
                   </button>
                 ))}

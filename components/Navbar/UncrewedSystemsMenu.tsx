@@ -95,10 +95,14 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                     {data.links.map((link: any, index: number) => {
                         const isActive = hoveredUncrewedSystemDetails?.headline === link.details.headline;
                         return (
-                            <div
+                            <Link
                                 key={link.name}
-                                onMouseEnter={() => !window.matchMedia('(max-width: 1024px)').matches && setHoveredUncrewedSystemDetails(link.details)}
-                                onClick={() => setHoveredUncrewedSystemDetails(link.details)}
+                                href={link.href}
+                                onMouseEnter={() => !window.matchMedia('(max-width: 1024px)').matches && setHoveredUncrewedSystemDetails({ ...link.details, href: link.href })}
+                                onClick={() => {
+                                    setHoveredUncrewedSystemDetails({ ...link.details, href: link.href });
+                                    onClose();
+                                }}
                                 className={cn(
                                     "group relative flex items-center justify-between p-4 rounded-sm transition-all duration-300 border border-transparent cursor-pointer",
                                     isActive ? "bg-[#5ce1e6]/10 border-[#5ce1e6]/20" : "hover:bg-white/5"
@@ -137,7 +141,7 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                         isActive ? "text-[#5ce1e6]" : "text-white/20 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
                                     )} />
                                 </div>
-                            </div>
+                            </Link>
                         );
                     })}
                 </div>

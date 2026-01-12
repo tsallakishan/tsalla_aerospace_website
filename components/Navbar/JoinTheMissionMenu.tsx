@@ -288,7 +288,7 @@ export const JoinTheMissionMenu: React.FC<JoinTheMissionMenuProps> = ({ onClose 
                             href={item.href}
                             onClick={onClose}
                             className={`
-                                relative bg-gray-100 hover:bg-white p-5 lg:p-12 flex flex-col justify-between group hover:z-20 transition-all duration-500 ease-out text-left overflow-hidden
+                                relative bg-gray-100 hover:bg-white px-4 lg:px-6 py-5 lg:py-12 pt-4 lg:pt-8 flex flex-col justify-start group hover:z-20 transition-all duration-500 ease-out text-left overflow-hidden
                                 ${borderClass}
                             `}
                         >
@@ -302,7 +302,7 @@ export const JoinTheMissionMenu: React.FC<JoinTheMissionMenuProps> = ({ onClose 
                             </div>
 
                             {/* Animated Icon - Strictly positioned and contained */}
-                            <div className="relative z-10 mt-auto pt-6 flex justify-start opacity-70 group-hover:opacity-100 text-gray-800 group-hover:text-[#5ce1e6] transition-all duration-300 transform group-hover:scale-105 origin-center">
+                            <div className="relative z-10 mt-4 lg:mt-6 flex justify-start opacity-70 group-hover:opacity-100 text-gray-800 group-hover:text-[#5ce1e6] transition-all duration-300 transform group-hover:scale-105 origin-center">
                                 {item.icon}
                             </div>
                         </Link>

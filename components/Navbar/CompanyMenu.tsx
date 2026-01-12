@@ -302,21 +302,21 @@ export const CompanyMenu: React.FC<CompanyMenuProps> = ({ onClose }) => {
                 </Link>
 
                 {/* Section 2: News - Black - 1/3 height */}
-                <Link href="/news" onClick={onClose} className="h-auto min-h-[120px] xl:h-1/3 xl:min-h-0 bg-black text-white p-4 lg:p-6 flex flex-col justify-center relative group border-b border-white/10 hover:bg-zinc-900 transition-colors z-20">
+                <Link href="/news" onClick={onClose} className="h-auto min-h-[120px] xl:h-1/3 xl:min-h-0 bg-black text-white p-4 lg:p-6 pt-3 lg:pt-4 flex flex-col justify-start relative group border-b border-white/10 hover:bg-zinc-900 transition-colors z-20">
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#5ce1e6] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom" />
                     <h4 className="text-xl lg:text-2xl font-normal text-zinc-600 group-hover:text-white transition-colors mb-1 font-orbit">News</h4>
-                    <div className="text-[9px] uppercase tracking-widest text-zinc-700 group-hover:text-[#5ce1e6] transition-colors mb-2 font-mono">The Latest From The Front.</div>
-                    <p className="text-zinc-600 text-xs lg:text-sm leading-relaxed group-hover:text-zinc-400 transition-colors line-clamp-2">
+                    <div className="text-[9px] uppercase tracking-widest text-zinc-700 group-hover:text-[#5ce1e6] transition-colors mb-1 font-mono">The Latest From The Front.</div>
+                    <p className="text-zinc-600 text-xs lg:text-sm leading-tight lg:leading-relaxed group-hover:text-zinc-400 transition-colors line-clamp-2">
                         Stay updated with our latest breakthroughs, mission highlights, and industry impact.
                     </p>
                 </Link>
 
                 {/* Section 3: Events - Black - 1/3 height */}
-                <Link href="/events" onClick={onClose} className="h-auto min-h-[120px] xl:h-1/3 xl:min-h-0 bg-black text-white p-4 lg:p-6 flex flex-col justify-center relative group hover:bg-zinc-900 transition-colors z-20">
+                <Link href="/events" onClick={onClose} className="h-auto min-h-[120px] xl:h-1/3 xl:min-h-0 bg-black text-white p-4 lg:p-6 pt-3 lg:pt-4 flex flex-col justify-start relative group hover:bg-zinc-900 transition-colors z-20">
                     <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#5ce1e6] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-top" />
                     <h4 className="text-xl lg:text-2xl font-normal text-zinc-600 group-hover:text-white transition-colors mb-1 font-orbit">Events</h4>
-                    <div className="text-[9px] uppercase tracking-widest text-zinc-700 group-hover:text-[#5ce1e6] transition-colors mb-2 font-mono">On The Ground.</div>
-                    <p className="text-zinc-600 text-xs lg:text-sm leading-relaxed group-hover:text-zinc-400 transition-colors line-clamp-2">
+                    <div className="text-[9px] uppercase tracking-widest text-zinc-700 group-hover:text-[#5ce1e6] transition-colors mb-1 font-mono">On The Ground.</div>
+                    <p className="text-zinc-600 text-xs lg:text-sm leading-tight lg:leading-relaxed group-hover:text-zinc-400 transition-colors line-clamp-2">
                         Connect with us at global defense expos, tech summits, and hardware demonstrations.
                     </p>
                 </Link>
