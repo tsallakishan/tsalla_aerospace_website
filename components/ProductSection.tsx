@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, Zap, Activity, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
@@ -116,14 +116,35 @@ const GlitchOverlay = () => (
 
 function ProductCard({ product, index }: { product: Product; index: number }) {
     const isWide = product.isWide;
+    const cardRef = React.useRef(null);
+
+    // Smooth scroll tracking using useSpring
+    const { scrollYProgress } = useScroll({
+        target: cardRef,
+        offset: ["start end", "end start"]
+    });
+
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    const scale = useTransform(smoothProgress, [0, 0.4, 0.6, 1], [0.85, 1, 1, 0.85]);
+    const rotateX = useTransform(smoothProgress, [0, 0.4, 0.6, 1], [15, 0, 0, -15]);
+    const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
     if (isWide) {
         return (
             <motion.div
-                initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                viewport={{ once: false, amount: 0.2 }}
+                ref={cardRef}
+                style={{
+                    scale,
+                    rotateX,
+                    opacity,
+                    perspective: 1000,
+                    willChange: "transform, opacity"
+                }}
                 className="col-span-1 md:col-span-2 relative group overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 hover:border-blue-500/50 transition-all duration-500 shadow-2xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"
             >
                 <HUDLines />
@@ -205,10 +226,14 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
     return (
         <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.95 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: false, amount: 0.2 }}
+            ref={cardRef}
+            style={{
+                scale,
+                rotateX,
+                opacity,
+                perspective: 1000,
+                willChange: "transform, opacity"
+            }}
             className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 hover:border-white/40 transition-all duration-500 shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"
         >
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
