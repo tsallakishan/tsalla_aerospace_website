@@ -52,7 +52,7 @@ function createCardTexture(
     id: string,
     title: string,
     subtext: string,
-    cardColor: string = 'black',
+    cardColor: string = '#1a1a1a',
     textColor: string = 'white'
 ): { texture: Texture; width: number; height: number } {
     const canvas = document.createElement('canvas');
@@ -69,10 +69,6 @@ function createCardTexture(
     context.fillStyle = cardColor;
     context.fillRect(0, 0, width, height);
 
-    // Background
-    context.fillStyle = cardColor;
-    context.fillRect(0, 0, width, height);
-
     // Title
     context.font = '800 64px sans-serif';
     context.fillStyle = textColor;
@@ -81,7 +77,7 @@ function createCardTexture(
 
     // Subtext
     context.font = '500 32px sans-serif';
-    context.fillStyle = 'rgba(255, 255, 255, 1.0)';
+    context.fillStyle = textColor;
     wrapText(context, subtext, 60, height - 550, width - 120, 45);
 
     const texture = new Texture(gl, { generateMipmaps: true });
@@ -259,9 +255,7 @@ class Media {
         varying vec2 vUv;
         void main() {
           vUv = uv;
-          vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
       `,
             fragment: `
@@ -276,11 +270,25 @@ class Media {
         }
         
         void main() {
-          vec4 color = texture2D(tMap, vUv);
+          vec4 texColor = texture2D(tMap, vUv);
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           float edgeSmooth = 0.002;
-          float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
-          gl_FragColor = vec4(color.rgb, alpha);
+          
+          // Mask for the rounded shape
+          float mask = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
+          
+          // Border logic
+          float borderThickness = 0.005; 
+          float borderMask = smoothstep(0.0, edgeSmooth, d + borderThickness) * (1.0 - smoothstep(-edgeSmooth, edgeSmooth, d));
+          
+          vec3 borderColor = vec3(1.0, 1.0, 1.0);
+          
+          // Combine text and border
+          // texColor is the text on transparent background
+          float alpha = mask;
+          vec3 rgb = mix(texColor.rgb, borderColor, borderMask);
+          
+          gl_FragColor = vec4(rgb, alpha);
         }
       `,
             uniforms: {
@@ -350,9 +358,9 @@ class Media {
             this.viewport = viewport;
         }
 
-        // Aim for ~4 cards visible horizontally
-        const targetCardsVisible = 4;
-        this.plane.scale.x = this.viewport.width / (targetCardsVisible + 0.5);
+        // Aim for ~2 cards visible horizontally
+        const targetCardsVisible = 2;
+        this.plane.scale.x = this.viewport.width / (targetCardsVisible + 0.1);
 
         // Maintain aspect ratio (Texture is 800x1000 -> 1.25 height factor)
         this.plane.scale.y = this.plane.scale.x * 1.25;
@@ -491,11 +499,30 @@ class App {
         this.onCheck();
     }
 
+    isScrolling: boolean = false;
     onWheel(e: Event) {
+        if (!this.medias || !this.medias[0] || this.isScrolling) return;
+
         const wheelEvent = e as WheelEvent;
         const delta = wheelEvent.deltaY || (wheelEvent as any).wheelDelta || (wheelEvent as any).detail;
-        this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
-        this.onCheckDebounce();
+
+        if (Math.abs(delta) < 10) return;
+
+        this.isScrolling = true;
+        const width = this.medias[0].width;
+
+        if (delta > 0) {
+            this.scroll.target += width;
+        } else {
+            this.scroll.target -= width;
+        }
+
+        this.onCheck();
+
+        // Prevent rapid scrolling, ensuring a deliberate "card by card" feel
+        setTimeout(() => {
+            this.isScrolling = false;
+        }, 800);
     }
 
     onCheck() {
