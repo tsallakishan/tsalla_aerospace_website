@@ -45,7 +45,7 @@ export default function HeroSection(rogg: any) {
         {/* Added a container to control width on mobile, as in your example */}
         <div className="w-full max-w-4xl">
           {/* MAIN LINE */}
-          <h1 className="font-bold text-4xl sm:text-5xl lg:text-[4.375rem] leading-[1.1] mb-5 font-farro tracking-tight">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-[4.375rem] leading-[1.1] mb-5 font-farro tracking-normal">
             UNMANNED.<br />
             UNMATCHED.<br />
             UNCOMPROMISED.

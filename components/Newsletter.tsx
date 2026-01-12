@@ -13,7 +13,7 @@ const Newsletter: React.FC = () => {
         {/* Section Title */}
         <div className="text-left mb-8 lg:mb-12">
           <h2
-            className="text-left text-black/100 mb-1 transition-all duration-700 transform font-orbit opacity-100 translate-y-0 uppercase tracking-tight text-[28px] md:text-[48px]"
+            className="text-left text-black/100 mb-1 transition-all duration-700 transform font-orbit opacity-100 translate-y-0 uppercase tracking-normal text-[28px] md:text-[48px]"
             style={{
               transitionDelay: "150ms",
               lineHeight: "1.1",
