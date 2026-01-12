@@ -77,12 +77,12 @@ function createCardTexture(
     context.font = '800 64px sans-serif';
     context.fillStyle = textColor;
     context.textAlign = 'left';
-    wrapText(context, title, 60, 250, width - 120, 75);
+    wrapText(context, title, 60, 180, width - 120, 75);
 
     // Subtext
     context.font = '500 32px sans-serif';
     context.fillStyle = 'rgba(255, 255, 255, 1.0)';
-    wrapText(context, subtext, 60, height - 600, width - 120, 45);
+    wrapText(context, subtext, 60, height - 550, width - 120, 45);
 
     const texture = new Texture(gl, { generateMipmaps: true });
     texture.image = canvas;
@@ -570,16 +570,12 @@ class App {
 }
 
 const DEFAULT_ITEMS = [
-    { id: "01", title: "Earn Trust", description: "We live with uncompromising honesty and integrity. We avoid even the appearance of improper behavior." },
-    { id: "02", title: "Be Candid", description: "We have the courage to address challenges directly and never behind the backs of teammates. We speak up when we disagree." },
-    { id: "03", title: "Delight Our Customers", description: "We develop empathy for our customers and the circumstances they face. We earn customer trust and never take it for granted." },
-    { id: "04", title: "Put The Team First", description: "We are one team committed to the common mission. We place the success of the team ahead of our individual success." },
-    { id: "05", title: "Embrace Teammates", description: "We love and respect our teammates, trusting their good intentions even when results fall short." },
-    { id: "06", title: "Demonstrate Grit", description: "We have the passion and perseverance to meet our goals. We work tirelessly to achieve lofty objectives." },
-    { id: "07", title: "Dominate", description: "We do not seek to merely win but win so dominantly that competitors fear our capabilities. We demonstrate the courage, confidence, and capacity to pursue and achieve game-changing objectives." },
-    { id: "08", title: "Act With Kindness", description: "We treat people with kindness and respect in our words and actions. We know that achievement of extraordinary success need not come at the expense of being a good person." },
-    { id: "09", title: "Be Rigorous & Go Fast", description: "We approach problems with a clear understanding of objectives, context, and detail. We dive deep into issues and roll up our sleeves to ensure the team succeeds." },
-    { id: "10", title: "Be Enthusiastic", description: "We make work fun because life is short, and we spend most of our lives at work. We are enthusiastic about our successes." }
+    { id: "01", title: "Resilience Is Our Signature", description: "We don’t complain, we solve. We don’t escape pressure, we rise through it. Mistakes happen — but we take radical responsibility, learn fast, and move forward stronger." },
+    { id: "02", title: "We Build Builders", description: "This is a place to become your strongest self — professionally, personally, and patriotically. Here, you grow in knowledge, skill, discipline, and vision. Because Tsalla Aerospace is not just building aircraft — We’re building citizens. We’re building leaders." },
+    { id: "03", title: "We Don’t Clock In, We Show Up", description: "This is not a shift job. This is our runway. We show up with our brains sharp, our hearts aligned, and our sleeves rolled up. Because someday, we’ll look back and say: 'We built something that mattered.'" },
+    { id: "04", title: "Integrity Is Non-Negotiable", description: "We will never cheat — not people, not processes, not ourselves. No shortcuts, no dishonesty — even if it costs us. Because at Tsalla, how we win is as important as winning itself." },
+    { id: "05", title: "Everyone Is a Leader Here", description: "No one hides behind titles. If you see a problem, you own it. If you have an idea, you voice it. Whether you joined yesterday or were here from Day 1 — you matter." },
+    { id: "06", title: "United by Purpose, Not Uniformity", description: "We all have different backgrounds, motivations, and dreams — and that’s okay. But when we’re here — we’re united. By discipline. By ownership. By belief in a cause bigger than us." }
 ];
 
 export default function CircularGallery({
