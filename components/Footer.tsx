@@ -15,6 +15,7 @@ export default function Footer() {
       { name: "About Us", href: "/about" },
       { name: "Mission Autonomy", href: "/mission-autonomy" },
       { name: "Our Team", href: "/our-team" },
+      { name: "Our Culture", href: "/careers/culture" },
       { name: "Careers", href: "/careers" },
     ],
     products: [
@@ -40,7 +41,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#5ce1e6]/50 to-transparent" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[90rem] h-[100px] bg-[#5ce1e6]/5 blur-[80px] rounded-full pointer-events-none" />
 
-      <div className="w-full max-w-[90rem] px-6 lg:px-24 mb-20">
+      <div className="w-full max-w-[90rem] px-6 lg:px-24 mb-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 items-start">
           {/* ========== Left Column (Brand) ========== */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start space-y-8">
@@ -107,7 +108,7 @@ export default function Footer() {
       </div>
 
       {/* Massive Brand Watermark */}
-      <div className="absolute bottom-[100px] left-0 w-full overflow-hidden flex justify-center pointer-events-none select-none z-0">
+      <div className="relative w-full overflow-hidden flex justify-center pointer-events-none select-none z-0 mt-[-5vw] mb-[-5vw]">
         <h2 className="text-[25vw] font-bold leading-none tracking-wide text-white/[0.03] font-orbit uppercase">
           Tsalla
         </h2>

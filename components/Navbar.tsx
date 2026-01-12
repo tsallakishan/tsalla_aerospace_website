@@ -334,11 +334,11 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300
     ${isVisible ? "translate-y-0" : "-translate-y-full"}
-    ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-sm" : "bg-transparent"}
+    ${isScrolled || !isHomePage ? "bg-black" : "bg-transparent"}
   `}
       >
         <div className="w-full">
-          <div className="flex items-center justify-between h-20 border-b border-white/100 px-4">
+          <div className="flex items-center justify-between h-20 border-b border-white/10 px-4">
             <Link href="/" className="flex items-center z-50 pl-4 lg:ml-12">
               <img
                 src="/tsalla_main.svg"

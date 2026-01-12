@@ -245,7 +245,7 @@ const menuItems = [
     {
         title: "Culture",
         subtitle: "UNFAIR ADVANTAGES",
-        href: "/about#culture",
+        href: "/careers/culture",
         icon: <CultureIcon />
     },
     {
