@@ -33,10 +33,10 @@ export default function FenixResponder1(): React.JSX.Element {
             <div className="flex flex-col justify-between min-h-screen">
               {/* Top Text Block */}
               <div>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium leading-tight tracking-normal">
-                  FENIx as the First Responder
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-normal">
+                  FENIx as the First <span className="text-[#5ce1e6]">Responder</span>
                 </h1>
-                <p className="mt-4 text-xl md:text-2xl max-w-3xl text-neutral-200 font-light">
+                <p className="mt-4 text-lg md:text-xl max-w-3xl text-neutral-200 font-light">
                   When every second counts, FENIx arrives first — eyes on the ground before boots hit it.
                 </p>
               </div>

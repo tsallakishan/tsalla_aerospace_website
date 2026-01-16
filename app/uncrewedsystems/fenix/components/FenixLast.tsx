@@ -1,12 +1,11 @@
 "use client"
 
 import type React from "react"
-import { ContentWrapper } from "@/components/ContentWrapper"
+import { motion } from "framer-motion"
 
 export default function FenixLast(): React.JSX.Element {
   return (
     <>
-      {/* Global Clash Grotesk font inclusion */}
       <style>{`
         @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
         .font-clash-grotesk {
@@ -14,31 +13,34 @@ export default function FenixLast(): React.JSX.Element {
         }
       `}</style>
 
-      <section className="font-clash-grotesk relative h-screen w-full overflow-hidden">
-        {/* Background Image */}
-        <img
-          src="/images/design-mode/abb6bab613d7d967786b922562d07d61f60f873e-3840x2160.jpg"
-          alt="Abstract background"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        />
+      <section className="font-clash-grotesk relative min-h-screen w-full overflow-hidden bg-white flex flex-col items-center justify-center">
+        {/* Content Container */}
+        <div className="relative z-20 container mx-auto px-6 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            viewport={{ once: true }}
+            className="flex flex-col items-center"
+          >
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium text-black tracking-tight leading-[1.05] max-w-5xl">
+              Ready to <span className="text-[#5ce1e6]">Deploy</span> Where <br className="hidden md:block" /> Others Cannot.
+            </h1>
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/70 z-10"></div>
-
-        {/* Content */}
-        <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white">
-          <ContentWrapper>
-            <div className="text-center">
-              <h1 className="text-5xl md:text-7xl font-medium leading-tight max-w-4xl mx-auto">
-                Ready to Deploy Where <br /> Others Cannot.
-              </h1>
-              {/* The button is now square and the text is not bold */}
-              <button className="mt-8 bg-white/10 border border-white/20 backdrop-blur-sm text-white py-3 px-8 hover:bg-white/20 transition-colors duration-300">
-                Request a Demo
-              </button>
-            </div>
-          </ContentWrapper>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="mt-12 px-10 py-4 bg-transparent border border-black/20 text-black text-lg font-light tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-500"
+            >
+              Request a Demo
+            </motion.button>
+          </motion.div>
         </div>
+
+        {/* Bottom Decorative Element */}
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-[#5ce1e6] to-transparent opacity-30" />
       </section>
     </>
   )

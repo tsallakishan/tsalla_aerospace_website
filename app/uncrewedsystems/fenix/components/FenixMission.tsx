@@ -1,117 +1,84 @@
 "use client"
 
 import type React from "react"
-import { useRef, useEffect } from "react"
+import { useRef, useState } from "react"
+import { motion, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
-// Props interface for a single full-screen mission profile card
 interface ProfileCardProps {
   title: string
   imageUrl: string
   description: string
-  hasHighlight?: boolean
 }
 
-// Reusable component for a full-screen profile slide
-const ProfileCard: React.FC<ProfileCardProps> = ({ title, imageUrl, description, hasHighlight = false }) => (
-  <div className={`w-screen h-screen flex-shrink-0 relative ${hasHighlight ? "ring-4 ring-blue-500 ring-inset" : ""}`}>
-    {/* Background Image */}
-    <img
-      src={imageUrl || "/placeholder.svg"}
-      alt={title}
-      className="absolute inset-0 w-full h-full object-cover"
-      onError={(e) => {
-        const target = e.target as HTMLImageElement
-        target.onerror = null // prevent infinite loop
-        target.src = `https://placehold.co/1920x1080/1a1a1a/ffffff?text=Image+Not+Found`
-      }}
-    />
-    {/* Dark Overlay for text readability */}
-    <div className="absolute inset-0 bg-black/60"></div>
-
-    {/* Centered Content container with 25% spacing on all sides */}
-    <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 flex flex-col items-center justify-center text-center z-10">
-      <div className="relative z-10 max-w-3xl">
-        <h2 className="text-5xl md:text-6xl font-semibold tracking-tight mb-4">{title}</h2>
-        <p className="text-lg md:text-xl text-white/80 leading-relaxed">{description}</p>
-      </div>
-    </div>
-  </div>
-)
-
 export default function FenixMissionProfiles(): React.JSX.Element {
-  // Data for all profiles
+  const [activeIndex, setActiveIndex] = useState(2)
+
   const allProfiles: ProfileCardProps[] = [
     {
       title: "Counter Terrorism",
-      imageUrl: "https://images.unsplash.com/photo-1578318283363-239497654810?q=80&w=2070&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/CounterTerrorism.jpg",
       description:
         "Covertly monitor high-risk environments, track targets, and provide real-time intel to ground teams.",
     },
     {
       title: "Search & Rescue",
-      imageUrl: "https://images.unsplash.com/photo-1561473889-113c34515b1e?q=80&w=1974&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/Search_Rescue.jpg",
       description: "Locate missing persons in challenging terrain and guide rescue teams to precise locations.",
     },
     {
       title: "Counter Inversion",
-      imageUrl: "https://images.unsplash.com/photo-1618063322581-3a45167f597c?q=80&w=2070&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/CounterInversion.webp",
       description:
         "Identify and neutralize inverted threats, providing a clear operational picture in complex aerial engagements.",
     },
     {
       title: "Pipeline & Ductwork Inspection",
-      imageUrl: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=1974&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/PipelineDuctwork.webp",
       description:
         "Efficiently inspect vast networks, identifying potential leaks or damage with high-resolution visuals.",
     },
     {
       title: "Warehouse Management",
-      imageUrl: "https://images.unsplash.com/photo-1587293852726-70cdb122c294?q=80&w=2070&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/WarehouseManagement.jpeg",
       description:
         "Automate inventory checks, monitor stock levels, and identify misplaced items in large-scale warehouses.",
     },
     {
       title: "Ongoing Build Surveillance",
-      imageUrl: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+      imageUrl: "/images/Fenix/OngoingBuild.webp",
       description:
         "Provide continuous aerial surveillance of construction sites, tracking progress and ensuring security.",
-      hasHighlight: true,
     },
   ]
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const horizontalTrackRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  })
 
-  useEffect(() => {
-    const scrollContainer = scrollContainerRef.current
-    const horizontalTrack = horizontalTrackRef.current
+  // Smooth scroll progress
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
-    if (!scrollContainer || !horizontalTrack) return
+  // Navigation Handlers
+  const handleNext = (e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    if (activeIndex < allProfiles.length - 1) setActiveIndex(prev => prev + 1)
+  }
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      const containerTop = scrollContainer.offsetTop
-      const containerHeight = scrollContainer.offsetHeight
-      const viewportHeight = window.innerHeight
+  const handlePrev = (e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    if (activeIndex > 0) setActiveIndex(prev => prev - 1)
+  }
 
-      // Check if the user is scrolling within the horizontal section
-      if (scrollY >= containerTop && scrollY <= containerTop + containerHeight - viewportHeight) {
-        const scrollableHeight = containerHeight - viewportHeight
-        const scrollProgress = (scrollY - containerTop) / scrollableHeight
-
-        const maxHorizontalScroll = horizontalTrack.scrollWidth - viewportHeight
-        const horizontalScrollValue = scrollProgress * maxHorizontalScroll
-
-        horizontalTrack.style.transform = `translateX(-${horizontalScrollValue}px)`
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+  // Title Animation
+  const titleOpacity = useTransform(smoothProgress, [0, 0.1], [1, 0])
+  const titleY = useTransform(smoothProgress, [0, 0.1], [0, -30])
 
   return (
     <>
@@ -120,37 +87,161 @@ export default function FenixMissionProfiles(): React.JSX.Element {
         .font-clash-grotesk {
           font-family: "Clash Grotesk", sans-serif !important;
         }
-        body {
-          background-color: #000; /* Ensure body background is black */
-        }
       `}</style>
 
-      {/* This container provides the vertical scroll height to drive the animation. */}
-      <div ref={scrollContainerRef} style={{ height: `${(allProfiles.length + 1) * 100}vh` }} className="relative">
-        {/* This sticky container holds the horizontal track in place while scrolling. */}
-        <div className="sticky top-0 h-screen w-full overflow-hidden">
-          <main
-            ref={horizontalTrackRef}
-            className="font-clash-grotesk text-white h-full flex relative"
-            style={{ width: `${(allProfiles.length + 1) * 100}vw` }}
-          >
-            {/* Introductory Slide */}
-            <div className="w-screen h-screen flex-shrink-0 flex flex-col items-center justify-center text-center p-8">
-              <h1 className="text-6xl font-medium tracking-tight">Mission Profiles</h1>
-              <p className="text-lg text-gray-400 mt-3">Engineered for reliability in critical scenarios.</p>
-              <p className="mt-20 text-gray-500 animate-pulse text-sm">Scroll Down to Explore</p>
-            </div>
+      <div ref={containerRef} className="relative h-[450vh] bg-black font-clash-grotesk overflow-clip">
+        <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">
 
-            {/* Map through all profiles to create a slide for each */}
-            {allProfiles.map((profile) => (
-              <ProfileCard key={profile.title} {...profile} />
-            ))}
-          </main>
+          {/* Section Title */}
+          <motion.div
+            style={{ opacity: titleOpacity, y: titleY }}
+            className="absolute top-12 z-50 text-center"
+          >
+            <h2 className="text-5xl md:text-7xl font-medium text-white tracking-tight drop-shadow-2xl">
+              Mission Profiles
+            </h2>
+            <div className="h-1 w-24 bg-cyan-500 mx-auto mt-4 rounded-full" />
+          </motion.div>
+
+          {/* Cards Container */}
+          <div className="relative w-full h-full flex items-center justify-center gap-3 md:gap-4 px-8 md:px-12">
+            {allProfiles.map((profile, index) => {
+              const isCenterCard = index === activeIndex
+              const distanceFromCenter = index - activeIndex
+              const isNextCard = index === activeIndex + 1
+              const isPrevCard = index === activeIndex - 1
+              const isFarNextCard = index === activeIndex + 2
+              const isFarPrevCard = index === activeIndex - 2
+
+              // Card Width - Call hooks unconditionally
+              const widthCenter = useTransform(smoothProgress, [0, 0.4, 0.8], ["26vw", "55vw", "85vw"])
+              const widthNeighbor = useTransform(smoothProgress, [0, 0.4, 0.8], ["13vw", "11vw", "7vw"])
+              const widthFar = useTransform(smoothProgress, [0, 0.4, 0.8], ["8vw", "7vw", "4vw"])
+              const width = isCenterCard ? widthCenter : (isPrevCard || isNextCard ? widthNeighbor : widthFar)
+
+              // Card Height - Call hooks unconditionally
+              const heightCenter = useTransform(smoothProgress, [0, 0.4, 0.8], ["55vh", "72vh", "85vh"])
+              const heightNeighbor = useTransform(smoothProgress, [0, 0.4, 0.8], ["38vh", "34vh", "28vh"])
+              const heightFar = useTransform(smoothProgress, [0, 0.4, 0.8], ["30vh", "25vh", "22vh"])
+              const height = isCenterCard ? heightCenter : (isPrevCard || isNextCard ? heightNeighbor : heightFar)
+
+              // Card Opacity - Call hooks unconditionally
+              const opacityNeighbor = useTransform(smoothProgress, [0, 0.4, 0.8], [1, 1, 0.6])
+              const opacityFar = useTransform(smoothProgress, [0, 0.4, 0.8], [0.8, 0.6, 0.2])
+              const opacity = isCenterCard ? 1 : (isPrevCard || isNextCard ? opacityNeighbor : opacityFar)
+
+              // Text Overlay Opacity - Call hooks unconditionally
+              const textOpacityVal = useTransform(smoothProgress, [0.2, 0.4], [0, 1])
+              const textOpacity = isCenterCard ? textOpacityVal : 0
+
+              // Navigation Arrow Opacity - Call hooks unconditionally
+              const arrowOpacity = useTransform(smoothProgress, [0.4, 0.8], [0, 1])
+
+              // Only render cards that are visible (farPrev, prev, center, next, farNext)
+              const isVisible = Math.abs(distanceFromCenter) <= 2
+              if (!isVisible) return null
+
+              return (
+                <motion.div
+                  key={profile.title} // Changed key to title for better stability
+                  layout
+                  layoutId={`card-${profile.title}`} // Added layoutId
+                  style={{
+                    width,
+                    height,
+                    opacity,
+                    zIndex: isCenterCard ? 40 : 10,
+                  }}
+                  onClick={() => {
+                    if (isPrevCard) handlePrev()
+                    if (isNextCard) handleNext()
+                  }}
+                  transition={{
+                    layout: { type: "spring", stiffness: 200, damping: 25 },
+                    opacity: { duration: 0.4 }
+                  }}
+                  className={`relative flex-shrink-0 overflow-hidden rounded-[2rem] md:rounded-[2.5rem] border border-white/10 shadow-2xl bg-neutral-900 group ${!isCenterCard && (isPrevCard || isNextCard) ? 'cursor-pointer' : ''}`}
+                >
+                  {/* Background Image */}
+                  <motion.img
+                    layoutId={`img-${profile.title}`} // Added layoutId
+                    src={profile.imageUrl}
+                    alt={profile.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    animate={{
+                      scale: isCenterCard ? 1.1 : 1,
+                      filter: isCenterCard ? "grayscale(0%) blur(0px)" : "grayscale(100%) blur(2px) brightness(0.5)",
+                    }}
+                    transition={{
+                      scale: { duration: 1.2, ease: [0.25, 1, 0.5, 1] }, // Cinematic slow zoom
+                      filter: { duration: 0.6, ease: "easeInOut" }
+                    }}
+                  />
+
+                  {/* Dark Gradient Overlay */}
+                  <motion.div
+                    style={{ opacity: isCenterCard ? useTransform(smoothProgress, [0.1, 0.4], [0, 0.75]) : 0.5 }}
+                    className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent z-10"
+                  />
+
+                  {/* Navigation Icons for Side Cards */}
+                  {!isCenterCard && (isNextCard || isPrevCard) && (
+                    <motion.div
+                      style={{ opacity: arrowOpacity }}
+                      className="absolute inset-0 z-30 flex items-center justify-center"
+                    >
+                      <div
+                        className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-cyan-500/30 group-hover:border-cyan-500/60 transition-all duration-500 pointer-events-auto"
+                      >
+                        {isPrevCard && <ChevronLeft className="w-8 h-8 md:w-10 md:h-10 text-cyan-400 group-hover:text-white transition-colors" />}
+                        {isNextCard && <ChevronRight className="w-8 h-8 md:w-10 md:h-10 text-cyan-400 group-hover:text-white transition-colors" />}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* Content for Center Card */}
+                  <div className="absolute inset-0 z-20 p-8 md:p-12 lg:p-16 flex flex-col justify-between pointer-events-none">
+                    <AnimatePresence mode="wait">
+                      {isCenterCard && (
+                        <>
+                          <motion.div
+                            key={`text-top-${profile.title}`}
+                            style={{ opacity: textOpacity }}
+                            className="text-left"
+                            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, y: -20, filter: "blur(5px)" }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                          >
+                            <p className="text-cyan-400 font-bold tracking-[0.2em] md:tracking-[0.25em] uppercase text-[9px] md:text-xs mb-2 md:mb-3 drop-shadow-lg">Operational Profile</p>
+                            <h3 className="text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-none drop-shadow-2xl max-w-4xl">
+                              {profile.title}
+                            </h3>
+                          </motion.div>
+
+                          <motion.div
+                            key={`text-bot-${profile.title}`}
+                            style={{ opacity: textOpacity }}
+                            className="max-w-2xl lg:max-w-3xl ml-auto text-right"
+                            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                            exit={{ opacity: 0, y: 20, filter: "blur(5px)" }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                          >
+                            <p className="text-sm md:text-lg lg:text-2xl xl:text-3xl font-light text-white leading-tight tracking-tight drop-shadow-xl">
+                              {profile.description}
+                            </p>
+                          </motion.div>
+                        </>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
-
-      {/* This is the next section that appears after the horizontal scroll is complete. */}
-     
     </>
   )
 }

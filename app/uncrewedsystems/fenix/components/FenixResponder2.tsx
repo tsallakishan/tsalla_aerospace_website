@@ -1,74 +1,85 @@
 "use client"
 
-import type React from "react"
-import { ContentWrapper } from "@/components/ContentWrapper"
-
-// Define the props for the reusable item component
-interface ActionItemProps {
-  title: string
-  description: string
-}
-
-// Reusable component for each of the four items to keep the code clean
-const ActionItem: React.FC<ActionItemProps> = ({ title, description }) => (
-  <div>
-    <h3 className="text-3xl font-medium text-white">{title}</h3>
-    <div className="mt-3 pt-3 border-t border-neutral-600">
-      <p className="text-xl text-neutral-300 font-light max-w-sm">{description}</p>
-    </div>
-  </div>
-)
+import React from "react"
+import { motion } from "framer-motion"
+import { Eye, Search, Package, LandPlot } from "lucide-react"
 
 export default function FenixResponder2(): React.JSX.Element {
-  // Array of the features to be displayed
-  const actions: ActionItemProps[] = [
+  const steps = [
     {
+      icon: <Eye className="w-6 h-6 text-[#5ce1e6]" />,
       title: "Advance Intel",
-      description: "Provides live situational awareness ahead of teams",
+      desc: "Provides live situational awareness ahead of teams",
     },
     {
+      icon: <Search className="w-6 h-6 text-[#5ce1e6]" />,
       title: "Search & Detect",
-      description: "Finds survivors or threats before humans enter",
+      desc: "Finds survivors or threats before humans enter",
     },
     {
+      icon: <Package className="w-6 h-6 text-[#5ce1e6]" />,
       title: "Rapid Delivery",
-      description: "Delivers critical supplies in places responders can't reach yet",
+      desc: "Delivers critical supplies in places responders can't reach yet",
     },
     {
+      icon: <LandPlot className="w-6 h-6 text-[#5ce1e6]" />,
       title: "Clearance",
-      description: "Guides safe paths in unstable or cluttered terrain",
+      desc: "Guides safe paths in unstable or cluttered terrain",
     },
   ]
 
   return (
-    <>
-      {/* Global font import for Clash Grotesk */}
-      <style>{`
-        @import url('https://fonts.cdnfonts.com/css/clash-grotesk');
-        .font-clash-grotesk {
-          font-family: 'Clash Grotesk', sans-serif;
-        }
-      `}</style>
+    <section className="bg-neutral-950 py-24 px-4 overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-white text-5xl md:text-6xl font-medium mb-4"
+          >
+            How it acts as the First Responder
+          </motion.h2>
+        </div>
 
-      <div className="font-clash-grotesk bg-black min-h-screen w-full flex items-center justify-center py-20">
-        <ContentWrapper>
-          <div className="w-full">
-            {/* Main Header */}
-            <div className="mb-20 text-left">
-              <h1 className="text-6xl sm:text-7xl font-medium text-white leading-tight">
-                How it acts as the First Responder
-              </h1>
-            </div>
+        {/* Support Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border border-neutral-800 rounded-xl overflow-hidden shadow-2xl">
+          {steps.map((step, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className={`relative p-8 flex flex-col items-start min-h-[300px] bg-neutral-900 border-r border-neutral-800 last:border-r-0 hover:bg-neutral-800/50 transition-colors group`}
+            >
+              {/* Icon Container */}
+              <div className="w-12 h-12 bg-neutral-800 rounded-lg flex items-center justify-center mb-8 border border-neutral-700 shadow-inner overflow-hidden">
+                {step.icon}
+              </div>
 
-            {/* Grid container for the four feature blocks */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16">
-              {actions.map((action) => (
-                <ActionItem key={action.title} title={action.title} description={action.description} />
-              ))}
-            </div>
-          </div>
-        </ContentWrapper>
+              {/* Text */}
+              <h3 className="text-white text-2xl font-medium mb-3">
+                {step.title}
+              </h3>
+              <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+                {step.desc}
+              </p>
+
+              {/* Decorative Arrow (Like in the image) */}
+              {index < steps.length - 1 && (
+                <div className="absolute top-1/2 -right-3 -translate-y-1/2 z-10 hidden md:block">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4L16 12L8 20" stroke="#333" strokeWidth="1" />
+                  </svg>
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </>
+    </section>
   )
 }

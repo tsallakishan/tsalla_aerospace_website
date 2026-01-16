@@ -19,7 +19,7 @@ export default function FenixCapabilities(): React.JSX.Element {
         }
       `}</style>
 
-      <section className="font-clash-grotesk flex flex-col md:flex-row items-center justify-center bg-black text-white w-full min-h-screen py-12 md:py-20">
+      <section className="font-clash-grotesk flex flex-col md:flex-row items-center justify-center bg-white text-black w-full min-h-screen py-12 md:py-20">
         <ContentWrapper>
           <div className="flex flex-col md:flex-row items-center justify-center gap-16 lg:gap-24">
             {/* Left Column: Image */}
@@ -37,12 +37,12 @@ export default function FenixCapabilities(): React.JSX.Element {
 
             {/* Right Column: Text Content */}
             <div className="w-full md:w-7/12 flex flex-col justify-center text-left max-w-2xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-none tracking-tight mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-none tracking-tight mb-8 text-black">
                 <span className="whitespace-nowrap">Compact Tactical</span>
                 <br />
-                Intelligence
+                <span style={{ color: '#5ce1e6' }}>Intelligence</span>
               </h1>
-              <p className="font-clash-grotesk text-lg lg:text-xl leading-relaxed text-gray-300 font-extralight">
+              <p className="font-clash-grotesk text-lg lg:text-xl leading-relaxed text-gray-500 font-extralight">
                 Purpose-built for tight, complex spaces, FENIx merges collision prevention, adaptive routing, and
                 encrypted connectivity — keeping operators ahead with silent precision and mission-ready resilience.
               </p>

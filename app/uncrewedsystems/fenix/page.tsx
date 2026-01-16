@@ -5,9 +5,13 @@ import FenixCapabilities from "./components/FenixCapabilities"
 import FenixSpecifications from "./components/FenixSpecifications"
 import FenixFeatures from "./components/FenixFeatures"
 import FenixMission from "./components/FenixMission"
+import FenixTurtleMode from "./components/FenixTurtleMode"
+import FenixGPSNavigation from "./components/FenixGPSNavigation"
 import FenixLast from "./components/FenixLast"
 import FenixResponder1 from "./components/FenixResponder1"
 import FenixResponder2 from "./components/FenixResponder2"
+import FenixFloorMap from "./components/FenixFloorMap"
+import FenixPtoP from "./components/FenixPtoP"
 
 
 
@@ -19,15 +23,33 @@ export const metadata: Metadata = {
 
 export default function FenixPage() {
   return (
+    // <PageWrapper>
+    //   <FenixHero />
+    //   <FenixCapabilities />
+    //   <FenixResponder1 />
+    //   <FenixResponder2 />
+    //   <FenixSpecifications />
+    //   <FenixMission />
+    //   <FenixTurtleMode />
+    //   <FenixGPSNavigation />
+    //   <FenixFeatures />
+    //   <FenixLast />
+    // </PageWrapper>
+
     <PageWrapper>
       <FenixHero />
       <FenixCapabilities />
-      <FenixResponder1/>
-      <FenixResponder2/>
-      <FenixSpecifications />
+      <FenixGPSNavigation />
+      <FenixTurtleMode />
+      <FenixFloorMap />
+      <FenixPtoP />
       <FenixMission />
-        <FenixFeatures />
-        <FenixLast/>
+      <FenixResponder1 />
+      <FenixResponder2 />
+
+
+      <FenixSpecifications />
+      <FenixLast />
     </PageWrapper>
   )
 }
