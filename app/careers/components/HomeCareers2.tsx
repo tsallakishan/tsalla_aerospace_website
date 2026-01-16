@@ -10,7 +10,10 @@ const ITEMS = [
   { id: "03", title: "We Don’t Clock In, We Show Up", description: "This is not a shift job. This is our runway. We show up with our brains sharp, our hearts aligned, and our sleeves rolled up. Because someday, we’ll look back and say: 'We built something that mattered.'" },
   { id: "04", title: "Integrity Is Non-Negotiable", description: "We will never cheat — not people, not processes, not ourselves. No shortcuts, no dishonesty — even if it costs us. Because at Tsalla, how we win is as important as winning itself." },
   { id: "05", title: "Everyone Is a Leader Here", description: "No one hides behind titles. If you see a problem, you own it. If you have an idea, you voice it. Whether you joined yesterday or were here from Day 1 — you matter." },
-  { id: "06", title: "United by Purpose, Not Uniformity", description: "We all have different backgrounds, motivations, and dreams — and that’s okay. But when we’re here — we’re united. By discipline. By ownership. By belief in a cause bigger than us." }
+  { id: "06", title: "United by Purpose, Not Uniformity", description: "We all have different backgrounds, motivations, and dreams — and that’s okay. But when we’re here — we’re united. By discipline. By ownership. By belief in a cause bigger than us." },
+    { id: "07", title: "Resilience Is Our Signature", description: "We don’t complain, we solve. We don’t escape pressure, we rise through it. Mistakes happen — but we take radical responsibility, learn fast, and move forward stronger." },
+  { id: "08", title: "We Build Builders", description: "This is a place to become your strongest self — professionally, personally, and patriotically. Here, you grow in knowledge, skill, discipline, and vision. Because Tsalla Aerospace is not just building aircraft — We’re building citizens. We’re building leaders." },
+  // { id: "09", title: "We Don’t Clock In, We Show Up", description: "This is not a shift job. This is our runway. We show up with our brains sharp, our hearts aligned, and our sleeves rolled up. Because someday, we’ll look back and say: 'We built something that mattered.'" }
 ];
 
 const InsideTsallaAerospace = () => {
@@ -49,8 +52,8 @@ const InsideTsallaAerospace = () => {
     return () => window.removeEventListener('resize', updateRange)
   }, [])
 
-  // Map progress [0, 0.85] to move, and [0.85, 1.0] to stay still (the "wait")
-  const stripX = useTransform(smoothProgress, [0, 0.85], ["0vw", xRange])
+  // Map progress [0, 0.95] to move, and [0.95, 1.0] to stay still (the "wait")
+  const stripX = useTransform(smoothProgress, [0, 1.30], ["0vw", xRange])
 
   return (
     <section ref={containerRef} className="relative h-[600vh] bg-white">
@@ -73,8 +76,8 @@ const InsideTsallaAerospace = () => {
             </p>
           </div>
 
-          {/* 2-7. CARD SECTIONS - TIGHT GAP */}
-          <div className="flex-shrink-0 flex flex-row items-center h-full gap-10 md:gap-20 pr-[5vw]">
+          {/* 2-7. CARD SECTIONS - NO GAP */}
+          <div className="flex-shrink-0 flex flex-row items-center h-full gap-0 pr-[5vw]">
             {ITEMS.map((item) => (
               <div
                 key={item.id}
@@ -82,11 +85,11 @@ const InsideTsallaAerospace = () => {
               >
                 <div className="relative">
                   {/* CARD UI */}
-                  <div className="w-[280px] h-[380px] md:w-[400px] md:h-[550px] bg-[#1a1a1a] rounded-[24px] p-8 md:p-10 border border-white/20 shadow-2xl flex flex-col justify-start">
-                    <h2 className="text-white text-[1.5rem] md:text-[2.2rem] font-bold leading-tight mb-6">
+                  <div className="w-[280px] h-[380px] md:w-[400px] md:h-[550px] bg-transparent backdrop-blur-xl p-8 md:p-10 border border-gray-400 shadow-2xl flex flex-col justify-start">
+                    <h2 className="text-black text-[1.1rem] md:text-[1.5rem] font-bold leading-tight mb-6">
                       {item.title}
                     </h2>
-                    <p className="text-white/80 text-xs md:text-base font-medium leading-relaxed">
+                    <p className="text-gray-700 text-xs md:text-sm font-medium leading-relaxed">
                       {item.description}
                     </p>
                   </div>
