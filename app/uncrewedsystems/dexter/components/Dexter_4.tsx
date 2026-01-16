@@ -100,7 +100,7 @@ export default function Dexter_5(): React.JSX.Element {
         <ContentWrapper>
           {/* Main Header */}
           <div className="mb-12">
-            <h1 className="text-4xl md:text-4xl font-medium tracking-tight text-black">
+            <h1 className="text-4xl md:text-4xl font-medium tracking-tight text-black" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
               ILX-LR1 - Sony Pro <br />
               Mapping Payload
             </h1>

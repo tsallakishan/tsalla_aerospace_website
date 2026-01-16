@@ -52,20 +52,21 @@ export default function Missions() {
           <h2
             className={`text-2xl sm:text-3xl md:text-4xl font-light text-black mb-6 font-sans transition-all duration-700 ease-out transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
               }`}
-            style={{ fontFamily: "'Pontano Sans', 'Inter', sans-serif" }}
+            style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
           >
             The Mantle Behind the Mission
           </h2>
           <div className="w-full">
             <p
-              className={`text-[0.8125rem] sm:text-[1.125rem] md:text-[1.25rem] leading-normal text-black font-semibold tracking-wide font-sans transition-all duration-700 ease-out transform ${isVisible ? "opacity-90 translate-y-0" : "opacity-0 translate-y-12"
+              className={`text-lg md:text-xl font-light leading-relaxed text-neutral-600 tracking-wide font-sans transition-all duration-700 ease-out transform ${isVisible ? "opacity-90 translate-y-0" : "opacity-0 translate-y-12"
                 }`}
               style={{
                 fontFamily: "'Pontano Sans', 'Inter', sans-serif",
                 transitionDelay: "150ms",
+            
               }}
             >
-              By Turning Algorithms Into Fearless Pilots, We Empower Manned And Unmanned Systems To Fly, Fight, And Decide On Their Own, Bringing Order To Chaos And Mission-Critical Support Where Humans And Satellites Can't. Our Adversaries Are Evolving. And So Must We.
+              By turning algorithms into fearless pilots, we empower manned and unmanned systems to fly, fight, and decide on their own, bringing order to chaos and mission-critical support where humans and satellites can't. our adversaries are evolving. and so must we.
             </p>
           </div>
         </div>

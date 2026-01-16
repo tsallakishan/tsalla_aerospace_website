@@ -100,10 +100,10 @@ export default function FenixGPSNavigation(): React.JSX.Element {
                             style={{ clipPath: text2Clip }}
                             className="text-wipe-item flex flex-col items-center w-full"
                         >
-                            <h3 className="text-white text-4xl md:text-6xl font-bold tracking-tight mb-6 font-inter">
+                            <h3 className="text-white text-4xl md:text-6xl font-bold tracking-tight mb-6 font-inter" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                                 No GPS ? <span className="text-emerald-400">No problem!</span>
                             </h3>
-                            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
+                            <p className="text-lg md:text-xl max-w-2xl font-light leading-relaxed text-neutral-600">
                                 Reliable positioning without GPS using SLAM, sensor fusion, and real-time mapping built for tunnels, urban canyons, and signal-jammed zones.
                             </p>
                         </motion.div>
@@ -113,10 +113,10 @@ export default function FenixGPSNavigation(): React.JSX.Element {
                             style={{ clipPath: text1Clip }}
                             className="text-wipe-item flex flex-col items-center w-full"
                         >
-                            <h3 className="text-white text-4xl md:text-6xl font-bold tracking-tight mb-6 font-inter">
+                            <h3 className="text-white text-4xl md:text-6xl font-bold tracking-tight mb-6 font-inter" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                                 Navigation <span style={{ color: '#5ce1e6' }}>Lighting</span>
                             </h3>
-                            <p className="text-neutral-400 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
+                            <p className="text-lg md:text-xl max-w-2xl font-light leading-relaxed text-neutral-600">
                                 Integrated illumination for dark environments — optimized for pathfinding, obstacle avoidance, and operational safety without compromising stealth.
                             </p>
                         </motion.div>

@@ -52,7 +52,7 @@ export default function StormHero(): JSX.Element {
         </div>
 
       
-        <div className="max-w-full lg:max-w-md text-left text-white/80 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-balance lg:flex lg:flex-col lg:justify-end">
+        <div className="max-w-full lg:max-w-md text-left text-neutral-600 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-balance lg:flex lg:flex-col lg:justify-end">
           Where intelligent flight meets relentless endurance, offshore operations stay connected, supplied, and secure
           — even when the weather turns against you. This is aerial logistics, redefined for the world's toughest
           environments.

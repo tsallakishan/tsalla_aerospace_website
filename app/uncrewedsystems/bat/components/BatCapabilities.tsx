@@ -37,12 +37,12 @@ export default function BatCapabilities(): React.JSX.Element {
 
             {/* Right Column: Text Content */}
             <div className="w-full md:w-7/12 flex flex-col justify-center text-left max-w-2xl">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-none tracking-tight mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-none tracking-tight mb-8" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 <span className="whitespace-nowrap">Silent Precision</span>
                 <br />
                 Autonomy
               </h1>
-              <p className="font-clash-grotesk text-lg lg:text-xl leading-relaxed text-gray-300 font-extralight">
+              <p className="text-lg md:text-xl leading-relaxed text-neutral-600 font-light">
                 Refined through real-world operations, T-BAT delivers intelligent autonomy, resilient performance, and
                 adaptive design, giving mission teams the confidence to act swiftly and stay ahead in unpredictable
                 environments.

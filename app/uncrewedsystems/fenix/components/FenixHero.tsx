@@ -55,7 +55,7 @@ export default function FenixHero(): JSX.Element {
         </div>
 
         {/* Right Side: Paragraph */}
-        <div className="max-w-full lg:max-w-md text-left text-white/80 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-balance lg:flex lg:flex-col lg:justify-end">
+        <div className="max-w-full lg:max-w-md text-left text-lg md:text-xl font-light leading-relaxed text-neutral-600 text-balance lg:flex lg:flex-col lg:justify-end">
           When intelligence fits in the palm of your hand, missions expand far beyond their footprint — agile, discreet,
           and ready on demand.
         </div>

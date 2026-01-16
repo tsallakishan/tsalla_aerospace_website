@@ -32,7 +32,7 @@ export default function FenixFloorMap(): React.JSX.Element {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="text-5xl md:text-7xl font-medium tracking-tight mb-8 text-white">
+                            <h2 className="text-5xl md:text-7xl font-medium tracking-tight mb-8 text-white" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                                 <span style={{ color: '#5ce1e6' }}>Floor Map</span> Generation
                             </h2>
                         </motion.div>
@@ -43,7 +43,7 @@ export default function FenixFloorMap(): React.JSX.Element {
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                             viewport={{ once: true }}
                         >
-                            <p className="text-xl md:text-2xl text-neutral-200 font-light leading-relaxed max-w-2xl">
+                            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
                                 Real-time mapping for mission planning and situational awareness — creates detailed floor layouts to support navigation, coordination, and post-op analysis.
                             </p>
                         </motion.div>

@@ -235,7 +235,7 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                         onMouseLeave={handleDroneMouseLeave}
                                         style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
                                         className={cn(
-                                            "relative z-10 w-full max-w-[320px] lg:mt-0 lg:max-w-xl group transition-transform duration-500 overflow-hidden rounded-lg lg:rounded-xl bg-white/[0.03] backdrop-blur-[4px] border border-white/10",
+                                            "relative z-10 w-full max-w-[320px] lg:mt-0 lg:max-w-xl group transition-transform duration-500 overflow-hidden rounded-lg lg:rounded-xl",
                                             hoveredUncrewedSystemDetails.headline === "BAT" && "lg:xl:-translate-y-20 lg:xl:-translate-x-12 lg:scale-110",
                                             hoveredUncrewedSystemDetails.headline === "DEXTER" && "lg:xl:-translate-y-16",
                                             (hoveredUncrewedSystemDetails.headline === "STORM" || hoveredUncrewedSystemDetails.headline === "FENIX") && "lg:xl:-translate-y-20"

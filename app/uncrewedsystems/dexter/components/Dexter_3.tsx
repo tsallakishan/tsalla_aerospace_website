@@ -14,10 +14,10 @@ const Feature: React.FC<FeatureProps> = ({ title, description }) => {
     <div className="py-8 border-b border-gray-300 relative group cursor-pointer overflow-visible">
       {/* Container for text */}
       <div className="relative z-20">
-        <h3 className="text-2xl sm:text-3xl font-medium text-black mb-2 transition-transform duration-300 ease-out md:group-hover:-translate-x-2">
+        <h3 className="text-2xl sm:text-3xl font-medium text-black mb-2 transition-transform duration-300 ease-out md:group-hover:-translate-x-2" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
           {title}
         </h3>
-        <p className="text-lg sm:text-xl text-black font-light leading-relaxed tracking-wide transition-transform duration-300 ease-out md:group-hover:-translate-x-2">
+        <p className="text-lg md:text-xl text-neutral-600 font-light leading-relaxed tracking-wide transition-transform duration-300 ease-out md:group-hover:-translate-x-2">
           {description}
         </p>
       </div>
@@ -59,10 +59,10 @@ export default function KeyFeaturesSection(): React.JSX.Element {
         <ContentWrapper>
           {/* Header */}
           <div className="mb-16">
-            <h1 className="text-5xl sm:text-7xl md:text-8xl font-medium tracking-tighter text-black leading-none">
+            <h1 className="text-5xl sm:text-7xl md:text-8xl font-medium tracking-tighter text-black leading-none" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
               Key Features
             </h1>
-            <p className="text-lg sm:text-xl text-black font-light leading-relaxed tracking-wide mt-5 max-w-3xl">
+            <p className="text-lg sm:text-xl text-neutral-600 font-light leading-relaxed tracking-wide mt-5 max-w-3xl">
               Each feature unlocks new possibilities — precision, power, and performance built into every flight.
             </p>
           </div>

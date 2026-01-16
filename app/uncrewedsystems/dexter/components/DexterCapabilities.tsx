@@ -39,12 +39,12 @@ export default function DexterCapabilities(): React.JSX.Element {
 
             {/* Right Column: Text Content */}
             <div className="w-full md:w-7/12 flex flex-col justify-center text-left max-w-2xl">
-              <h1 className="text-6xl lg:text-8xl font-medium leading-none tracking-tight mb-8">
+              <h1 className="text-6xl lg:text-8xl font-medium leading-none tracking-tight mb-8" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Mission Ready
                 <br />
                 Autonomy
               </h1>
-              <p className="font-clash-grotesk text-lg lg:text-xl leading-relaxed text-gray-300 font-extralight">
+              <p className="text-lg md:text-xl leading-relaxed text-neutral-600 font-light">
                 Engineered with real-world mission feedback, DEXTER combines AI-powered autonomy, advanced sensing, and
                 modular architecture — giving operators the decisive edge in complex environments.
               </p>

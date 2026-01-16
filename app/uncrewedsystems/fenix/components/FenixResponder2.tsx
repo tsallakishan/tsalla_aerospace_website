@@ -39,6 +39,7 @@ export default function FenixResponder2(): React.JSX.Element {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="text-white text-5xl md:text-6xl font-medium mb-4"
+            style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
           >
             How it acts as the First Responder
           </motion.h2>
@@ -61,10 +62,10 @@ export default function FenixResponder2(): React.JSX.Element {
               </div>
 
               {/* Text */}
-              <h3 className="text-white text-2xl font-medium mb-3">
+              <h3 className="text-white text-2xl font-medium mb-3" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 {step.title}
               </h3>
-              <p className="text-neutral-400 text-sm leading-relaxed mb-4">
+              <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 mb-4">
                 {step.desc}
               </p>
 

@@ -105,7 +105,7 @@ const App = () => {
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-6">Meet Our Team</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-3xl mx-auto">
               The brilliant minds behind our innovations. Our diverse team of engineers, researchers, and visionaries work
               together to push the boundaries of autonomous systems technology.
             </p>
@@ -153,7 +153,7 @@ const App = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-white mb-1 group-hover:text-purple-300 transition-colors">{member.name}</h3>
                   <p className="text-purple-400 font-semibold mb-4">{member.title}</p>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">{member.bio}</p>
+                  <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 mb-4">{member.bio}</p>
                   <div className="flex items-center justify-between mb-4 text-sm text-gray-400">
                     <div className="flex items-center">
                       <MapPin className="w-4 h-4 mr-1" />

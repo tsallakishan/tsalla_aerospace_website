@@ -49,7 +49,7 @@ export default function ComingSoonPage() {
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">Coming Soon</h1>
 
-          <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 mb-12 max-w-2xl mx-auto">
             Revolutionary technology is on the horizon. Be the first to know when we launch.
           </p>
 

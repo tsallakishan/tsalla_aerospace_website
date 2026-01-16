@@ -17,7 +17,7 @@ const FounderNotePage = () => {
             </h1>
 
             {/* Paragraph Text */}
-            <div className="space-y-6 text-base sm:text-lg text-gray-700 leading-relaxed">
+            <div className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-neutral-600">
               <p>
                 When We Started This Company, The Goal Wasn't Just To Build Cutting-Edge Systems. It Was To Build A Team
                 That Believes In Doing Meaningful Work. We Are Solving Hard Problems That Matter.

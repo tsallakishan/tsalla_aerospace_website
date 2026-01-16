@@ -52,10 +52,10 @@ export default function StormFeatures(): React.JSX.Element {
         <div className="md:w-1/2 w-full">
           <ContentWrapper className="py-16 md:py-24">
             <div className="max-w-md w-full">
-              <p className="text-3xl leading-snug text-black mb-12 tracking-tight">
+              <h2 className="text-3xl leading-snug text-black mb-12 tracking-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Where control meets motion, STORM touches down with confidence. Designed for shifting decks and offshore
                 demands, it ensures safe, precise landings when stability is hard to find.
-              </p>
+              </h2>
               <div className="w-full">
                 {specifications.map((spec, index) => (
                   <SpecItem key={`${spec.label}-${index}`} label={spec.label} value={spec.value} />

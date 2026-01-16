@@ -20,14 +20,30 @@
     }
   }
 
-  * {
-    @apply border-border;
-  }
-
   body {
     @apply bg-background text-foreground;
   }
 }
+
+/* ========== TYPOGRAPHY STANDARDIZATION CLASSES ========== */
+
+/* Section Titles - Use ClashGrotesk Bold across all pages */
+.section-title {
+  font-family: 'ClashGrotesk Bold (.eot)', sans-serif;
+  font-weight: 700;
+}
+
+/* Sub-content, descriptions, paragraphs - Standard styling */
+.section-description {
+  @apply text-lg md:text-xl font-light leading-relaxed text-neutral-600;
+}
+
+/* Subtitle styling */
+.section-subtitle {
+  @apply text-lg md:text-xl font-light leading-relaxed text-neutral-600;
+}
+
+/* ========== END TYPOGRAPHY STANDARDIZATION ========== */
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

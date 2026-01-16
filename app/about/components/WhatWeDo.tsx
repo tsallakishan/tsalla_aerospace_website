@@ -10,8 +10,8 @@ export default function WhatWeDo() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center w-full">
           {/* Left: Text */}
           <div className="w-full">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-10">What We Do</h2>
-            <p className="text-white/80 text-base sm:text-[0.9375rem] md:text-lg leading-relaxed tracking-wide max-w-xl">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-10" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>What We Do</h2>
+            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 tracking-wide max-w-xl">
               When disasters strike or borders need protection, our UAVs rise to the challenge. Engineered for both
               civil missions and combat-ready roles, they carry more than technology — they carry trust. Through vision
               and design excellence, we're helping India own its place in the skies.

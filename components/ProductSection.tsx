@@ -96,12 +96,12 @@ const STATIC_PRODUCTS: Product[] = [
 
 const HUDLines = () => (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
-        <div className="absolute top-4 left-4 w-12 h-12 border-t border-l border-blue-500/40" />
-        <div className="absolute top-4 right-4 w-12 h-12 border-t border-r border-blue-500/40" />
-        <div className="absolute bottom-4 left-4 w-12 h-12 border-b border-l border-blue-500/40" />
-        <div className="absolute bottom-4 right-4 w-12 h-12 border-b border-r border-blue-500/40" />
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-blue-500/10" />
-        <div className="absolute left-1/2 top-0 w-[1px] h-full bg-blue-500/10" />
+        <div className="absolute top-4 left-4 w-12 h-12 border-t border-l" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
+        <div className="absolute top-4 right-4 w-12 h-12 border-t border-r" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
+        <div className="absolute bottom-4 left-4 w-12 h-12 border-b border-l" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
+        <div className="absolute bottom-4 right-4 w-12 h-12 border-b border-r" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
+        <div className="absolute top-1/2 left-0 w-full h-[1px]" style={{background: '#5ce1e6', opacity: 0.1}} />
+        <div className="absolute left-1/2 top-0 w-[1px] h-full" style={{background: '#5ce1e6', opacity: 0.1}} />
     </div>
 );
 
@@ -110,7 +110,8 @@ const GlitchOverlay = () => (
         initial={{ opacity: 0 }}
         animate={{ opacity: [0, 0.2, 0, 0.1, 0] }}
         transition={{ repeat: Infinity, duration: 2, times: [0, 0.1, 0.2, 0.3, 1] }}
-        className="absolute inset-0 bg-blue-500/5 z-10 pointer-events-none mix-blend-overlay"
+        className="absolute inset-0 z-10 pointer-events-none mix-blend-overlay"
+        style={{ background: '#5ce1e6', opacity: 0.05 }}
     />
 );
 
@@ -145,7 +146,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                     perspective: 1000,
                     willChange: "transform, opacity"
                 }}
-                className="col-span-1 md:col-span-2 relative group overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 hover:border-blue-500/50 transition-all duration-500 shadow-2xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"
+                className="col-span-1 md:col-span-2 relative group overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 transition-all duration-500 shadow-2xl shadow-[inset_0_0_30px_rgba(255,255,255,0.05)] hover:border-[#5ce1e6]/50"
             >
                 <HUDLines />
                 <AnimatePresence>
@@ -162,7 +163,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                             whileInView={{ x: 0, opacity: 1 }}
                             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold bg-white/5 backdrop-blur-xl border border-white/10 text-white/80"
                         >
-                            <div className="w-1 h-1 rounded-full bg-blue-500 animate-pulse" />
+                            <div className="w-1 h-1 rounded-full animate-pulse" style={{ background: '#5ce1e6' }} />
                             {product.tag}
                         </motion.div>
                     </div>
@@ -172,28 +173,28 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                             <div className="lg:col-span-3 flex flex-col gap-3">
                                 {product.features?.slice(0, 3).map((feature, i) => (
                                     <motion.div key={i} whileHover={{ x: 10 }} className="flex items-center gap-4 group/item cursor-default">
-                                        <div className="h-[1px] w-8 bg-blue-500/30 group-hover/item:w-12 transition-all" />
+                                        <div className="h-[1px] w-8 bg-[#5ce1e6]/30 group-hover/item:w-12 transition-all" />
                                         <span className="text-sm font-medium text-gray-400 group-hover/item:text-white transition-colors uppercase tracking-wider">{feature}</span>
                                     </motion.div>
                                 ))}
                             </div>
 
                             <div className="lg:col-span-6 relative flex justify-center">
-                                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl group-hover:border-blue-500/50 transition-colors">
+                                <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm shadow-2xl group-hover:border-[#5ce1e6]/50 transition-colors">
                                     <img src={product.imageUrl} className="w-full h-full object-cover opacity-80" alt="Live View" />
-                                    <div className="absolute inset-0 bg-blue-500/5 animate-pulse" />
+                                    <div className="absolute inset-0 animate-pulse" style={{ background: '#5ce1e6', opacity: 0.05 }} />
                                     <div className="absolute top-2 left-2 flex gap-1">
                                         <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
                                         <span className="text-[8px] text-white/50 uppercase font-bold">Live Stream 04</span>
                                     </div>
                                 </div>
                                 <svg className="absolute inset-0 w-full h-full pointer-events-none hidden lg:block" viewBox="0 0 100 100">
-                                    <path d="M 25 30 L 10 30" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
-                                    <path d="M 25 50 L 10 50" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
-                                    <path d="M 25 70 L 10 70" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
-                                    <path d="M 75 30 L 90 30" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
-                                    <path d="M 75 50 L 90 50" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
-                                    <path d="M 75 70 L 90 70" stroke="currentColor" fill="transparent" strokeWidth="0.5" className="text-blue-500/20" />
+                                    <path d="M 25 30 L 10 30" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
+                                    <path d="M 25 50 L 10 50" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
+                                    <path d="M 25 70 L 10 70" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
+                                    <path d="M 75 30 L 90 30" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
+                                    <path d="M 75 50 L 90 50" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
+                                    <path d="M 75 70 L 90 70" stroke="#5ce1e6" fill="transparent" strokeWidth="0.5" opacity="0.2" />
                                 </svg>
                             </div>
 
@@ -201,7 +202,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                                 {product.features?.slice(3).map((feature, i) => (
                                     <motion.div key={i} whileHover={{ x: -10 }} className="flex items-center gap-4 group/item cursor-default text-right">
                                         <span className="text-sm font-medium text-gray-400 group-hover/item:text-white transition-colors uppercase tracking-wider">{feature}</span>
-                                        <div className="h-[1px] w-8 bg-blue-500/30 group-hover/item:w-12 transition-all" />
+                                        <div className="h-[1px] w-8 bg-[#5ce1e6]/30 group-hover/item:w-12 transition-all" />
                                     </motion.div>
                                 ))}
                             </div>
@@ -213,7 +214,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-10 py-4 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                                className="px-10 py-4 rounded-full bg-white text-black text-xs font-black uppercase tracking-widest transition-all shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:bg-[#5ce1e6] hover:text-black"
                             >
                                 Explore System
                             </motion.button>
@@ -249,7 +250,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                     {/* <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/40 border border-white/10 text-white backdrop-blur-md">
                         {product.tag}
                     </span> */}
-                    {product.glitchEffect && <Zap className="w-4 h-4 text-blue-500 animate-pulse" />}
+                    {product.glitchEffect && <Zap className="w-4 h-4 animate-pulse" style={{ color: '#5ce1e6' }} />}
                 </div>
                 <div className="flex justify-between items-end">
                     <div>
@@ -264,15 +265,15 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                         <motion.button
                             whileHover={{
                                 scale: 1.05,
-                                borderColor: "rgba(59, 130, 246, 0.5)",
-                                color: "#3b82f6"
+                                borderColor: "rgba(92, 225, 230, 0.5)",
+                                color: "#5ce1e6"
                             }}
                             whileTap={{ scale: 0.95 }}
                             className="flex items-center gap-3 px-8 py-3.5 rounded-full bg-[#111] border border-white/10 text-white/90 text-[11px] font-bold uppercase tracking-widest transition-all shadow-2xl group/btn"
                             style={{ fontFamily: PONTANO_SANS }}
                         >
                             Inspect
-                            <ChevronRight className="w-4 h-4 opacity-70 transition-colors group-hover/btn:text-blue-400" />
+                            <ChevronRight className="w-4 h-4 opacity-70 transition-colors group-hover/btn:text-[#5ce1e6]" />
                         </motion.button>
                     </Link>
                 </div>
@@ -285,7 +286,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
 export default function ProductSection() {
     return (
-        <section className="bg-[#050505] text-white selection:bg-blue-500/30">
+        <section className="bg-[#050505] text-white" style={{ WebkitUserSelectAll: 'rgba(92, 225, 230, 0.3)' }}>
             <div className="max-w-5xl mx-auto px-6 py-24">
 
                 {/* Header Section */}
@@ -293,8 +294,8 @@ export default function ProductSection() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-blue-400 text-[9px] uppercase tracking-[0.3em] font-black"
-                        style={{ fontFamily: PONTANO_SANS }}
+                        className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-[9px] uppercase tracking-[0.3em] font-black"
+                        style={{ fontFamily: PONTANO_SANS, color: '#5ce1e6' }}
                     >
                         <Activity className="w-3 h-3" />
                         Active Operations
@@ -304,18 +305,18 @@ export default function ProductSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-[0.9] italic"
-                        style={{ fontFamily: PONTANO_SANS }}
+                        className="text-3xl md:text-4xl font-bold tracking-tighter uppercase leading-[0.9]"
+                        style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
                     >
-                        <span className="text-blue-500">Autonomy</span> Without<br />
-                        Limits<span className="text-blue-500">.</span>
+                        <span style={{ color: '#5ce1e6' }}>Autonomy</span> Without<br />
+                        Limits<span style={{ color: '#5ce1e6' }}>.</span>
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-sm text-gray-400 max-w-2xl mx-auto font-medium"
+                        className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl mx-auto"
                         style={{ fontFamily: PONTANO_SANS }}
                     >
                         Intelligent aerial platforms designed to think, adapt, and execute across the full spectrum of modern operations.

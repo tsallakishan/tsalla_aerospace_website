@@ -33,17 +33,17 @@ export default function FenixResponder1(): React.JSX.Element {
             <div className="flex flex-col justify-between min-h-screen">
               {/* Top Text Block */}
               <div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-normal">
-                  FENIx as the First <span className="text-[#5ce1e6]">Responder</span>
-                </h1>
-                <p className="mt-4 text-lg md:text-xl max-w-3xl text-neutral-200 font-light">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-medium leading-tight tracking-normal" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
+                FENIx as the First <span className="text-[#5ce1e6]">Responder</span>
+              </h1>
+              <p className="mt-4 text-lg md:text-xl max-w-3xl text-neutral-600 font-light leading-relaxed">
                   When every second counts, FENIx arrives first — eyes on the ground before boots hit it.
                 </p>
               </div>
 
               {/* Bottom Text Block */}
               <div>
-                <p className="text-lg md:text-xl max-w-3xl text-neutral-300 font-light">
+              <p className="text-lg md:text-xl max-w-3xl text-neutral-600 font-light leading-relaxed">
                   In disaster zones, conflict sites, or remote locations, time lost is lives lost. Human teams can't
                   always get there first, but Our drone can.
                 </p>

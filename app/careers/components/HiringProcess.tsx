@@ -245,8 +245,8 @@ export default function HiringProcess() {
     <div className="bg-gray-100 min-h-screen py-16">
       <ContentWrapper>
         <header className="text-center mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 font-clash tracking-tighter">Life at Tsalla</h1>
-          <p className="text-lg text-gray-500 mt-4 font-clash max-w-2xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-bold text-black font-clash tracking-tighter" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>Life at Tsalla</h1>
+          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 mt-4 max-w-2xl mx-auto">
             A glimpse into the moments, the people, and the culture that define our journey.
           </p>
         </header>

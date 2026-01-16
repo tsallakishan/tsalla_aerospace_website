@@ -15,11 +15,11 @@ export default function WhatWeAreHeaded() {
               Where We're Headed
             </h2>
 
-            <p className="text-gray-300 font-clash text-sm md:text-base mb-8 tracking-wide">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 font-clash mb-8 tracking-wide">
               Shaping Tomorrow Through Innovation And Intent.
             </p>
 
-            <p className="text-gray-400 font-clash text-sm md:text-base leading-relaxed max-w-md mb-8">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-md mb-8">
               We envision a world where intelligent aerial systems transcend today's limitations — autonomously
               navigating complex environments, connecting communities, supporting critical missions, and pushing the
               boundaries of what flight can achieve. Our journey is toward a sky that thinks, adapts, and empowers

@@ -97,7 +97,7 @@ export default function FenixMissionProfiles(): React.JSX.Element {
             style={{ opacity: titleOpacity, y: titleY }}
             className="absolute top-12 z-50 text-center"
           >
-            <h2 className="text-5xl md:text-7xl font-medium text-white tracking-tight drop-shadow-2xl">
+            <h2 className="text-5xl md:text-7xl font-medium text-white tracking-tight drop-shadow-2xl" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
               Mission Profiles
             </h2>
             <div className="h-1 w-24 bg-cyan-500 mx-auto mt-4 rounded-full" />
@@ -214,7 +214,7 @@ export default function FenixMissionProfiles(): React.JSX.Element {
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
                           >
                             <p className="text-cyan-400 font-bold tracking-[0.2em] md:tracking-[0.25em] uppercase text-[9px] md:text-xs mb-2 md:mb-3 drop-shadow-lg">Operational Profile</p>
-                            <h3 className="text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-none drop-shadow-2xl max-w-4xl">
+                            <h3 className="text-2xl md:text-4xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-none drop-shadow-2xl max-w-4xl" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                               {profile.title}
                             </h3>
                           </motion.div>
@@ -228,7 +228,7 @@ export default function FenixMissionProfiles(): React.JSX.Element {
                             exit={{ opacity: 0, y: 20, filter: "blur(5px)" }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                           >
-                            <p className="text-sm md:text-lg lg:text-2xl xl:text-3xl font-light text-white leading-tight tracking-tight drop-shadow-xl">
+                            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600">
                               {profile.description}
                             </p>
                           </motion.div>

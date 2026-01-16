@@ -31,7 +31,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({ title, description, imageUrl 
       </div>
       <div className="pt-5">
         <h3 className="text-xl font-medium tracking-tight text-white">{title}</h3>
-        <p className="text-base text-gray-400 mt-2 leading-relaxed">{description}</p>
+        <p className="text-base text-neutral-600 mt-2 leading-relaxed">{description}</p>
       </div>
     </div>
   )
@@ -77,10 +77,9 @@ export default function Dexter1(): React.JSX.Element {
       `}</style>
       <section className="font-clash-grotesk bg-black text-white w-full min-h-screen flex items-center justify-center py-20">
         <ContentWrapper>
-          {/* Header Section */}
           <div className="text-left mb-16">
-            <h1 className="text-7xl font-medium tracking-tight">Mission Profiles</h1>
-            <p className="text-xl text-gray-400 mt-4">Engineered for reliability in critical scenarios.</p>
+            <h1 className="text-7xl font-medium tracking-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>Mission Profiles</h1>
+            <p className="text-xl text-neutral-600 mt-4">Engineered for reliability in critical scenarios.</p>
           </div>
 
           {/* Profiles Grid Section */}

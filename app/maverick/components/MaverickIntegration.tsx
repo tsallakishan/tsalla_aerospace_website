@@ -45,10 +45,10 @@ export default function GpsDeniedPage(): React.JSX.Element {
         <div className="relative z-20 pt-24">
           <ContentWrapper>
             <div className="w-full">
-              <h1 className="text-center sm:text-left text-balance text-3xl sm:text-5xl lg:text-7xl font-medium leading-tight tracking-tight">
+              <h1 className="text-center sm:text-left text-balance text-3xl sm:text-5xl lg:text-7xl font-medium leading-tight tracking-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Stay on Course, Off the Grid
               </h1>
-              <p className="mt-4 text-center sm:text-left text-base sm:text-lg lg:text-xl text-neutral-100 font-thin max-w-2xl">
+              <p className="mt-4 text-center sm:text-left text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
                 Signal independence for missions that demand trust.
               </p>
             </div>
@@ -61,8 +61,8 @@ export default function GpsDeniedPage(): React.JSX.Element {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-12">
               {features.map((feature) => (
                 <div key={feature.title}>
-                  <h3 className="text-xl sm:text-2xl font-medium text-white">{feature.title}</h3>
-                  <p className="mt-2 text-base sm:text-lg text-neutral-300 font-light">{feature.description}</p>
+                  <h3 className="text-xl sm:text-2xl font-medium text-white" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>{feature.title}</h3>
+                  <p className="mt-2 text-base sm:text-lg text-neutral-600 font-light">{feature.description}</p>
                 </div>
               ))}
             </div>

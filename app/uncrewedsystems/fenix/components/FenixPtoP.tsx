@@ -17,6 +17,7 @@ export default function FenixPtoP(): React.JSX.Element {
                                 transition={{ duration: 0.8, ease: "easeOut" }}
                                 viewport={{ once: true }}
                                 className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight mb-8 leading-tight text-center"
+                                style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
                             >
                                 Autonomous <br />
                                 <span style={{ color: '#5ce1e6' }}>Point-to-Point</span> <br />

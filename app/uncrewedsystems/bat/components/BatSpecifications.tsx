@@ -10,8 +10,8 @@ interface FeatureProps {
 // Reusable feature component with left alignment
 const Feature: React.FC<FeatureProps> = ({ title, description }) => (
   <div className="py-4 border-b border-gray-300">
-    <h3 className="text-2xl sm:text-3xl font-medium text-black mb-1">{title}</h3>
-    <p className="text-lg sm:text-xl text-black font-normal leading-7 tracking-wide">{description}</p>
+    <h3 className="text-2xl sm:text-3xl font-medium text-black mb-1" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>{title}</h3>
+    <p className="text-lg md:text-xl text-neutral-600 font-light leading-relaxed tracking-wide">{description}</p>
   </div>
 )
 
@@ -66,10 +66,10 @@ export default function BatSpecifications(): React.JSX.Element {
           <div className="w-full">
             {/* Header */}
             <div className="mb-12">
-              <h1 className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tighter text-black leading-tight">
+              <h1 className="text-6xl sm:text-7xl md:text-8xl font-medium tracking-tighter text-black leading-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Key Features
               </h1>
-              <p className="text-lg sm:text-xl text-black font-normal leading-7 tracking-wide mt-4">
+              <p className="text-lg sm:text-xl text-neutral-600 font-light leading-relaxed tracking-wide mt-4">
                 Each feature unlocks new possibilities — precision, power, and performance built into every flight.
               </p>
             </div>

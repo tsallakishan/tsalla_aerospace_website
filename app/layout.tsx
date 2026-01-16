@@ -47,7 +47,7 @@ export default function RootLayout({
         <link rel="icon" href="https://cdn.sanity.io/images/e2g21cdj/production/b713e54652cf0bd1898d61a04ac7a6dc928ea9d2-512x512.png" type="image/svg+xml" />
 
       </head>
-      <body className="bg-black text-white font-farro">
+      <body className="bg-black text-white font-farro" suppressHydrationWarning>
         <InitialLoader />
         <Navbar />
         <main className="min-h-screen">{children}</main>

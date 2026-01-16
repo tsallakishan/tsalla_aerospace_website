@@ -12,14 +12,14 @@ function RoadrunnerContent() {
       <div className="container mx-auto px-4 py-16">
         <h1 className="text-4xl md:text-6xl font-bold text-center mb-8">Roadrunner</h1>
         <div className="text-center">
-          <p className="text-xl text-gray-300 mb-8">Advanced aerospace technology platform</p>
+          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 mb-8">Advanced aerospace technology platform</p>
           {id && <p className="text-lg text-blue-400">ID: {id}</p>}
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 mt-16">
           <div>
             <h2 className="text-2xl font-semibold mb-4">Key Features</h2>
-            <ul className="space-y-2 text-gray-300">
+            <ul className="space-y-2 text-neutral-600 font-light">
               <li>• High-performance propulsion systems</li>
               <li>• Advanced navigation and control</li>
               <li>• Modular payload integration</li>
@@ -29,7 +29,7 @@ function RoadrunnerContent() {
 
           <div>
             <h2 className="text-2xl font-semibold mb-4">Specifications</h2>
-            <div className="space-y-2 text-gray-300">
+            <div className="space-y-2 text-neutral-600 font-light">
               <p>
                 <strong>Range:</strong> 500+ km
               </p>

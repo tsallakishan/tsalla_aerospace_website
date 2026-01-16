@@ -87,7 +87,7 @@ export default function dexter_6(): React.JSX.Element {
           {/* Top Header Section */}
           <div className="flex flex-col md:flex-row justify-between gap-8 mb-16">
             <div className="w-full md:w-1/2">
-              <h1 className="text-6xl md:text-7xl font-medium tracking-tight text-black leading-tight">
+              <h1 className="text-6xl md:text-7xl font-medium tracking-tight text-black leading-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Payloads and Sensors
               </h1>
             </div>
@@ -103,7 +103,7 @@ export default function dexter_6(): React.JSX.Element {
           <div className="flex flex-col md:flex-row gap-12 lg:gap-16">
             {/* Left Column */}
             <div className="w-full md:w-1/2">
-              <h2 className="text-4xl font-medium text-black mb-6">
+              <h2 className="text-4xl font-medium text-black mb-6" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 NextVision DragonEye 2 <br /> Surveillance Payload
               </h2>
               <div className="flex flex-col">

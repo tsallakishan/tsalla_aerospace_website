@@ -183,7 +183,7 @@ export default function FenixTurtleMode(): React.JSX.Element {
                         }}
                         className="absolute top-[12%] left-0 w-full text-center px-4"
                     >
-                        <h1 className="text-[9vw] font-black text-neutral-900 uppercase tracking-tighter italic leading-none whitespace-nowrap">
+                        <h1 className="text-[9vw] font-black text-neutral-900 uppercase tracking-tighter italic leading-none whitespace-nowrap" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                             Turtle Mode
                         </h1>
                     </motion.div>
@@ -196,7 +196,7 @@ export default function FenixTurtleMode(): React.JSX.Element {
                         }}
                         className="absolute bottom-24 text-center max-w-2xl px-8"
                     >
-                        <p className="text-neutral-500 font-medium tracking-tight leading-relaxed text-lg md:text-xl">
+                        <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600">
                             enables autonomous flip-back to restore operational posture without manual intervention.
                         </p>
                     </motion.div>

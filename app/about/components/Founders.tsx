@@ -53,7 +53,7 @@ export default function Founders() {
                     openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p>{founder.bio}</p>
+                  <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 text-center">{founder.bio}</p>
                 </div>
               </div>
             </div>

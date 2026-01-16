@@ -36,7 +36,7 @@ const App = () => {
               <h2 className="text-lg sm:text-xl md:text-2xl font-bold mb-3">
                 Be Part Of Something Bigger.
               </h2>
-              <p className="text-sm sm:text-base md:text-lg text-white/90 leading-relaxed">
+              <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600">
                 At Tsalla Aerospace, we're building technology that pushes
                 boundaries and inspires impact. We’re not just innovating—we’re
                 shaping the future.

@@ -55,7 +55,7 @@ const FeatureBox = ({
             >
                 <div className="p-6 min-w-[320px]">
                     <div className="flex items-center justify-between mb-3">
-                        <h3 className="text-xl font-bold tracking-tight uppercase">
+                        <h3 className="text-xl font-bold tracking-tight uppercase" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif", fontWeight: 700 }}>
                             {feature.title}
                         </h3>
                         <span className="text-xs font-mono text-neutral-400">
@@ -158,7 +158,7 @@ export default function FenixFUI2(): React.JSX.Element {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true }}
                 className="relative z-40 text-3xl md:text-5xl lg:text-5xl font-bold tracking-[0.1em] text-center mt-12 md:mt-20 mb-8 px-4"
-                style={{ maxWidth: "100%" }}
+                style={{ maxWidth: "100%", fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif", fontWeight: 700 }}
             >
                 <span className="text-[#5ce1e6]">F</span>AST <span className="text-[#5ce1e6]">E</span>NTRY <span className="text-[#5ce1e6]">N</span>AVIGATIONAL <span className="text-[#5ce1e6]">I</span>NTRUSION E<span className="text-[#5ce1e6]">X</span>PLORER
             </motion.h2>

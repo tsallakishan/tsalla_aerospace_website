@@ -13,7 +13,7 @@ export default function BlogPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">Blog</h1>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-3xl mx-auto">
               Latest insights, updates, and thought leadership from the future of autonomous systems.
             </p>
           </div>

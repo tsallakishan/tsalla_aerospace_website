@@ -164,10 +164,10 @@ export default function NewsroomPage() {
                       {featuredNews.title}
                     </h3>
                     {/* Newsletter-style Read More */}
-                    <div className="text-sm text-gray-600 mb-3 font-medium font-clash">{featuredNews.date}</div>
+                    <div className="text-sm text-neutral-600 mb-3 font-light font-clash">{featuredNews.date}</div>
                     <Link
                       href={featuredNews.readMoreLink}
-                      className="inline-flex items-center text-gray-900 group font-clash text-sm font-medium transition-all duration-200"
+                      className="inline-flex items-center text-neutral-600 group font-clash text-sm font-light transition-all duration-200"
                     >
                       <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[0.125rem] after:bg-black after:transition-all after:duration-300 group-hover:after:w-full">
                         Read More
@@ -236,14 +236,14 @@ export default function NewsroomPage() {
                         sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     </div>
-                    <div className="text-sm text-gray-600 mb-2 font-medium font-clash">{article.date}</div>
-                    <h3 className="h-24 text-lg font-bold text-gray-900 mb-4 leading-snug font-clash line-clamp-3">
+                    <div className="text-sm text-neutral-600 mb-2 font-light font-clash">{article.date}</div>
+                    <h3 className="h-24 text-lg font-bold text-neutral-600 mb-4 leading-snug font-clash line-clamp-3">
                       {article.title}
                     </h3>
                     {/* Newsletter-style Read More */}
                     <Link
                       href={article.readMoreLink}
-                      className="inline-flex items-center text-gray-900 group font-clash text-sm font-medium transition-all duration-200"
+                      className="inline-flex items-center text-neutral-600 group font-clash text-sm font-light transition-all duration-200"
                     >
                       <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[0.125rem] after:bg-black after:transition-all after:duration-300 group-hover:after:w-full">
                         Read More
@@ -259,7 +259,7 @@ export default function NewsroomPage() {
               </div>
             ) : (
               <div className="text-center py-12">
-                <p className="text-gray-500 text-lg font-clash">
+                <p className="text-neutral-600 text-lg font-clash font-light">
                   No articles found matching your criteria.
                 </p>
                 <button

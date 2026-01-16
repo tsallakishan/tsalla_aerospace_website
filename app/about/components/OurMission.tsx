@@ -20,11 +20,11 @@ export default function Page() {
         <div className="flex items-center justify-center p-8 lg:p-16">
           <div className="max-w-lg space-y-8">
             <div className="space-y-6">
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight text-black">
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-medium leading-tight text-black" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 The Heart Of Our Flight
               </h1>
 
-              <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-light">
+              <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600">
                 Designing Intelligent Aerial Systems That Aid Humanity During Crises And Reinforce Defense With
                 Unmatched Precision And Power.
               </p>

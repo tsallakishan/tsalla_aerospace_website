@@ -91,7 +91,7 @@ export default function MicaSensePayload(): React.JSX.Element {
       <section className="font-clash-grotesk bg-white w-full min-h-screen py-20">
         <ContentWrapper>
           {/* Heading spans both columns */}
-          <h1 className="text-4xl md:text-4xl font-medium tracking-tight text-black leading-tight mb-16 text-center md:text-left">
+          <h1 className="text-4xl md:text-4xl font-medium tracking-tight text-black leading-tight mb-16 text-center md:text-left" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
             MicaSense RedEdge-P <br /> Payload
           </h1>
 

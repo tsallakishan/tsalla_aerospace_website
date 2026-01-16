@@ -13,7 +13,7 @@ export default function CommitmentSection() {
               <h2 className="text-[#5ce1e6] text-xl md:text-2xl font-orbit tracking-[0.4em] uppercase mb-4">
                 WHERE WE’RE HEADED
               </h2>
-              <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold font-orbit leading-tight max-w-6xl mx-auto px-4">
+              <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold leading-tight max-w-6xl mx-auto px-4" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Creating intelligent systems to elevate autonomy and empower unmatched performance on every front.
               </h1>
             </div>

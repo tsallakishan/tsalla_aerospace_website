@@ -45,10 +45,10 @@ export default function DexterSpecifications(): React.JSX.Element {
           <ContentWrapper>
             <div className="max-w-md w-full">
               {/* The main description text has been updated to make "Dexter" bolder. */}
-              <p className="text-3xl leading-snug text-black mb-12 tracking-tight">
+              <h2 className="text-3xl leading-snug text-black mb-12 tracking-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Wherever the situation demands swift, adaptable support, <span className="font-semibold">Dexter</span>{" "}
                 stands ready to deploy without delay. It brings speed, clarity, and confidence to every task.
-              </p>
+              </h2>
               <div className="w-full">
                 {specifications.map((spec, index) => (
                   <SpecItem key={`${spec.label}-${index}`} label={spec.label} value={spec.value} />

@@ -63,8 +63,8 @@ const HiringProcessCard = ({
             visibility: isHovered ? "hidden" : "visible",
           }}
         >
-          <h2 className="text-2xl font-bold text-black mb-4">{title}</h2>
-          <p className="text-base leading-relaxed text-neutral-700">{description}</p>
+          <h2 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>{title}</h2>
+          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600">{description}</p>
         </div>
 
         {/* Image (only visible on hover) */}

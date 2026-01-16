@@ -53,7 +53,7 @@ export default function DexterHero() {
         </div>
 
         {/* Right Side: Paragraph */}
-        <div className="max-w-full lg:max-w-md text-left text-white/80 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-balance lg:flex lg:flex-col lg:justify-end">
+        <div className="max-w-full lg:max-w-md text-left text-neutral-600 text-sm sm:text-base md:text-lg font-light leading-relaxed tracking-wide text-balance lg:flex lg:flex-col lg:justify-end">
           Where cutting-edge AI meets seamless lift, missions become smarter, faster, and more reliable. This is aerial
           innovation that rewrites what's possible in any environment.
         </div>

@@ -28,8 +28,8 @@ const features: FeatureItemProps[] = [
 // A reusable component for displaying each feature with its title, description, and a bottom border
 const FeatureItem: React.FC<FeatureItemProps> = ({ title, description }) => (
   <div className="border-b border-neutral-700 pb-10 last:border-b-0 last:pb-0">
-    <h3 className="text-2xl font-medium tracking-tight text-white">{title}</h3>
-    <p className="mt-4 text-base leading-relaxed text-white font-extralight">{description}</p>
+    <h3 className="text-2xl font-medium tracking-tight text-white" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>{title}</h3>
+    <p className="mt-4 text-lg md:text-xl font-light leading-relaxed text-neutral-600">{description}</p>
   </div>
 )
 
@@ -49,7 +49,7 @@ export default function MaverickCapabilities(): React.JSX.Element {
           <div className="flex flex-col md:flex-row items-center">
             {/* LEFT COLUMN: Main Heading */}
             <div className="md:w-2/5 w-full mb-16 md:mb-0">
-              <h1 className="text-6xl lg:text-7xl font-medium leading-none tracking-tighter">
+              <h1 className="text-6xl lg:text-7xl font-medium leading-none tracking-tighter" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Autonomy that Knows Where It Stands
               </h1>
             </div>

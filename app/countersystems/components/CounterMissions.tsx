@@ -316,11 +316,11 @@ export default function MissionProfiles() {
                       </div>
                     )}
                     <div className="space-y-6">
-                      <h2 className="text-3xl lg:text-4xl font-semibold text-white" data-testid={`title-${profile.id}`}>
+                      <h2 className="text-3xl lg:text-4xl font-semibold text-white" data-testid={`title-${profile.id}`} style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                         {profile.title}
                       </h2>
                       <p
-                        className="text-lg lg:text-xl text-gray-300 leading-relaxed max-w-2xl"
+                        className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl"
                         data-testid={`description-${profile.id}`}
                       >
                         {profile.description}
@@ -364,8 +364,8 @@ export default function MissionProfiles() {
                                   className="p-4 bg-gray-900 rounded-lg border border-gray-700"
                                   data-testid={`capability-card-${profile.id}-${capIndex}`}
                                 >
-                                  <h4 className="font-semibold mb-2">{capability.title}</h4>
-                                  <p className="text-sm text-gray-400">{capability.description}</p>
+                                  <h4 className="font-semibold mb-2" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>{capability.title}</h4>
+                                  <p className="text-base text-neutral-600 font-light">{capability.description}</p>
                                 </div>
                               ))}
                             </div>

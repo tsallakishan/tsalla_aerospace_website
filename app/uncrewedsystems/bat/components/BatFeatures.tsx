@@ -45,11 +45,10 @@ export default function BatFeatures(): React.JSX.Element {
         <div className="md:w-1/2 w-full flex justify-center items-center py-16 md:py-0">
           <ContentWrapper>
             <div className="max-w-md w-full">
-              {/* The descriptive paragraph has been updated. */}
-              <p className="text-3xl leading-snug text-black mb-12 tracking-tight">
+              <h2 className="text-3xl leading-snug text-black mb-12 tracking-tight" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
                 Wherever the mission demands silent precision and clear intelligence, T-BAT deploys instantly. It
                 navigates, detects, strikes, and surveys with speed and confidence in any terrain.
-              </p>
+              </h2>
               <div className="w-full">
                 {specifications.map((spec, index) => (
                   <SpecItem key={`${spec.label}-${index}`} label={spec.label} value={spec.value} />
