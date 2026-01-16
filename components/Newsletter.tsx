@@ -1,49 +1,68 @@
 "use client"
 
 import type React from "react"
-import NewsroomCard from "./ui/NewsroomCard"
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import ThreeDMarqueeDemo from "./3d-marquee-demo"
+import TestimonialsCarousel from "./TestimonialsCarousel"
 
 const Newsletter: React.FC = () => {
-  return (
-    <section className="bg-[#eaeaea] py-12 lg:py-24 font-['Pontano_Sans']">
-      <div className="container mx-auto px-4 lg:px-24 max-w-[90rem]">
-        {/* Section Title */}
-        <div className="text-left mb-8 lg:mb-12">
-          <h2
-            className="text-left text-black/100 mb-1 transition-all duration-700 transform font-orbit opacity-100 translate-y-0 uppercase tracking-normal text-[28px] md:text-[48px]"
-            style={{
-              transitionDelay: "150ms",
-              lineHeight: "1.1",
-              fontWeight: 700,
-            }}
-          >
-            Latest <span style={{ color: '#5ce1e6' }}>News</span> &amp; Updates
-          </h2>
-        </div>
+  // News data from the previous section with background images
+  const testimonials = [
+    {
+      id: "1",
+      text: "Tsalla Aerospace and Rheinmetall Partner to Design and Manufacture Advanced Propulsion Systems for Next-Gen Aircraft",
+      author: "Latest Partnership",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/40c0d9411b398e8b3e1114c6269c9a86195f8-3840x2160.jpg?auto=format&fit=max&w=1920&q=90"
+    },
+    {
+      id: "2",
+      text: "Riverside Research and Tsalla Aerospace Collaborate to Cyber Harden Critical Defense Capabilities",
+      author: "Strategic Collaboration",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/987e977c745ccff57f4f705ca6335eb3ddf0dc5f-11648x8736.jpg?auto=format&fit=max&w=1200&q=90"
+    },
+    {
+      id: "3",
+      text: "Tsalla Aerospace Unveils Revolutionary AI Pilot System for Autonomous Flight Operations",
+      author: "Product Innovation",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/8ba9aa42b68cb9b70f07dfe1583f4d0ed4477dd1-11648x8736.jpg?auto=format&fit=max&w=1200&q=90"
+    },
+    {
+      id: "4",
+      text: "Tsalla Aerospace Expands Bengaluru Facility for Advanced AI Research and Development Center",
+      author: "Facility Expansion",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/40c0d9411b398e8b3e1114c6269c9a86195f8-3840x2160.jpg?auto=format&fit=max&w=1920&q=90"
+    },
+    {
+      id: "5",
+      text: "Tsalla Aerospace Successfully Completes First Flight Test of AI-Powered DEXTER System from Bengaluru Operations",
+      author: "Milestone Achievement",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/987e977c745ccff57f4f705ca6335eb3ddf0dc5f-11648x8736.jpg?auto=format&fit=max&w=1200&q=90"
+    },
+    {
+      id: "6",
+      text: "Tsalla Aerospace Partners with Indian Defense Ministry for Autonomous Systems Development in Bengaluru",
+      author: "Government Partnership",
+      role: "Press Release",
+      company: "Tsalla Aerospace",
+      logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z'/%3E%3C/svg%3E",
+      image: "https://cdn.sanity.io/images/z5s3oquj/production/8ba9aa42b68cb9b70f07dfe1583f4d0ed4477dd1-11648x8736.jpg?auto=format&fit=max&w=1200&q=90"
+    },
+  ]
 
-        {/* News Marquee Section */}
-        <div className="relative mt-4 lg:mt-8">
-          <ThreeDMarqueeDemo />
-        </div>
-
-        {/* More in Newsroom Link aligned right */}
-        <div className="mt-6 lg:mt-8 flex justify-end">
-          <Link
-            href="/newsroom"
-            className="inline-flex items-center text-black group text-base font-medium transition-all duration-200"
-          >
-            <span className="relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[0.125rem] after:bg-black after:transition-all after:duration-300 group-hover:after:w-full font-orbit">
-              More in Newsroom
-            </span>
-            <ArrowRight size={18} className="ml-2 transition-transform duration-200 group-hover:translate-x-1" />
-          </Link>
-        </div>
-      </div>
-    </section>
-  )
+  return <TestimonialsCarousel testimonials={testimonials} />
 }
 
 export default Newsletter
