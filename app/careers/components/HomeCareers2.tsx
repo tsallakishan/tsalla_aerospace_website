@@ -84,7 +84,7 @@ const InsideTsallaAerospace = () => {
                 <div className="relative">
                   {/* CARD UI */}
                   <div
-                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-white px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative"
+                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-[#fafafa] px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative"
                   >
                     {/* Top Left Corner */}
                     <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#5ce1e6]" />

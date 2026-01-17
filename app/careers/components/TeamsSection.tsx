@@ -1,61 +1,20 @@
 "use client"
 
 import { useState } from "react"
-import { Plus } from "lucide-react"
+import Link from "next/link"
+import { MapPin, Briefcase } from "lucide-react"
 import { ContentWrapper } from "@/components/ContentWrapper"
+import { internships, fullTimeRoles } from "../data/jobs"
 
 export default function JobOpeningsPage() {
   const [activeTab, setActiveTab] = useState("internships")
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
-
-  const internships = [
-    {
-      title: "Aerospace Engineering Intern, EMEA",
-      description:
-        "Support UAV hardware development, flight testing, and component integration in agile engineering teams.",
-    },
-    {
-      title: "Communications Intern, EMEA",
-      description:
-        "Assist in internal/external communications, social media strategy, and brand alignment for Tsalla Aerospace.",
-    },
-    {
-      title: "Legal Intern, EMEA",
-      description: "Contribute to legal research, compliance documentation, and policy analysis under mentorship.",
-    },
-    {
-      title: "Strategic Finance & Analytics Intern, EMEA",
-      description: "Help analyze budgets, forecast scenarios, and track KPIs across various business divisions.",
-    },
-    {
-      title: "Data Visualization Intern, EMEA",
-      description: "Work with real-time drone telemetry to build visualizations for tactical awareness dashboards.",
-    },
-  ]
-
-  const fullTimeRoles = [
-    {
-      title: "Autonomy Software Engineer",
-      description: "Design and implement advanced AI algorithms for real-time UAV navigation and object detection.",
-    },
-    {
-      title: "Flight Test Engineer",
-      description: "Lead system validation missions and post-flight data analysis to iterate on drone platforms.",
-    },
-    {
-      title: "Embedded Systems Developer",
-      description: "Develop high-performance embedded code for control systems and edge computing applications.",
-    },
-  ]
 
   const jobs = activeTab === "internships" ? internships : fullTimeRoles
 
-  const handleToggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
+
 
   return (
-    <section className="w-full min-h-screen bg-black text-white py-20 font-clash">
+    <section className="w-full min-h-screen bg-black text-white py-20 font-clash" id="open-positions">
       <ContentWrapper>
         {/* Title */}
         <h2
@@ -80,7 +39,6 @@ export default function JobOpeningsPage() {
           <button
             onClick={() => {
               setActiveTab("internships")
-              setOpenIndex(null)
             }}
             className={`group relative px-8 py-3 bg-black/40 border transition-colors duration-300 overflow-hidden ${activeTab === "internships" ? "border-[#5ce1e6]" : "border-white/10"
               }`}
@@ -100,7 +58,6 @@ export default function JobOpeningsPage() {
           <button
             onClick={() => {
               setActiveTab("fulltime")
-              setOpenIndex(null)
             }}
             className={`group relative px-8 py-3 bg-black/40 border transition-colors duration-300 overflow-hidden ${activeTab === "fulltime" ? "border-[#5ce1e6]" : "border-white/10"
               }`}
@@ -127,46 +84,47 @@ export default function JobOpeningsPage() {
         </p>
 
         {/* Job Listings */}
-        <div className="space-y-8">
+        {/* Job Listings Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.map((job, index) => (
-            <div key={index} className="border-b border-white/20 pb-4">
-              <p
-                className="text-xs text-neutral-600 font-light mb-2"
-                style={{ fontFamily: "sans-serif" }}
-              >
-                {activeTab === "internships"
-                  ? "Early Career Program Intern • Live and Work Anywhere"
-                  : "Full-Time • Onsite or Hybrid"}
-              </p>
-              <div className="flex justify-between items-center text-left">
-                <h3
-                  className="text-lg md:text-xl font-bold text-white"
-                  style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
-                >
-                  {job.title}
-                </h3>
-                <button
-                  onClick={() => handleToggle(index)}
-                  className="flex items-center space-x-2 text-white/50 hover:text-white transition text-[10px] uppercase tracking-wider"
-                >
-                  <Plus className="w-4 h-4" />
-                  <span>{openIndex === index ? "Hide Info" : "More Info"}</span>
-                </button>
-              </div>
+            <Link
+              href={`/careers/${job.slug}`}
+              key={index}
+              className="block h-full"
+            >
+              <div className="relative p-8 bg-neutral-900/50 border border-white/5 flex flex-col justify-between h-full group transition-all duration-300 hover:bg-neutral-900">
+                {/* Top Left Corner */}
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#5ce1e6]" />
 
-              {/* Expandable Description */}
-              <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out mt-4 ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-              >
-                <p
-                  className="text-sm font-light leading-relaxed text-neutral-500 pb-4"
-                  style={{ fontFamily: "sans-serif" }}
-                >
-                  {job.description}
-                </p>
+                {/* Bottom Right Corner */}
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#5ce1e6]" />
+
+                <div>
+                  <h3
+                    className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight min-h-[3.75rem]"
+                    style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+                  >
+                    {job.title}
+                  </h3>
+
+                  {/* Metadata Icons */}
+                  <div className="flex flex-row flex-wrap items-center gap-6 mb-2 text-neutral-400 text-xs font-sans tracking-wide">
+                    <div className="flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[#5ce1e6]" />
+                      <span>
+                        {job.location}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Briefcase className="w-4 h-4 text-[#5ce1e6]" />
+                      <span>
+                        {activeTab === "internships" ? "Internship Program" : "Full-Time Role"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </ContentWrapper>

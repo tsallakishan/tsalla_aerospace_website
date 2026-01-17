@@ -11,6 +11,7 @@ import HomeFounder from "./components/HomeFounder"
 import HomeHiringProcess from "./components/HomeHiringProcess"
 
 import HiringProcess from "./components/HiringProcess"
+import InnovationSection from "./components/InnovationSection"
 
 
 
@@ -33,13 +34,14 @@ export default function CareersPage() {
   return (
     <main className="bg-black text-white font-[Farro]">
       <HomeCareersSection />
-      <HomeCareers2/>
+      <HomeCareers2 />
       <HiringProcess />
       <ValuesSection />
       <HomeFounder />
       <MissionSection />
       <HomeHiringProcess />
       <TeamsSection />
+      <InnovationSection />
     </main>
   )
 }
