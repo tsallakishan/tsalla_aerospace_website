@@ -97,10 +97,10 @@ export default function Footer() {
                     <li key={link.name}>
                       <Link
                         href={link.href}
-                        className="text-white/60 hover:text-white text-sm transition-all duration-300 font-orbit group flex items-center gap-2"
+                        className="text-white/60 hover:text-white text-sm transition-colors duration-300 font-orbit whitespace-nowrap block relative group w-fit"
                       >
-                        <span className="w-0 h-[1px] bg-[#5ce1e6] group-hover:w-2 transition-all duration-300" />
                         {link.name}
+                        <span className="absolute left-0 -bottom-1 w-0 h-[1px] bg-[#5ce1e6] transition-all duration-300 group-hover:w-full" />
                       </Link>
                     </li>
                   ))}
