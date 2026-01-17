@@ -64,54 +64,65 @@ export default function ValuesSection() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left: Heading and description */}
           <div>
-            <h2 className="text-white/60 mb-4 uppercase tracking-widest text-4xl font-light">Our Key Values</h2>
-            <p className="text-white text-lg mb-6">
+            <h2 className="text-white mb-4 uppercase tracking-widest text-4xl font-semibold font-clash">Our Key Values</h2>
+            <p className="font-sans text-lg md:text-xl font-light leading-relaxed text-gray-300 mb-6">
               Tsalla Aerospace is where visionaries and veterans converge to reimagine what's possible in flight and
               defense. We prototype by sunrise, refine by midnight, and never settle for ordinary. Shaped by lived
               experience and fearless innovation, our team transforms challenges into breakthroughs.
             </p>
 
             {/* Tabs */}
+            {/* Tabs */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 gap-2 w-full">
               {values.map((item, index) => (
                 <button
                   key={index}
                   onClick={() => handleTabClick(index)}
-                  className={`px-4 py-3 border border-gray-700 text-sm md:text-base font-medium transition-all text-left ${
-                    index === selectedIndex
-                      ? "bg-neutral-800 text-white"
-                      : "bg-black text-gray-400 hover:bg-neutral-800"
-                  }`}
+                  className={`group relative px-4 py-3 border border-gray-700 text-sm md:text-base font-medium transition-all text-left overflow-hidden ${index === selectedIndex
+                    ? "bg-neutral-800 text-white"
+                    : "bg-black text-gray-400"
+                    }`}
                 >
-                  {item.title}
+                  <div className="absolute inset-0 bg-[#5ce1e6] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                  <span className={`relative z-10 transition-colors duration-300 group-hover:text-black ${index === selectedIndex ? 'text-white' : 'text-gray-400'}`}>
+                    {item.title}
+                  </span>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Right: Image + title + description */}
-          <div className="relative  overflow-hidden border border-white h-[25rem] md:h-[31.25rem] w-full">
-            <Image
-              src={selected.image || "/placeholder.svg"}
-              alt={selected.title}
-              fill
-              className="object-cover brightness-125"
-              priority
-            />
-            <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-6 md:p-8">
-              <h3
-                key={selected.title + selectedIndex}
-                className="text-2xl md:text-3xl font-semibold border-b border-white pb-2 mb-4 animate-text-up"
-              >
-                {selected.title}
-              </h3>
-              <p
-                key={selected.description + selectedIndex}
-                className="text-gray-200 text-base md:text-lg max-w-xl animate-text-up"
-                style={{ animationDelay: "0.1s" }}
-              >
-                {selected.description}
-              </p>
+          <div className="relative h-[25rem] md:h-[31.25rem] w-full p-2 md:p-3 border border-transparent">
+            {/* Top Left Corner */}
+            <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#5ce1e6]" />
+
+            {/* Bottom Right Corner */}
+            <div className="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-[#5ce1e6]" />
+
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src={selected.image || "/placeholder.svg"}
+                alt={selected.title}
+                fill
+                className="object-cover brightness-125"
+                priority
+              />
+              <div className="absolute inset-0 bg-black/30 flex flex-col justify-end p-6 md:p-8">
+                <h3
+                  key={selected.title + selectedIndex}
+                  className="text-2xl md:text-3xl font-semibold border-b border-white pb-2 mb-4 animate-text-up"
+                >
+                  {selected.title}
+                </h3>
+                <p
+                  key={selected.description + selectedIndex}
+                  className="text-gray-200 text-base md:text-lg max-w-xl animate-text-up"
+                  style={{ animationDelay: "0.1s" }}
+                >
+                  {selected.description}
+                </p>
+              </div>
             </div>
           </div>
         </div>
