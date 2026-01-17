@@ -50,6 +50,51 @@ const InsideTsallaAerospace = () => {
     return () => window.removeEventListener('resize', updateRange)
   }, [])
 
+  const [activeCardId, setActiveCardId] = useState<string | null>(null)
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const checkCenter = () => {
+      const centerX = window.innerWidth / 2
+      let closestId = null
+      let minDistance = Infinity
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return
+        const rect = card.getBoundingClientRect()
+        const cardCenter = rect.left + rect.width / 2
+        const distance = Math.abs(cardCenter - centerX)
+
+        // Threshold for "centered" - e.g. within 300px
+        if (distance < minDistance) {
+          minDistance = distance
+          closestId = ITEMS[index].id
+        }
+      })
+
+      // Determine threshold based on screen size (roughly half card width + padding)
+      const threshold = window.innerWidth < 768 ? 160 : 250
+
+      if (minDistance < threshold) {
+        setActiveCardId(closestId)
+      } else {
+        setActiveCardId(null)
+      }
+    }
+
+    // Check on scroll and resize
+    window.addEventListener('scroll', checkCenter)
+    window.addEventListener('resize', checkCenter)
+    // Also check periodically as smooth scroll settles
+    const interval = setInterval(checkCenter, 100)
+
+    return () => {
+      window.removeEventListener('scroll', checkCenter)
+      window.removeEventListener('resize', checkCenter)
+      clearInterval(interval)
+    }
+  }, [])
+
   // Map progress [0, 0.95] to move, and [0.95, 1.0] to stay still (the "wait")
   const stripX = useTransform(smoothProgress, [0.15, 1.2], ["0vw", xRange])
 
@@ -76,21 +121,26 @@ const InsideTsallaAerospace = () => {
 
           {/* 2-7. CARD SECTIONS - WITH GAP */}
           <div className="flex-shrink-0 flex flex-row items-center h-full gap-12 pr-[10vw]">
-            {ITEMS.map((item) => (
+            {ITEMS.map((item, index) => (
               <div
                 key={item.id}
-                className="flex-shrink-0 flex flex-col items-center"
+                ref={(el) => { cardRefs.current[index] = el }}
+                className="flex-shrink-0 flex flex-col items-center transition-opacity duration-300"
               >
                 <div className="relative">
                   {/* CARD UI */}
                   <div
-                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-[#fafafa] px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative"
+                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-[#fafafa] px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative transition-all duration-300"
                   >
                     {/* Top Left Corner */}
-                    <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#5ce1e6]" />
+                    <div
+                      className={`absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#5ce1e6] transition-opacity duration-500 ${activeCardId === item.id ? 'opacity-100' : 'opacity-0'}`}
+                    />
 
                     {/* Bottom Right Corner */}
-                    <div className="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-[#5ce1e6]" />
+                    <div
+                      className={`absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-[#5ce1e6] transition-opacity duration-500 ${activeCardId === item.id ? 'opacity-100' : 'opacity-0'}`}
+                    />
 
                     <h2
                       className={`text-black font-bold leading-tight mb-8 ${item.id === "06" ? "text-[1rem] md:text-[1.69rem]" : "text-[1.2rem] md:text-[1.8rem]"
@@ -103,7 +153,7 @@ const InsideTsallaAerospace = () => {
                     </p>
                   </div>
                   {/* CARD NUMBER BELOW */}
-                  <span className="absolute -bottom-14 left-1/2 -translate-x-1/2 text-[#5ce1e6] font-bold text-xl tracking-widest">
+                  <span className={`absolute -bottom-14 left-1/2 -translate-x-1/2 text-[#5ce1e6] font-bold text-xl tracking-widest transition-opacity duration-500 ${activeCardId === item.id ? 'opacity-100' : 'opacity-0'}`}>
                     {item.id}
                   </span>
                 </div>

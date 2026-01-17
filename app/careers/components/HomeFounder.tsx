@@ -65,36 +65,7 @@ const FounderNotePage = () => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="w-full max-w-xl mx-auto relative p-4"
           >
-            {/* Corner Lines - Now framing the image from the outside */}
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute top-0 left-0 w-12 h-[2px] bg-[#5ce1e6] z-10 origin-left"
-            />
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute top-0 left-0 w-[2px] h-12 bg-[#5ce1e6] z-10 origin-top"
-            />
 
-            <motion.div
-              initial={{ scaleX: 0 }}
-              whileInView={{ scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute bottom-0 right-0 w-12 h-[2px] bg-[#5ce1e6] z-10 origin-right"
-            />
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute bottom-0 right-0 w-[2px] h-12 bg-[#5ce1e6] z-10 origin-bottom"
-            />
 
             <div className="relative w-full h-[32rem] bg-gray-200 overflow-hidden group shadow-2xl">
               <img

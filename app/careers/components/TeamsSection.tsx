@@ -94,10 +94,10 @@ export default function JobOpeningsPage() {
             >
               <div className="relative p-8 bg-neutral-900/50 border border-white/5 flex flex-col justify-between h-full group transition-all duration-300 hover:bg-neutral-900">
                 {/* Top Left Corner */}
-                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#5ce1e6]" />
+                <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#5ce1e6] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 {/* Bottom Right Corner */}
-                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#5ce1e6]" />
+                <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#5ce1e6] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                 <div>
                   <h3

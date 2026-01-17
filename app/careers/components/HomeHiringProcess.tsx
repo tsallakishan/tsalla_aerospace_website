@@ -31,11 +31,10 @@ const hiringSteps = [
   },
 ]
 
-// --- Card Component with Pixel Transition ---
 const HiringProcessCard = ({
   title,
   description,
-  imageUrl,
+  imageUrl, // Kept for interface consistency, but unused if we are removing the image reveal
   isLast = false,
 }: {
   title: string
@@ -43,121 +42,29 @@ const HiringProcessCard = ({
   imageUrl: string
   isLast?: boolean
 }) => {
-  const pixelGridRef = useRef<HTMLDivElement | null>(null)
-  const activeRef = useRef<HTMLDivElement | null>(null)
-  const delayedCallRef = useRef<gsap.core.Tween | null>(null)
-  const [isActive, setIsActive] = useState(false)
-
-  const gridSize = 10
-  const pixelColor = "#5ce1e6"
-  const animationStepDuration = 0.4
-
-  useEffect(() => {
-    const pixelGridEl = pixelGridRef.current
-    if (!pixelGridEl) return
-
-    pixelGridEl.innerHTML = ""
-
-    for (let row = 0; row < gridSize; row++) {
-      for (let col = 0; col < gridSize; col++) {
-        const pixel = document.createElement("div")
-        pixel.style.position = "absolute"
-        pixel.style.backgroundColor = pixelColor
-        pixel.style.display = "none"
-
-        const size = 100 / gridSize
-        pixel.style.width = `${size}%`
-        pixel.style.height = `${size}%`
-        pixel.style.left = `${col * size}%`
-        pixel.style.top = `${row * size}%`
-        pixelGridEl.appendChild(pixel)
-      }
-    }
-  }, [gridSize, pixelColor])
-
-  const animatePixels = (activate: boolean): void => {
-    setIsActive(activate)
-
-    const pixelGridEl = pixelGridRef.current
-    const activeEl = activeRef.current
-    if (!pixelGridEl || !activeEl) return
-
-    const pixels = Array.from(pixelGridEl.children) as HTMLDivElement[]
-    if (!pixels.length) return
-
-    gsap.killTweensOf(pixels)
-    if (delayedCallRef.current) {
-      delayedCallRef.current.kill()
-    }
-
-    gsap.set(pixels, { display: "none" })
-
-    const totalPixels = pixels.length
-    const staggerDuration = animationStepDuration / totalPixels
-
-    gsap.to(pixels, {
-      display: "block",
-      duration: 0,
-      stagger: {
-        each: staggerDuration,
-        from: "random",
-      },
-    })
-
-    delayedCallRef.current = gsap.delayedCall(animationStepDuration, () => {
-      activeEl.style.display = activate ? "block" : "none"
-      activeEl.style.pointerEvents = activate ? "none" : ""
-    })
-
-    gsap.to(pixels, {
-      display: "none",
-      duration: 0,
-      delay: animationStepDuration,
-      stagger: {
-        each: staggerDuration,
-        from: "random",
-      },
-    })
-  }
-
   return (
     <li
       className={cn(
-        "relative w-full overflow-hidden border-t border-b border-neutral-300",
+        "group relative w-full overflow-hidden border-t border-b border-neutral-300 transition-colors duration-300 hover:bg-neutral-50",
         "lg:w-1/3 lg:border-t-0 lg:border-b-0 lg:border-l lg:border-neutral-300",
         isLast && "lg:border-r",
       )}
-      onMouseEnter={() => animatePixels(true)}
-      onMouseLeave={() => animatePixels(false)}
     >
-      <div className="relative block text-black no-underline h-full aspect-square bg-gray-100">
-        {/* Content (Visible by default) */}
-        <div
-          className="relative z-10 flex flex-col justify-center items-center text-center h-full p-8"
-          style={{ visibility: isActive ? "hidden" : "visible" }}
-        >
-          <h2 className="text-2xl font-bold text-black mb-4" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
+      <div className="relative block text-black no-underline h-full aspect-square md:aspect-auto md:h-auto md:py-24 bg-gray-100/50 hover:bg-gray-100 transition-colors duration-300">
+        {/* Content (Fades out on hover) */}
+        <div className="relative z-10 flex flex-col justify-center items-center text-center h-full p-8 transition-opacity duration-500 group-hover:opacity-0">
+          <h2 className="text-2xl font-bold text-black mb-4 uppercase tracking-wide" style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}>
             {title}
           </h2>
-          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600" style={{ fontFamily: "sans-serif" }}>
+          <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-sm mx-auto" style={{ fontFamily: "sans-serif" }}>
             {description}
           </p>
         </div>
 
-        {/* Image (Visible on active) */}
+        {/* Image (Fades in on hover) */}
         <div
-          ref={activeRef}
-          className="absolute inset-0 bg-cover bg-center z-20"
-          style={{
-            backgroundImage: `url(${imageUrl})`,
-            display: "none",
-          }}
-        ></div>
-
-        {/* Pixel Grid */}
-        <div
-          ref={pixelGridRef}
-          className="absolute inset-0 z-30 pointer-events-none"
+          className="absolute inset-0 bg-cover bg-center z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out"
+          style={{ backgroundImage: `url(${imageUrl})` }}
         />
       </div>
     </li>
