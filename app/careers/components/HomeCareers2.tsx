@@ -6,14 +6,12 @@ import { useRef, useState, useEffect } from "react"
 
 const ITEMS = [
   { id: "01", title: "Resilience Is Our Signature", description: "We don’t complain, we solve. We don’t escape pressure, we rise through it. Mistakes happen — but we take radical responsibility, learn fast, and move forward stronger." },
-  { id: "02", title: "We Build Builders", description: "This is a place to become your strongest self — professionally, personally, and patriotically. Here, you grow in knowledge, skill, discipline, and vision. Because Tsalla Aerospace is not just building aircraft — We’re building citizens. We’re building leaders." },
+  { id: "02", title: "We Build Builders", description: "This is a place to become your strongest self — professionally, personally, and patriotically. Here, you grow in knowledge, skill, discipline, and vision. Because we are not just building aircraft — We’re building citizens. We’re building leaders." },
   { id: "03", title: "We Don’t Clock In, We Show Up", description: "This is not a shift job. This is our runway. We show up with our brains sharp, our hearts aligned, and our sleeves rolled up. Because someday, we’ll look back and say: 'We built something that mattered.'" },
   { id: "04", title: "Integrity Is Non-Negotiable", description: "We will never cheat — not people, not processes, not ourselves. No shortcuts, no dishonesty — even if it costs us. Because at Tsalla, how we win is as important as winning itself." },
   { id: "05", title: "Everyone Is a Leader Here", description: "No one hides behind titles. If you see a problem, you own it. If you have an idea, you voice it. Whether you joined yesterday or were here from Day 1 — you matter." },
   { id: "06", title: "United by Purpose, Not Uniformity", description: "We all have different backgrounds, motivations, and dreams — and that’s okay. But when we’re here — we’re united. By discipline. By ownership. By belief in a cause bigger than us." },
-  { id: "07", title: "Resilience Is Our Signature", description: "We don’t complain, we solve. We don’t escape pressure, we rise through it. Mistakes happen — but we take radical responsibility, learn fast, and move forward stronger." },
-  { id: "08", title: "We Build Builders", description: "This is a place to become your strongest self — professionally, personally, and patriotically. Here, you grow in knowledge, skill, discipline, and vision. Because Tsalla Aerospace is not just building aircraft — We’re building citizens. We’re building leaders." },
-  // { id: "09", title: "We Don’t Clock In, We Show Up", description: "This is not a shift job. This is our runway. We show up with our brains sharp, our hearts aligned, and our sleeves rolled up. Because someday, we’ll look back and say: 'We built something that mattered.'" }
+
 ];
 
 const InsideTsallaAerospace = () => {
@@ -53,7 +51,7 @@ const InsideTsallaAerospace = () => {
   }, [])
 
   // Map progress [0, 0.95] to move, and [0.95, 1.0] to stay still (the "wait")
-  const stripX = useTransform(smoothProgress, [0, 1.30], ["0vw", xRange])
+  const stripX = useTransform(smoothProgress, [0.15, 1.2], ["0vw", xRange])
 
   return (
     <section ref={containerRef} className="relative h-[600vh] bg-white">
@@ -85,11 +83,22 @@ const InsideTsallaAerospace = () => {
               >
                 <div className="relative">
                   {/* CARD UI */}
-                  <div className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-white p-8 md:p-12 border border-gray-200 flex flex-col justify-center">
-                    <h2 className="text-black text-[1.2rem] md:text-[1.8rem] font-bold leading-tight mb-8">
+                  <div
+                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-white px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative"
+                  >
+                    {/* Top Left Corner */}
+                    <div className="absolute top-0 left-0 w-8 h-8 md:w-12 md:h-12 border-t-2 border-l-2 border-[#5ce1e6]" />
+
+                    {/* Bottom Right Corner */}
+                    <div className="absolute bottom-0 right-0 w-8 h-8 md:w-12 md:h-12 border-b-2 border-r-2 border-[#5ce1e6]" />
+
+                    <h2
+                      className={`text-black font-bold leading-tight mb-8 ${item.id === "06" ? "text-[1rem] md:text-[1.69rem]" : "text-[1.2rem] md:text-[1.8rem]"
+                        }`}
+                    >
                       {item.title}
                     </h2>
-                    <p className="text-gray-600 text-xs md:text-base font-medium leading-relaxed">
+                    <p className={`text-gray-600 text-xs md:text-base font-medium leading-relaxed ${item.id === '02' ? 'mt-8' : ''}`}>
                       {item.description}
                     </p>
                   </div>
