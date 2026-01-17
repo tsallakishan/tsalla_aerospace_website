@@ -4,8 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram, ArrowUp, Linkedin, Youtube, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isFenixPage = pathname === "/uncrewedsystems/fenix";
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -108,10 +112,24 @@ export default function Footer() {
       </div>
 
       {/* Massive Brand Watermark */}
-      <div className="relative w-full overflow-hidden flex justify-center pointer-events-none select-none z-0 mt-[-5vw] mb-[-5vw]">
-        <h2 className="text-[25vw] font-bold leading-none tracking-wide text-white/[0.03] font-orbit uppercase">
-          Tsalla
-        </h2>
+      <div className={`relative w-full overflow-hidden flex justify-center pointer-events-none select-none z-0 ${isFenixPage ? "mt-[-65vw] mb-[-45vw]" : "mt-[-5vw] mb-[-5vw]"}`}>
+        {isFenixPage ? (
+          <div
+            className="relative w-[120vw] h-[120vw] flex items-center justify-center opacity-[0.03]"
+            style={{ transform: 'translateX(17vw) rotate(90deg) scaleY(1.6) scaleX(1.2)' }}
+          >
+            <Image
+              src="/logo2.svg"
+              alt="Watermark"
+              fill
+              className="object-contain"
+            />
+          </div>
+        ) : (
+          <h2 className="text-[25vw] font-bold leading-none tracking-wide text-white/[0.03] font-orbit uppercase">
+            Tsalla
+          </h2>
+        )}
       </div>
 
       {/* Bottom Bar */}

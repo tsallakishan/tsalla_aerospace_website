@@ -192,7 +192,6 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
                                         <h2 className="text-4xl lg:text-7xl font-bold tracking-tighter text-white mb-1 lg:mb-2 font-orbit group relative inline-block">
                                             {hoveredUncrewedSystemDetails.headline}
-                                            <motion.div animate={{ width: ["0%", "100%", "0%"] }} transition={{ duration: 3, repeat: Infinity }} className="absolute -bottom-1 left-0 h-[2px] bg-[#5ce1e6]/50" />
                                         </h2>
                                         <div className="text-[10px] lg:text-lg text-white/60 font-orbit leading-tight mb-4 lg:mb-10 max-w-sm lg:max-w-md uppercase tracking-widest mx-auto lg:mx-0" dangerouslySetInnerHTML={{ __html: hoveredUncrewedSystemDetails.subheadline }} />
                                     </motion.div>
@@ -213,11 +212,7 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                             onClick={onClose}
                                             className="relative group inline-flex items-center px-6 lg:px-10 py-2.5 lg:py-4 bg-[#5ce1e6]/5 border border-[#5ce1e6]/20 text-[#5ce1e6] overflow-hidden transition-all duration-500 hover:bg-[#5ce1e6]/20 hover:border-[#5ce1e6] hover:shadow-[0_0_30px_rgba(92,225,230,0.3)]"
                                         >
-                                            <motion.div className="absolute inset-0" initial={false}>
-                                                <motion.div animate={{ left: ["0%", "100%", "100%", "0%", "0%"], top: ["0%", "0%", "100%", "100%", "0%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                                                    className="absolute w-20 h-[1px] bg-[#5ce1e6] shadow-[0_0_8px_rgba(92,225,230,0.8)]"
-                                                />
-                                            </motion.div>
+
                                             <span className="relative z-10 text-[9px] lg:text-xs font-bold uppercase tracking-[0.3em] font-orbit">Initiate Mission</span>
                                             <ArrowRight className="relative z-10 ml-3 lg:ml-4 w-3 lg:w-4 h-3 lg:h-4 group-hover:translate-x-1 transition-transform" />
                                         </Link>
