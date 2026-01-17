@@ -58,73 +58,113 @@ export default function JobOpeningsPage() {
     <section className="w-full min-h-screen bg-black text-white py-20 font-clash">
       <ContentWrapper>
         {/* Title */}
-        <h2 className="text-white/60 mb-4 uppercase tracking-widest text-4xl font-light">Job Openings</h2>
+        <h2
+          className="text-white mb-6 uppercase tracking-tight text-5xl md:text-6xl font-bold"
+          style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+        >
+          Job Openings
+        </h2>
 
         {/* Description */}
-        <p className="text-white text-lg mb-6">
+        <p
+          className="text-neutral-500 text-sm md:text-base font-light leading-relaxed mb-10 max-w-2xl"
+          style={{ fontFamily: "sans-serif" }}
+        >
           At Tsalla Aerospace, innovation drives everything we do. Join us and bring your expertise to a team dedicated
           to building exceptional UAV solutions. Browse through our current openings and find the role where your
           strengths can truly shine.
         </p>
 
         {/* Tabs */}
-        <div className="flex justify-center space-x-4 mb-12">
+        <div className="flex justify-center space-x-6 mb-16 px-4">
           <button
             onClick={() => {
               setActiveTab("internships")
               setOpenIndex(null)
             }}
-            className={`px-6 py-2 border text-sm font-medium rounded-md transition-all duration-200 ${
-              activeTab === "internships" ? "bg-white text-black" : "bg-neutral-800 text-white/70 hover:bg-neutral-700"
-            }`}
+            className={`group relative px-8 py-3 bg-black/40 border transition-colors duration-300 overflow-hidden ${activeTab === "internships" ? "border-[#5ce1e6]" : "border-white/10"
+              }`}
           >
-            Internships
+            <div className="absolute inset-0 bg-[#5ce1e6] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span
+              className={`relative z-10 text-[10px] md:text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${activeTab === "internships"
+                ? "text-[#5ce1e6] group-hover:text-black"
+                : "text-white group-hover:text-black"
+                }`}
+              style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+            >
+              Internships
+            </span>
           </button>
+
           <button
             onClick={() => {
               setActiveTab("fulltime")
               setOpenIndex(null)
             }}
-            className={`px-6 py-2 border text-sm font-medium rounded-md transition-all duration-200 ${
-              activeTab === "fulltime" ? "bg-white text-black" : "bg-neutral-800 text-white/70 hover:bg-neutral-700"
-            }`}
+            className={`group relative px-8 py-3 bg-black/40 border transition-colors duration-300 overflow-hidden ${activeTab === "fulltime" ? "border-[#5ce1e6]" : "border-white/10"
+              }`}
           >
-            Full Time Roles
+            <div className="absolute inset-0 bg-[#5ce1e6] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+            <span
+              className={`relative z-10 text-[10px] md:text-xs tracking-[0.2em] uppercase transition-colors duration-300 ${activeTab === "fulltime"
+                ? "text-[#5ce1e6] group-hover:text-black"
+                : "text-white group-hover:text-black"
+                }`}
+              style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+            >
+              Full Time Roles
+            </span>
           </button>
         </div>
 
         {/* Job Listings Header */}
-        <p className="text-white/80 mb-6 font-normal text-2xl">
+        <p
+          className="text-neutral-600 mb-8 font-light text-xs md:text-sm tracking-wide"
+          style={{ fontFamily: "sans-serif" }}
+        >
           Showing 1–{jobs.length} Results Out Of Total {jobs.length} Open Jobs...
         </p>
 
         {/* Job Listings */}
         <div className="space-y-8">
           {jobs.map((job, index) => (
-            <div key={index} className="border-b border-white/30 pb-4">
-              <p className="text-xs text-white/60 mb-1">
+            <div key={index} className="border-b border-white/20 pb-4">
+              <p
+                className="text-xs text-neutral-600 font-light mb-2"
+                style={{ fontFamily: "sans-serif" }}
+              >
                 {activeTab === "internships"
                   ? "Early Career Program Intern • Live and Work Anywhere"
                   : "Full-Time • Onsite or Hybrid"}
               </p>
-              <div className="flex justify-between items-center">
-                <h3 className="text-lg md:text-xl font-light">{job.title}</h3>
+              <div className="flex justify-between items-center text-left">
+                <h3
+                  className="text-lg md:text-xl font-bold text-white"
+                  style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+                >
+                  {job.title}
+                </h3>
                 <button
                   onClick={() => handleToggle(index)}
-                  className="flex items-center space-x-2 text-white/60 hover:text-white transition text-sm"
+                  className="flex items-center space-x-2 text-white/50 hover:text-white transition text-[10px] uppercase tracking-wider"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4" />
                   <span>{openIndex === index ? "Hide Info" : "More Info"}</span>
                 </button>
               </div>
 
               {/* Expandable Description */}
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out mt-4 text-gray-400 ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
+                className={`overflow-hidden transition-all duration-500 ease-in-out mt-4 ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
               >
-                <p className="text-sm">{job.description}</p>
+                <p
+                  className="text-sm font-light leading-relaxed text-neutral-500 pb-4"
+                  style={{ fontFamily: "sans-serif" }}
+                >
+                  {job.description}
+                </p>
               </div>
             </div>
           ))}
