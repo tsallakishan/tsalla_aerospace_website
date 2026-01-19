@@ -9,11 +9,10 @@ import TeamsSection from "./components/TeamsSection"
 import HomeCareers2 from "./components/HomeCareers2"
 import HomeFounder from "./components/HomeFounder"
 import HomeHiringProcess from "./components/HomeHiringProcess"
+import OpposingMotionReveal from "./components/OpposingMotionReveal"
 
 import HiringProcess from "./components/HiringProcess"
 import InnovationSection from "./components/InnovationSection"
-
-
 
 export default function CareersPage() {
   useEffect(() => {
@@ -34,6 +33,7 @@ export default function CareersPage() {
   return (
     <main className="bg-black text-white font-[Farro]">
       <HomeCareersSection />
+      <OpposingMotionReveal />
       <HomeCareers2 />
       <HiringProcess />
       <ValuesSection />
