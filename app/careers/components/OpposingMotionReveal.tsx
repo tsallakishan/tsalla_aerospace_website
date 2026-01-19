@@ -52,10 +52,10 @@ const OpposingMotionReveal = () => {
         offset: ["start start", "end end"]
     })
 
-    // Ultimate "Slower & Sexier" weighted spring physics
+    // Faster, snappier transitions
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 20, // Extremely weighted, cinematic feel
-        damping: 28,  // Soft, luxurious settlement
+        stiffness: 40, // Increased from 20 for faster response
+        damping: 30,
         restDelta: 0.001
     })
 
@@ -67,9 +67,9 @@ const OpposingMotionReveal = () => {
                     const start = index * sectionSize
                     const end = (index + 1) * sectionSize
 
-                    // Transition timings
-                    const entryDone = start + sectionSize * 0.25
-                    const exitStart = end - sectionSize * 0.25
+                    // Transition timings - snappier window
+                    const entryDone = start + sectionSize * 0.15
+                    const exitStart = end - sectionSize * 0.15
 
                     // Consistently use [start, entryDone, exitStart, end] for all phases
                     const entranceValues = [start, entryDone, exitStart, end]
@@ -109,34 +109,39 @@ const OpposingMotionReveal = () => {
                         [0.65, 1, 1, 0.65]
                     )
 
-                    const isEven = index % 2 === 1
+                    const isRepeat = item.title === "Repeat"
 
                     return (
                         <motion.div
                             key={index}
                             style={{ opacity }}
-                            className={`absolute inset-0 w-full h-full flex flex-col items-center justify-center px-6 md:px-12 lg:px-20 py-12 bg-white ${isEven ? "md:flex-row-reverse" : "md:flex-row"
-                                }`}
+                            className={`absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12 transition-colors duration-500 ${isRepeat ? "bg-black" : "bg-white"}`}
                         >
                             {/* Text Column - 30% Width */}
                             <motion.div
-                                style={{ y: textY, scale, filter }}
-                                className={`w-full md:w-[30%] flex flex-col justify-center gap-6 z-10 ${isEven ? "items-end text-right" : "items-start text-left"
-                                    }`}
+                                style={{ scale, filter }}
+                                className="w-full md:w-[30%] flex flex-col justify-center gap-2 z-10 items-start text-left"
                             >
-                                <h2
-                                    className="text-6xl md:text-7xl lg:text-8xl font-bold text-[#1a1a1a] uppercase leading-none tracking-tighter"
-                                    style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
-                                >
-                                    {item.title}
-                                </h2>
-                                <div className="w-16 h-1 bg-[#5ce1e6]" />
-                                <p
-                                    className="text-lg md:text-xl lg:text-2xl font-light text-neutral-600 max-w-xl leading-relaxed"
-                                    style={{ fontFamily: "sans-serif" }}
-                                >
-                                    {item.description}
-                                </p>
+                                <div className="flex flex-col gap-0">
+                                    <span className="text-[#5ce1e6] text-xl md:text-2xl font-bold uppercase tracking-widest font-clash relative -top-16">
+                                        How we work
+                                    </span>
+                                    <h2
+                                        className={`text-6xl md:text-7xl lg:text-8xl font-bold uppercase leading-none tracking-tighter ${isRepeat ? "text-white" : "text-[#1a1a1a]"}`}
+                                        style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
+                                    >
+                                        {item.title}
+                                    </h2>
+                                </div>
+                                <div className="flex flex-col gap-4">
+                                    <div className="w-16 h-1 bg-[#5ce1e6]" />
+                                    <p
+                                        className={`text-lg md:text-xl lg:text-2xl font-light max-w-xl leading-relaxed ${isRepeat ? "text-neutral-300" : "text-neutral-600"}`}
+                                        style={{ fontFamily: "sans-serif" }}
+                                    >
+                                        {item.description}
+                                    </p>
+                                </div>
                             </motion.div>
 
                             {/* Image Column - 70% Width */}
