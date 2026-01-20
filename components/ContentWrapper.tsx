@@ -9,7 +9,7 @@ interface ContentWrapperProps {
 }
 
 const ContentWrapper: React.FC<ContentWrapperProps> = ({ children, className = "" }) => {
-  return <div className={`w-full px-6 md:px-12 xl:px-24 max-w-[90rem] mx-auto ${className}`}>{children}</div>
+  return <div className={`w-full px-6 md:px-12 xl:px-24 2xl:max-w-[100rem] 3xl:max-w-[120rem] uw:max-w-[150rem] max-w-[90rem] mx-auto ${className}`}>{children}</div>
 }
 
 // Adding both named and default exports to support different import styles

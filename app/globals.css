@@ -444,7 +444,7 @@ video[data-loading="true"] {
 @keyframes planeFlyDown {
   0% {
     opacity: 0;
-    transform: translateY(-500px) scale(0.3);
+    transform: translateY(-31.25rem) scale(0.3);
   }
 
   70% {
@@ -464,11 +464,11 @@ video[data-loading="true"] {
   }
 
   100% {
-    transform: translateX(-50px);
+    transform: translateX(-3.125rem);
   }
 }
 
-/* Desktop logo move - larger offset */
+/* Desktop logo move - slightly more offset */
 @media (min-width: 768px) {
   @keyframes logoMoveLeft {
     0% {
@@ -476,7 +476,20 @@ video[data-loading="true"] {
     }
 
     100% {
-      transform: translateX(-80px);
+      transform: translateX(-4.4rem);
+    }
+  }
+}
+
+/* Ultra-wide logo move - adjusted for scaling */
+@media (min-width: 1575px) {
+  @keyframes logoMoveLeft {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-4.8rem);
     }
   }
 }
@@ -484,7 +497,7 @@ video[data-loading="true"] {
 @keyframes textRevealRight {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-1.875rem);
   }
 
   to {

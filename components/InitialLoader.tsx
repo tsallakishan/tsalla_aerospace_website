@@ -46,7 +46,7 @@ export default function InitialLoader() {
                             />
 
                             <div
-                                className="absolute text-left ml-[3.5rem] md:ml-4 lg:ml-16 xl:ml-24"
+                                className="absolute text-left ml-[3.5rem] md:ml-12 lg:ml-16"
                                 style={{
                                     animation: "textRevealRight 1s ease-out 2.5s forwards",
                                     opacity: 0,

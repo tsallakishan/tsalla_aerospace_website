@@ -21,7 +21,7 @@ const App = () => {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col justify-end h-full px-4 sm:px-6 md:px-12 lg:px-20 pb-12 sm:pb-16 md:pb-24 lg:pb-28">
-          <div className="flex flex-col md:flex-row w-full justify-between items-start md:items-end gap-10 max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row w-full justify-between items-start md:items-end gap-10 max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto">
             {/* Left: Headline */}
             <div className="text-left w-full md:w-1/2">
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-tight tracking-tight font-semibold py-0 my-0 px-0 mx-0">

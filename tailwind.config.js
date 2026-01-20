@@ -16,10 +16,16 @@ module.exports = {
       padding: "2rem",
       screens: {
         "2xl": "87.5rem",
+        "3xl": "112.5rem",   // 1800px
+        "uw": "156.25rem",  // 2500px
       },
     },
 
     extend: {
+      screens: {
+        "3xl": "112.5rem",   // 1800px
+        "uw": "156.25rem",  // 2500px
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

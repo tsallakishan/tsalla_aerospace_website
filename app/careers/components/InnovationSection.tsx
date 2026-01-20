@@ -56,7 +56,7 @@ export default function InnovationSection() {
                     </div>
                 </div>
 
-                <div className="h-[500px] w-full border border-neutral-200">
+                <div className="h-[500px] 2xl:h-[600px] 3xl:h-[700px] w-full border border-neutral-200">
                     <FlowingMenu
                         items={items}
                         textColor="#000"

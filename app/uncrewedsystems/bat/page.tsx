@@ -10,6 +10,8 @@ import BatLaunchSequence from "./components/BatLaunchSequence"
 import BatPayLoad1 from "./components/BatPayLoad1"
 import BatPayLoad2 from "./components/BatPayLoad2"
 import BatPayLoad3 from "./components/BatPayLoad3"
+import BatCurtainReveal from "./components/BatCurtainReveal"
+
 
 
 
@@ -24,7 +26,9 @@ export default function BatPage() {
   return (
     <PageWrapper>
       <BatHero />
-      <BatCapabilities />
+      <BatCurtainReveal />
+      {/* <BatCapabilities /> */}
+
       <BatSpecifications />
       <BatMission />
       <BatLaunchSequence />

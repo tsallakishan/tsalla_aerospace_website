@@ -31,7 +31,6 @@ const InsideTsallaAerospace = () => {
   // Dynamic range based on viewport width
   // We want to translate such that the 6th card is fully visible and then "rests"
   const [xRange, setXRange] = useState("-250vw")
-
   useEffect(() => {
     const updateRange = () => {
       const width = window.innerWidth
@@ -39,9 +38,13 @@ const InsideTsallaAerospace = () => {
         setXRange("-550vw")
       } else if (width < 1200) {
         setXRange("-350vw")
+      } else if (width > 2500) {
+        // Ultra-wide screens (21:9)
+        // Since content fits more easily, we need a larger translation to ensure 
+        // horizontal travel doesn't end prematurely.
+        setXRange("-280vw")
       } else {
         // For desktop, translate enough to see all cards and title
-        // Title (100vw) + ~150vw of cards
         setXRange("-210vw")
       }
     }
@@ -130,7 +133,7 @@ const InsideTsallaAerospace = () => {
                 <div className="relative">
                   {/* CARD UI */}
                   <div
-                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] bg-[#fafafa] px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative transition-all duration-300"
+                    className="w-[280px] h-[380px] md:w-[410px] md:h-[560px] uw:w-[25.625rem] uw:h-[35rem] bg-[#fafafa] px-6 md:px-8 pb-6 md:pb-8 pt-12 md:pt-20 border border-gray-200 flex flex-col justify-start relative transition-all duration-300 shadow-sm"
                   >
                     {/* Top Left Corner */}
                     <div

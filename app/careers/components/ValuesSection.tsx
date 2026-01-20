@@ -61,7 +61,7 @@ export default function ValuesSection() {
   return (
     <section className="bg-black text-white py-16 font-clash">
       <ContentWrapper>
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto grid md:grid-cols-2 gap-8 items-center">
           {/* Left: Heading and description */}
           <div>
             <h2 className="text-white mb-4 uppercase tracking-widest text-4xl font-semibold font-clash">Our Key Values</h2>

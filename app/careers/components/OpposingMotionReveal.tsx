@@ -100,7 +100,7 @@ const OpposingMotionReveal = () => {
                         <motion.div
                             key={index}
                             style={{ opacity }}
-                            className={`absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 py-12 transition-colors duration-500 ${isRepeat ? "bg-black" : "bg-white"}`}
+                            className={`absolute inset-0 w-full h-full flex flex-col md:flex-row items-center justify-center px-6 md:px-12 lg:px-20 3xl:px-32 uw:px-48 py-12 transition-colors duration-500 ${isRepeat ? "bg-black" : "bg-white"}`}
                         >
                             {/* Text Column - 30% Width */}
                             <motion.div

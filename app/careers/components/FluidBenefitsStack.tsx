@@ -193,7 +193,7 @@ export default function FluidBenefitsStack() {
     return (
         <section className="relative bg-black py-32 md:py-40 overflow-hidden">
             {/* Header */}
-            <div className="max-w-7xl mx-auto px-6 relative z-10 mb-20 text-center">
+            <div className="max-w-7xl 3xl:max-w-[100rem] mx-auto px-6 relative z-10 mb-20 text-center">
                 <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -225,8 +225,8 @@ export default function FluidBenefitsStack() {
             </div>
 
             {/* Fluid Card Stack */}
-            <div className="max-w-5xl mx-auto px-6">
-                <div className="flex gap-4 h-[540px]">
+            <div className="max-w-5xl 2xl:max-w-7xl 3xl:max-w-[100rem] mx-auto px-6">
+                <div className="flex gap-2 md:gap-3 2xl:gap-4 h-[540px]">
                     {perksData.map((card, index) => (
                         <FluidCard
                             key={index}
