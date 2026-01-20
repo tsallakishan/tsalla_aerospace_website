@@ -70,25 +70,6 @@ const STATIC_PRODUCTS: Product[] = [
         glitchEffect: false,
         features: [],
         href: "/uncrewedsystems/storm"
-    },
-    {
-        id: 5,
-        tag: "Drone Management Software",
-        title: "liveOps",
-        description: "Unified Drone Operations",
-        imageUrl: "/images/drone/controller.png",
-        isWide: true,
-        animationType: "hud",
-        glitchEffect: false,
-        features: [
-            "Teleoperations",
-            "Livestreaming",
-            "2-way Comms",
-            "Evidence Management",
-            "Manage Teams & Devices",
-            "API integrations"
-        ],
-        href: "/maverick"
     }
 ];
 
@@ -96,12 +77,12 @@ const STATIC_PRODUCTS: Product[] = [
 
 const HUDLines = () => (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
-        <div className="absolute top-4 left-4 w-12 h-12 border-t border-l" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
-        <div className="absolute top-4 right-4 w-12 h-12 border-t border-r" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
-        <div className="absolute bottom-4 left-4 w-12 h-12 border-b border-l" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
-        <div className="absolute bottom-4 right-4 w-12 h-12 border-b border-r" style={{borderColor: '#5ce1e6', opacity: 0.4}} />
-        <div className="absolute top-1/2 left-0 w-full h-[1px]" style={{background: '#5ce1e6', opacity: 0.1}} />
-        <div className="absolute left-1/2 top-0 w-[1px] h-full" style={{background: '#5ce1e6', opacity: 0.1}} />
+        <div className="absolute top-4 left-4 w-12 h-12 border-t border-l" style={{ borderColor: '#5ce1e6', opacity: 0.4 }} />
+        <div className="absolute top-4 right-4 w-12 h-12 border-t border-r" style={{ borderColor: '#5ce1e6', opacity: 0.4 }} />
+        <div className="absolute bottom-4 left-4 w-12 h-12 border-b border-l" style={{ borderColor: '#5ce1e6', opacity: 0.4 }} />
+        <div className="absolute bottom-4 right-4 w-12 h-12 border-b border-r" style={{ borderColor: '#5ce1e6', opacity: 0.4 }} />
+        <div className="absolute top-1/2 left-0 w-full h-[1px]" style={{ background: '#5ce1e6', opacity: 0.1 }} />
+        <div className="absolute left-1/2 top-0 w-[1px] h-full" style={{ background: '#5ce1e6', opacity: 0.1 }} />
     </div>
 );
 
@@ -235,7 +216,7 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
                 perspective: 1000,
                 willChange: "transform, opacity"
             }}
-            className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 hover:border-white/40 transition-all duration-500 shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"
+            className="group relative aspect-[3/4] overflow-hidden rounded-xl bg-[#0a0a0a] border border-white/20 hover:border-white/40 transition-all duration-500 shadow-[inset_0_0_30px_rgba(255,255,255,0.05)]"
         >
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
             <motion.img
@@ -286,8 +267,8 @@ function ProductCard({ product, index }: { product: Product; index: number }) {
 
 export default function ProductSection() {
     return (
-        <section className="bg-[#050505] text-white" style={{ WebkitUserSelectAll: 'rgba(92, 225, 230, 0.3)' }}>
-            <div className="max-w-5xl mx-auto px-6 py-24">
+        <section className="bg-[#101010] text-white">
+            <div className="max-w-7xl 2xl:max-w-[90rem] 3xl:max-w-[110rem] mx-auto px-6 pt-12 pb-24">
 
                 {/* Header Section */}
                 <div className="text-center mb-8 space-y-4">
@@ -305,7 +286,7 @@ export default function ProductSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-3xl md:text-4xl font-bold tracking-tighter uppercase leading-[0.9]"
+                        className="text-3xl md:text-5xl font-bold tracking-tighter uppercase leading-[0.9]"
                         style={{ fontFamily: "'ClashGrotesk Bold (.eot)', sans-serif" }}
                     >
                         <span style={{ color: '#5ce1e6' }}>Autonomy</span> Without<br />
@@ -323,8 +304,8 @@ export default function ProductSection() {
                     </motion.p>
                 </div>
 
-                {/* Grid Layout */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Grid Layout - 4 columns in a row */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {STATIC_PRODUCTS.map((product, index) => (
                         <ProductCard
                             key={product.id}

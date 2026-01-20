@@ -1,16 +1,20 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
+import { useGLTF, Environment, OrbitControls } from "@react-three/drei";
 
 const PHASES = [
     {
         number: "01",
         title: "LRV TRANSITIONS TO VERTICAL POSITION",
         description: "The Launch Recovery Vehicle (LRV) prepares for departure by tilting to the optimal vertical launch angle.",
-        drone: { pos: { left: 12, top: 68 }, rotateX: 0, rotateY: 0, rotateZ: -2, size: 290 },
+        drone: { pos: { left: 20, top: 28 }, rotateX: 4, rotateY: -32, rotateZ: -7, size: 1190 },
         panelPosition: { bottom: "300px", left: "60px" },
         numberPosition: { top: "-48px", left: "-6px" },
+        allowInteraction: false,
+        camera: { position: [0.1, 1.41, 4.29], rotation: [-18.3, 1.2, 0.4], fov: 45 }
     },
     {
         number: "02",
@@ -42,7 +46,8 @@ const PHASES = [
         waypointConfig: {
             size: 0.4,
             opacity: 0.8
-        }
+        },
+        allowInteraction: false
     },
     {
         number: "03",
@@ -87,7 +92,8 @@ const PHASES = [
                 lineConfig: { strokeWidth: 0.2, strokeDasharray: "0.4,0.4", opacity: 0.4 },
                 waypointConfig: { size: 0.4, opacity: 0.4 }
             }
-        ]
+        ],
+        allowInteraction: false
     },
     {
         number: "04",
@@ -102,6 +108,7 @@ const PHASES = [
             { left: 60, top: 45 },
             { left: 80, top: 30 },
         ],
+        allowInteraction: false
     },
     {
         number: "05",
@@ -116,6 +123,7 @@ const PHASES = [
             { left: 82.5, top: 42.5 },
             { left: 85, top: 55 },
         ],
+        allowInteraction: false
     },
     {
         number: "06",
@@ -130,15 +138,17 @@ const PHASES = [
             { left: 52.5, top: 67.5 },
             { left: 20, top: 80 },
         ],
+        allowInteraction: false
     },
     {
         number: "",
         title: "From Road to Air in Minutes",
         description: "Rapid deployment and recovery capabilities for modern battlefield tactical advantage.",
-        drone: { pos: { left: 50, top: 50 }, rotate: 0, size: 0 },
+        drone: { pos: { left: 50, top: 50 }, rotateX: 0, rotateY: 0, rotateZ: 0, rotate: 0, size: 0 },
         panelPosition: { bottom: "80px", left: "50px" },
         numberPosition: { top: "-48px", left: "-16px" },
         isSummary: true,
+        allowInteraction: true
     },
 ];
 
@@ -146,6 +156,15 @@ export default function BatLaunchSequence() {
     const [currentPhase, setCurrentPhase] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    // Debug state
+    const [overrides, setOverrides] = useState<any>(null);
+    const [cameraStats, setCameraStats] = useState({ pos: { x: 0, y: 0, z: 5 }, rot: { x: 0, y: 0, z: 0 } });
+
+    // Sync overrides when phase changes
+    useEffect(() => {
+        setOverrides(null);
+    }, [currentPhase]);
 
     // Handle scroll to advance phases
     useEffect(() => {
@@ -186,6 +205,23 @@ export default function BatLaunchSequence() {
     }, [currentPhase, isAnimating]);
 
     const activePhase = PHASES[currentPhase];
+
+    // Determine current drone props (either phase default or overridden)
+    const currentDrone = overrides || {
+        left: activePhase.drone.pos.left,
+        top: activePhase.drone.pos.top,
+        size: activePhase.drone.size,
+        rotateX: activePhase.drone.rotateX || 0,
+        rotateY: activePhase.drone.rotateY || 0,
+        rotateZ: activePhase.drone.rotateZ || 0,
+    };
+
+    const handleOverrideChange = (key: string, value: number) => {
+        setOverrides((prev: any) => ({
+            ...currentDrone, // Ensure we start with complete current state
+            [key]: value
+        }));
+    };
 
     return (
         <div
@@ -314,22 +350,35 @@ export default function BatLaunchSequence() {
                     layoutId="drone"
                     className="absolute z-5"
                     animate={{
-                        left: `${activePhase.drone.pos.left}%`,
-                        top: `${activePhase.drone.pos.top}%`,
-                        rotateX: activePhase.drone.rotateX || 0,
-                        rotateY: activePhase.drone.rotateY || 0,
-                        rotateZ: activePhase.drone.rotateZ || 0,
+                        left: `${currentDrone.left}%`,
+                        top: `${currentDrone.top}%`,
+                        rotateX: currentDrone.rotateX,
+                        rotateY: currentDrone.rotateY,
+                        rotateZ: currentDrone.rotateZ,
                         x: "-50%",
                         y: "-50%",
+                        width: currentDrone.size,
+                        height: currentDrone.size,
                     }}
-                    transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
+                    transition={overrides ? { duration: 0 } : { duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
                 >
-                    <img
-                        src="/images/Bat/Bat.png"
-                        alt="X-BAT Drone"
-                        style={{ width: `${activePhase.drone.size}px`, height: 'auto' }}
-                        className="drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]"
-                    />
+                    <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+                        <ambientLight intensity={0.5} />
+                        <Environment preset="city" />
+                        <Suspense fallback={null}>
+                            <Model scale={[0.8, 0.8, 0.8]} />
+                        </Suspense>
+                        <OrbitControls
+                            enabled={activePhase.allowInteraction}
+                            enableZoom={activePhase.allowInteraction}
+                            enablePan={activePhase.allowInteraction}
+                            enableRotate={activePhase.allowInteraction}
+                        />
+                        <CameraController
+                            activePhase={activePhase}
+                            onUpdate={setCameraStats}
+                        />
+                    </Canvas>
                 </motion.div>
             )}
 
@@ -415,9 +464,128 @@ export default function BatLaunchSequence() {
                 </div>
                 <div className="text-[12px] text-[#666]">Scroll to continue</div>
             </div>
+
+            {/* DEBUG PANEL - Position/Rotation/Size Editor */}
+            <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 bg-black/80 border border-gray-800 p-4 rounded-lg z-50 flex gap-6 text-[10px] items-end backdrop-blur-md">
+                <div className="flex flex-col gap-2">
+                    <div className="text-cyan-400 font-bold mb-1">POSITION (x: left%, y: top%)</div>
+                    <label className="flex items-center gap-2">
+                        <span className="w-4">X</span>
+                        <input type="range" min="0" max="100" step="0.5" value={currentDrone.left} onChange={(e) => handleOverrideChange("left", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <span className="w-8 text-right font-mono">{currentDrone.left}</span>
+                    </label>
+                    <label className="flex items-center gap-2">
+                        <span className="w-4">Y</span>
+                        <input type="range" min="0" max="100" step="0.5" value={currentDrone.top} onChange={(e) => handleOverrideChange("top", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <span className="w-8 text-right font-mono">{currentDrone.top}</span>
+                    </label>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <div className="text-cyan-400 font-bold mb-1">ROTATION (deg)</div>
+                    <label className="flex items-center gap-2">
+                        <span className="w-4">X</span>
+                        <input type="range" min="-180" max="180" step="1" value={currentDrone.rotateX} onChange={(e) => handleOverrideChange("rotateX", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <input type="number" value={currentDrone.rotateX} onChange={(e) => handleOverrideChange("rotateX", parseFloat(e.target.value))} className="w-12 bg-transparent border-b border-gray-600 font-mono text-right" />
+                    </label>
+                    <label className="flex items-center gap-2">
+                        <span className="w-4">Y</span>
+                        <input type="range" min="-180" max="180" step="1" value={currentDrone.rotateY} onChange={(e) => handleOverrideChange("rotateY", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <input type="number" value={currentDrone.rotateY} onChange={(e) => handleOverrideChange("rotateY", parseFloat(e.target.value))} className="w-12 bg-transparent border-b border-gray-600 font-mono text-right" />
+                    </label>
+                    <label className="flex items-center gap-2">
+                        <span className="w-4">Z</span>
+                        <input type="range" min="-180" max="180" step="1" value={currentDrone.rotateZ} onChange={(e) => handleOverrideChange("rotateZ", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <input type="number" value={currentDrone.rotateZ} onChange={(e) => handleOverrideChange("rotateZ", parseFloat(e.target.value))} className="w-12 bg-transparent border-b border-gray-600 font-mono text-right" />
+                    </label>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                    <div className="text-cyan-400 font-bold mb-1">SIZE (px)</div>
+                    <label className="flex items-center gap-2">
+                        <span className="w-8">Size</span>
+                        <input type="range" min="50" max="1500" step="10" value={currentDrone.size} onChange={(e) => handleOverrideChange("size", parseFloat(e.target.value))} className="w-24 accent-white" />
+                        <input type="number" value={currentDrone.size} onChange={(e) => handleOverrideChange("size", parseFloat(e.target.value))} className="w-12 bg-transparent border-b border-gray-600 font-mono text-right" />
+                    </label>
+                </div>
+
+                {/* NEW CAMERA STATS SECTION */}
+                <div className="flex flex-col gap-1 border-l border-gray-700 pl-4 ml-2">
+                    <div className="text-yellow-400 font-bold mb-1">CAMERA VIEW</div>
+                    <div className="grid grid-cols-2 gap-x-4 gap-y-1 font-mono text-gray-400">
+                        <span>P.X: {cameraStats.pos.x}</span>
+                        <span>R.X: {cameraStats.rot.x}°</span>
+
+                        <span>P.Y: {cameraStats.pos.y}</span>
+                        <span>R.Y: {cameraStats.rot.y}°</span>
+
+                        <span>P.Z: {cameraStats.pos.z}</span>
+                        <span>R.Z: {cameraStats.rot.z}°</span>
+                    </div>
+                </div>
+
+                <div className="h-full flex items-end pb-1 text-xs text-gray-500">
+                    Phase {currentPhase + 1}
+                </div>
+            </div>
         </div >
     );
 }
+
+// Helper to control and log camera
+function CameraController({ activePhase, onUpdate }: { activePhase: any, onUpdate: (stats: any) => void }) {
+    const { camera } = useThree();
+    const frameCount = useRef(0);
+
+    // Update camera position if phase provides a specific camera config
+    useEffect(() => {
+        if (activePhase.camera && activePhase.camera.position) {
+            camera.position.set(
+                activePhase.camera.position[0],
+                activePhase.camera.position[1],
+                activePhase.camera.position[2]
+            );
+            camera.updateProjectionMatrix();
+        } else {
+            // Default view if no specific camera config
+            camera.position.set(0, 0, 5);
+            camera.rotation.set(0, 0, 0);
+            camera.updateProjectionMatrix();
+        }
+    }, [activePhase, camera]); // Update when phase changes
+
+    useFrame(() => {
+        frameCount.current++;
+        if (frameCount.current % 10 === 0) {
+            onUpdate({
+                pos: {
+                    x: parseFloat(camera.position.x.toFixed(2)),
+                    y: parseFloat(camera.position.y.toFixed(2)),
+                    z: parseFloat(camera.position.z.toFixed(2))
+                },
+                rot: {
+                    x: parseFloat((camera.rotation.x * 180 / Math.PI).toFixed(1)),
+                    y: parseFloat((camera.rotation.y * 180 / Math.PI).toFixed(1)),
+                    z: parseFloat((camera.rotation.z * 180 / Math.PI).toFixed(1))
+                }
+            });
+        }
+    });
+    return null;
+}
+
+// Model component from user, path fixed and simplified to avoid node name mismatches
+export function Model(props: any) {
+    const { scene } = useGLTF('/model/BATMAN.glb')
+    return (
+        <group {...props} dispose={null}>
+            {/* Applying the rotation to show side view (90 deg Y-rotation) instead of bottom view */}
+            <primitive object={scene} rotation={[0, Math.PI / 2, 0]} />
+        </group>
+    )
+}
+
+useGLTF.preload('/model/BATMAN.glb')
 
 // Helper to generate SVG path string from waypoints using 0-100 coordinates
 function generatePath(waypoints: { left: number, top: number }[]) {
