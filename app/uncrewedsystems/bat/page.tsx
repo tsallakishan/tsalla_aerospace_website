@@ -6,6 +6,7 @@ import BatSpecifications from "./components/BatSpecifications"
 import BatLast from "./components/BatLast"
 import BatFeatures from "./components/BatFeatures"
 import BatMission from "./components/BatMission"
+import BatLaunchSequence from "./components/BatLaunchSequence"
 import BatPayLoad1 from "./components/BatPayLoad1"
 import BatPayLoad2 from "./components/BatPayLoad2"
 import BatPayLoad3 from "./components/BatPayLoad3"
@@ -25,11 +26,12 @@ export default function BatPage() {
       <BatHero />
       <BatCapabilities />
       <BatSpecifications />
-      <BatMission/>
-       <BatPayLoad2/>
-      <BatPayLoad1/>
-      <BatPayLoad3/>
-      <BatFeatures/>
+      <BatMission />
+      <BatLaunchSequence />
+      <BatPayLoad2 />
+      <BatPayLoad1 />
+      <BatPayLoad3 />
+      <BatFeatures />
       <BatLast />
     </PageWrapper>
   )

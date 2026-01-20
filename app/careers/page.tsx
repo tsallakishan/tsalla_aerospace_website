@@ -3,7 +3,7 @@
 import Image from "next/image"
 import { useEffect } from "react"
 import HomeCareersSection from "./components/HomeCareersSection"
-import MissionSection from "./components/MissionSection"
+import FluidBenefitsStack from "./components/FluidBenefitsStack"
 import ValuesSection from "./components/ValuesSection"
 import TeamsSection from "./components/TeamsSection"
 import HomeCareers2 from "./components/HomeCareers2"
@@ -38,7 +38,7 @@ export default function CareersPage() {
       <HiringProcess />
       <ValuesSection />
       <HomeFounder />
-      <MissionSection />
+      <FluidBenefitsStack />
       <HomeHiringProcess />
       <TeamsSection />
       <InnovationSection />

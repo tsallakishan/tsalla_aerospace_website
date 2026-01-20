@@ -81,32 +81,17 @@ const OpposingMotionReveal = () => {
                         ["140vh", "0vh", "0vh", "-140vh"]
                     )
 
-                    // Image motion: slide DOWN from top (-140vh) to 0, then exit DOWN
-                    const imageY = useTransform(
+                    // Image motion: slide in from right
+                    const imageX = useTransform(
                         smoothProgress,
                         entranceValues,
-                        ["-140vh", "0vh", "0vh", "140vh"]
+                        ["200px", "0px", "0px", "-200px"]
                     )
 
                     const opacity = useTransform(
                         smoothProgress,
                         entranceValues,
                         [0, 1, 1, 0]
-                    )
-
-                    // Cinematic Blur Effect: Clearing as it enters, blurring as it exits
-                    const blurValue = useTransform(
-                        smoothProgress,
-                        entranceValues,
-                        [20, 0, 0, 20]
-                    )
-                    const filter = useTransform(blurValue, (v) => `blur(${v}px)`)
-
-                    // Breathing Scale Effect: Blossoming into focus
-                    const scale = useTransform(
-                        smoothProgress,
-                        entranceValues,
-                        [0.65, 1, 1, 0.65]
                     )
 
                     const isRepeat = item.title === "Repeat"
@@ -119,11 +104,10 @@ const OpposingMotionReveal = () => {
                         >
                             {/* Text Column - 30% Width */}
                             <motion.div
-                                style={{ scale, filter }}
                                 className="w-full md:w-[30%] flex flex-col justify-center gap-2 z-10 items-start text-left"
                             >
                                 <div className="flex flex-col gap-0">
-                                    <span className="text-[#5ce1e6] text-xl md:text-2xl font-bold uppercase tracking-widest font-clash relative -top-16">
+                                    <span className="text-[#000000] text-xl md:text-2xl font-bold uppercase tracking-widest font-clash relative -top-16 left-1.5">
                                         How we work
                                     </span>
                                     <h2
@@ -146,7 +130,7 @@ const OpposingMotionReveal = () => {
 
                             {/* Image Column - 70% Width */}
                             <motion.div
-                                style={{ y: imageY, scale, filter }}
+                                style={{ x: imageX }}
                                 className="w-full md:w-[70%] h-[70vh] md:h-full relative flex items-center justify-center px-4 md:px-6 lg:px-10 py-4 md:py-2 mb-8 md:mb-0"
                             >
                                 <div className="relative w-full h-full md:h-[95%] overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] rounded-sm grayscale hover:grayscale-0 transition-all duration-1000">
