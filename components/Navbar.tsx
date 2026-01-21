@@ -366,7 +366,7 @@ export default function Navbar() {
                     `}
                   >
                     <span
-                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#5ce1e6]" : "text-white hover:text-[#5ce1e6]"
+                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#0b4a9a]" : "text-white hover:text-[#0b4a9a]"
                         }`}
                     >
                       {item.name}

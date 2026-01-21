@@ -6,15 +6,11 @@ import BatSpecifications from "./components/BatSpecifications"
 import BatLast from "./components/BatLast"
 import BatFeatures from "./components/BatFeatures"
 import BatMission from "./components/BatMission"
-import BatLaunchSequence from "./components/BatLaunchSequence"
+import Bat3DSequence from "./components/Bat3DSequence"
 import BatPayLoad1 from "./components/BatPayLoad1"
 import BatPayLoad2 from "./components/BatPayLoad2"
 import BatPayLoad3 from "./components/BatPayLoad3"
 import BatCurtainReveal from "./components/BatCurtainReveal"
-
-
-
-
 
 
 export const metadata: Metadata = {
@@ -31,11 +27,12 @@ export default function BatPage() {
 
       <BatSpecifications />
       <BatMission />
-      <BatLaunchSequence />
+
       <BatPayLoad2 />
       <BatPayLoad1 />
       <BatPayLoad3 />
       <BatFeatures />
+      <Bat3DSequence />
       <BatLast />
     </PageWrapper>
   )
