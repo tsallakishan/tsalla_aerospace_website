@@ -1,100 +1,62 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
-import Image from "next/image";
+import { FeatureSteps } from "@/components/ui/feature-section";
 
-// Updated images array to include inspiring words for each slide
-const slideContent = [
+// Updated data for OurStory using the FeatureSteps component
+const storyContent = [
   {
-    src: "https://img.freepik.com/premium-photo/man-operating-drone-with-remote-control-silhouette-against-colorful-sunset_2379-1187.jpg?w=2000",
-    text: "Innovation takes flight. Our journey began with a vision to redefine autonomous systems.",
+    step: "Chapter 1",
+    title: "Innovation Takes Flight",
+    content: "Our journey began with a vision to redefine autonomous systems. From humble beginnings in Bangalore, we assembled a team of passionate aerospace engineers dedicated to revolutionizing the industry.",
+    image: "https://img.freepik.com/premium-photo/man-operating-drone-with-remote-control-silhouette-against-colorful-sunset_2379-1187.jpg?w=2000",
   },
   {
-    src: "https://img.freepik.com/premium-photo/man-holding-drone-preparing-take-off_2379-1083.jpg?w=2000",
-    text: "From concept to reality, we build with precision, pushing boundaries in aerospace technology.",
+    step: "Chapter 2",
+    title: "From Concept to Reality",
+    content: "We built with precision, transforming bold ideas into cutting-edge autonomous systems. Our commitment to excellence and innovation pushed boundaries in aerospace technology, setting new standards for the industry.",
+    image: "https://img.freepik.com/premium-photo/man-holding-drone-preparing-take-off_2379-1083.jpg?w=2000",
   },
   {
-    src: "https://img.freepik.com/premium-photo/beautiful-gloomy-sunset-drone-view-kathmandu-nepal_1048944-10741804.jpg?w=2000",
-    text: "Our solutions empower missions beyond the horizon, ensuring safety and success in every endeavor.",
+    step: "Chapter 3",
+    title: "Empowering Missions",
+    content: "Our solutions empower missions beyond the horizon, ensuring safety and success in every endeavor. From surveillance to disaster management, we provide reliable platforms that make a real difference.",
+    image: "https://img.freepik.com/premium-photo/beautiful-gloomy-sunset-drone-view-kathmandu-nepal_1048944-10741804.jpg?w=2000",
   },
   {
-    src: "https://img.freepik.com/free-vector/corporate-meeting-employees-cartoon-characters-discussing-business-strategy-planning-further-actions-brainstorming-formal-communication-seminar-concept-illustration_335657-2035.jpg?t=st=1751623585~exp=1751627185~hmac=9adbc3a31eafdaa4ccfe150e",
-    text: "Collaboration fuels our progress. We believe in the power of diverse minds working towards a shared future.",
+    step: "Chapter 4",
+    title: "Collaboration Fuels Progress",
+    content: "We believe in the power of diverse minds working towards a shared future. Our team's collaborative spirit and cross-functional expertise drive continuous innovation and excellence.",
+    image: "https://img.freepik.com/free-vector/corporate-meeting-employees-cartoon-characters-discussing-business-strategy-planning-further-actions-brainstorming-formal-communication-seminar-concept-illustration_335657-2035.jpg?t=st=1751623585~exp=1751627185~hmac=9adbc3a31eafdaa4ccfe150e",
   },
   {
-    src: "https://img.freepik.com/free-photo/business-people-partnership-support-team-urban-scene-concept_53876-144834.jpg?t=st=1751623951~exp=1751627551~hmac=0679a514ae05840410419afa7b9539791be111194981eed85d96070113f80d12&w=2000",
-    text: "Together, we forge partnerships that transcend limits, building a legacy of trust and innovation.",
+    step: "Chapter 5",
+    title: "Building a Legacy",
+    content: "Together, we forge partnerships that transcend limits, building a legacy of trust and innovation. Our vision is to be the global leader in autonomous aerospace solutions, trusted by nations and enterprises worldwide.",
+    image: "https://img.freepik.com/free-photo/business-people-partnership-support-team-urban-scene-concept_53876-144834.jpg?t=st=1751623951~exp=1751627551~hmac=0679a514ae05840410419afa7b9539791be111194981eed85d96070113f80d12&w=2000",
   },
 ];
 
 export default function OurStorySlider() {
-  const [current, setCurrent] = useState(0);
-  // Removed `flip` state as it's no longer used for the new animation
-
-  const handleNext = () => {
-    setCurrent((prev) => (prev + 1) % slideContent.length);
-  };
-
-  const handlePrev = () => {
-    setCurrent((prev) => (prev - 1 + slideContent.length) % slideContent.length);
-  };
-
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Image Slider Container */}
-      {/* This div holds all images side-by-side and translates horizontally */}
-      <div
-        className="flex h-full transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${current * 100}%)` }}
-      >
-        {slideContent.map((slide, index) => (
-          <div key={index} className="relative w-full h-full flex-shrink-0">
-            <Image
-              src={slide.src}
-              alt={`Our Story Slide ${index + 1}`}
-              fill
-              className="object-cover"
-            />
-            {/* Overlay for image */}
-            <div className="absolute inset-0 bg-black bg-opacity-40" />
-          </div>
-        ))}
+    <section className="relative w-full bg-white pb-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12 md:py-16">
+        <div className="mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-black mb-4">Our Story</h2>
+          <p className="text-lg text-gray-600 max-w-2xl">
+            Discover the journey of Tsalla Aerospace Private Limited, from inception to becoming a leader in autonomous aerospace solutions.
+          </p>
+        </div>
       </div>
-
-      {/* Inspiring Words Overlay - Always displays the text for the current slide */}
-     <div className="absolute inset-0 flex items-center justify-center text-center px-8 z-10">
-  <p className="text-white text-2xl md:text-4xl font-semibold max-w-3xl leading-snug font-Inter">
-    {slideContent[current].text}
-  </p>
-</div>
-
-      {/* "OUR STORY" Heading - Positioned at bottom-left */}
-      <div className="absolute bottom-8 left-8 z-20">
-      <h1 className="text-white text-4xl md:text-6xl font-semibold font-Inter tracking-tight">
-  OUR STORY
-</h1>
-      </div>
-
-
-      {/* Arrows */}
-      <div className="absolute inset-0 z-20 flex items-center justify-between px-6 md:px-12">
-        {/* Left Arrow */}
-        <button
-          onClick={handlePrev}
-          className="bg-white bg-opacity-20 hover:bg-opacity-40 p-3 rounded-full transition"
-        >
-          <ChevronLeft className="text-white w-6 h-6" />
-        </button>
-
-        {/* Right Arrow */}
-        <button
-          onClick={handleNext}
-          className="bg-white bg-opacity-20 hover:bg-opacity-40 p-3 rounded-full transition"
-        >
-          <ChevronRight className="text-white w-6 h-6" />
-        </button>
-      </div>
+      <FeatureSteps
+        features={storyContent}
+        title=""
+        autoPlayInterval={5000}
+        imageHeight="h-[500px] md:h-[800px]"
+        className="bg-white"
+        imageContainerClassName="-mt-32 md:-mt-48"
+      />
     </section>
   );
 }
+
+

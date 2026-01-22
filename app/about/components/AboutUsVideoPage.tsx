@@ -88,10 +88,10 @@ export default function AboutUsVideoPage() {
         products={products}
         title={
           <>
-            ABOUT <span className="text-[#5ce1e6]">US</span>
+            Who We <span className="text-[#5ce1e6]">Build For</span>
           </>
         }
-        description="Discover who we are, what drives us, and the vision that guides our journey beyond the horizon."
+        description="Born from curiosity and built on expertise, we turn bold ideas into real-world impact through cutting-edge engineering."
       />
     </div>
   );

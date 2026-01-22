@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Plus } from "lucide-react";
+import { Plus, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const founders = [
   {
@@ -20,43 +21,97 @@ const founders = [
 ];
 
 export default function Founders() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleOpen = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [activeFounder, setActiveFounder] = useState<number | null>(null);
 
   return (
-    <section className="bg-white py-20 text-black">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="uppercase tracking-tight transition-all duration-700 transform font-clash text-5xl font-semibold text-center mb-12">
-          Meet Our Founders
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <section className="bg-white py-24 text-black overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-20 text-center"
+        >
+          <h2 className="text-4xl md:text-6xl font-bold  tracking-tight mb-4 uppercase text-black">
+            Meet Our <span className="text-black">Founders</span>
+          </h2>
+          <div className="w-24 h-1 bg-[#5ce1e6] mx-auto rounded-full" />
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {founders.map((founder, index) => (
-            <div key={index} className="border-b border-black/20 pb-8">
-              <div className="flex flex-col items-center">
-                <div className="w-72 h-72 relative overflow-hidden mb-6">
-                  <Image src={founder.image} alt={founder.name} fill className="object-cover" />
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="group relative"
+            >
+              {/* Card Container */}
+              <div className="relative z-10 bg-gray-50 rounded-3xl p-8 transition-all duration-500 hover:shadow-2xl hover:shadow-[#5ce1e6]/10 border border-gray-100">
+                <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                  {/* Image with 3D-like hover */}
+                  <div className="relative w-48 h-48 md:w-56 md:h-56 shrink-0 group-hover:scale-105 transition-transform duration-500">
+                    <div className="absolute inset-0 bg-[#5ce1e6] rounded-2xl rotate-6 group-hover:rotate-12 transition-transform duration-500 opacity-10" />
+                    <div className="absolute inset-0 bg-gray-200 rounded-2xl overflow-hidden shadow-xl">
+                      <Image
+                        src={founder.image}
+                        alt={founder.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-w-768px) 192px, 224px"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Info */}
+                  <div className="flex-1 space-y-4 pt-4">
+                    <div>
+                      <h3 className="text-3xl font-clash font-bold text-gray-900 mb-1">
+                        {founder.name}
+                      </h3>
+                      <p className="text-[#5ce1e6] font-medium font-clash uppercase tracking-wider text-sm">
+                        {founder.title}
+                      </p>
+                    </div>
+
+                    <p className="text-gray-600 leading-relaxed text-lg italic">
+                      &quot;{founder.bio.split(". ")[0]}.&quot;
+                    </p>
+
+                    <button
+                      onClick={() => setActiveFounder(activeFounder === index ? null : index)}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-clash font-medium hover:bg-[#5ce1e6] transition-all duration-300 shadow-lg hover:shadow-[#5ce1e6]/40"
+                    >
+                      {activeFounder === index ? <X className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                      {activeFounder === index ? "Close Bio" : "Read Full Bio"}
+                    </button>
+                  </div>
                 </div>
-                <h3 className="text-2xl font-clash font-semibold mb-2">{founder.name}</h3>
-                <p className="text-gray-600 mb-4 text-center font-clash">{founder.title}</p>
-                <button
-                  onClick={() => toggleOpen(index)}
-                  className="text-black flex items-center space-x-1 hover:text-blue-700 transition-colors"
-                >
-                  <Plus className="w-5 h-5" />
-                  <span className="font-clash">{openIndex === index ? "Hide Info" : "More Info"}</span>
-                </button>
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out mt-4 text-center text-gray-600 max-w-md mx-auto ${
-                    openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 text-center">{founder.bio}</p>
-                </div>
+
+                {/* Animated Bio Overlay */}
+                <AnimatePresence>
+                  {activeFounder === index && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="mt-8 pt-8 border-t border-gray-200">
+                        <p className="text-gray-700 text-lg leading-relaxed font-light">
+                          {founder.bio}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
-            </div>
+
+              {/* Background Accent */}
+              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#5ce1e6]/5 rounded-full blur-3xl group-hover:bg-[#5ce1e6]/10 transition-colors" />
+            </motion.div>
           ))}
         </div>
       </div>

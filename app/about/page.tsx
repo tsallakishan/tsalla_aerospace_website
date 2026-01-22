@@ -9,6 +9,8 @@ import WhatWeAreHeaded from "./components/WhatWeAreHeaded"
 import OurValues from "./components/OurValues"
 import TeamMembers from "./components/TeamMembers"
 import AwardsAndCertification from "./components/AwardsAndCertification"
+import CompanyTimeline from "./components/CompanyTimeline"
+
 
 export const metadata: Metadata = {
   title: "About - Tsalla Aerospace",
@@ -25,8 +27,10 @@ export default function AboutPage() {
       <OurMission />
       <WhatWeAreHeaded />
       <Founders />
+      <CompanyTimeline />
+      {/* <Timeline /> */}
       <OurValues />
-      {/*<TeamMembers />*/}
+      {/* <TeamMembers /> */}
       <AwardsAndCertification />
     </PageWrapper>
   )
