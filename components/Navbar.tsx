@@ -366,7 +366,7 @@ export default function Navbar() {
                     `}
                   >
                     <span
-                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#0b4a9a]" : "text-white hover:text-[#0b4a9a]"
+                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#5ce1e6]" : "text-white hover:text-[#5ce1e6]"
                         }`}
                     >
                       {item.name}
@@ -391,12 +391,35 @@ export default function Navbar() {
         <AnimatePresence>
           {activeMegaMenu && (megaMenuData as any)[activeMegaMenu] && (
             <motion.div
-              key={activeMegaMenu}
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="hidden lg:block absolute top-full left-0 right-0 bg-black border-b border-white/20 shadow-2xl z-40"
+              key="mega-menu-container"
+              initial={
+                activeMegaMenu === "/uncrewedsystems"
+                  ? { opacity: 0, scale: 0.98, translateY: -10 }
+                  : { opacity: 0, clipPath: "inset(0% 0% 100% 0%)" }
+              }
+              animate={
+                activeMegaMenu === "/uncrewedsystems"
+                  ? { opacity: 1, scale: 1, translateY: 0, clipPath: "none" }
+                  : { opacity: 1, clipPath: "inset(0% 0% 0% 0%)", scale: 1, translateY: 0 }
+              }
+              transition={{
+                duration: 0.8,
+                ease: [0.33, 1, 0.68, 1],
+              }}
+              // Smoother closing transition with lingering opacity
+              exit={{
+                opacity: 1,
+                clipPath: "inset(0% 0% 100% 0%)",
+                scale: activeMegaMenu === "/uncrewedsystems" ? 0.98 : 1,
+                translateY: activeMegaMenu === "/uncrewedsystems" ? -10 : 0,
+                transition: {
+                  clipPath: { duration: 0.5, ease: [0.32, 0, 0.67, 0] },
+                  opacity: { duration: 1.6, ease: "linear" }, // Slower fade out
+                  default: { duration: 0.5 }
+                }
+              }}
+              style={{ willChange: "clip-path, opacity" }}
+              className="hidden lg:block absolute top-full left-0 right-0 bg-black border-b border-white/20 shadow-2xl z-40 overflow-hidden"
               onMouseEnter={handleMouseEnterMegaMenu}
               onMouseLeave={handleMouseLeaveMegaMenu}
             >

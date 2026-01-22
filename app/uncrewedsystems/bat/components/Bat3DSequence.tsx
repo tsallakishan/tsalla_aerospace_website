@@ -13,9 +13,9 @@ const PHASES = [
         title: "LRV TRANSITIONS TO VERTICAL POSITION",
         subtitle: "Preparing for initial separation sequence",
         drone: {
-            x: 15, y: 85, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
+            x: 15, y: 85, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
             cardX: 22.8, cardY: 60.8,
-            ghostX: 12.5, ghostY: 82, ghostSize: 250, ghostOpacity: 0.25,
+            ghostX: 12.5, ghostY: 82, ghostSize: 350, ghostOpacity: 0.25,
             lineStartX: 15.5, lineStartY: 80.5,
             lineMidX: 29, lineMidY: 80.5,
             lineEndX: 29, lineEndY: 68
@@ -27,16 +27,16 @@ const PHASES = [
         title: "LRV LAUNCHES BAT STRAIGHT UP",
         subtitle: "Vertical ascent phase initiated",
         drone: {
-            x: 20, y: 42, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
+            x: 20, y: 42, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
             cardX: 2, cardY: 27,
-            ghostX: 20, ghostY: 47.5, ghostSize: 360, ghostOpacity: 0.25,
-            lineStartX: 13.5, lineStartY: 46,
+            ghostX: 20.3, ghostY: 50, ghostSize: 470, ghostOpacity: 0.25,
+            lineStartX: 11.8, lineStartY: 46,
             lineMidX: 7, lineMidY: 46,
             lineEndX: 7, lineEndY: 35,
-            pathStartX: 16, pathStartY: 81,
+            pathStartX: 16.9, pathStartY: 81,
             pathMidX: 20, pathMidY: 81,
-            pathEndX: 20, pathEndY: 52.7,
-            pathOpacity: 0.4,
+            pathEndX: 20, pathEndY: 56.7,
+            pathOpacity: 0.8,
             pathCurve: 0.55
         },
         camera: { position: [0, 4.96, 0.65], rotation: [-82.5, 0, 0], fov: 45 }
@@ -46,15 +46,15 @@ const PHASES = [
         title: "BAT TRANSITIONS TO HORIZONTAL POSITION",
         subtitle: "Level flight configuration engaged",
         drone: {
-            x: 22, y: 18, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
+            x: 22, y: 18, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
             cardX: 26, cardY: 20,
-            ghostX: 20, ghostY: 14, ghostSize: 320, ghostOpacity: 0.25,
+            ghostX: 20, ghostY: 13.4, ghostSize: 410, ghostOpacity: 0.25,
             lineStartX: 22.4, lineStartY: 13,
             lineMidX: 32.6, lineMidY: 13,
-            lineEndX: 32.6, lineEndY: 24,
-            pathStartX: 19.8, pathStartY: 41,
-            pathEndX: 19.8, pathEndY: 17,
-            pathOpacity: 0.4
+            lineEndX: 32.6, lineEndY: 23,
+            pathStartX: 20, pathStartY: 41,
+            pathEndX: 19.9, pathEndY: 18,
+            pathOpacity: 0.8
         },
         camera: { position: [4.73, 1.62, 0.05], rotation: [-88.4, 71.1, 88.3], fov: 45 }
     },
@@ -63,32 +63,49 @@ const PHASES = [
         title: "CRUISE SPEED OPTIMIZATION",
         subtitle: "Adjusting for maximum aerodynamic efficiency",
         drone: {
-            x: 50, y: 18, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
-            cardX: 53.7, cardY: 21,
-            ghostX: 50, ghostY: 14, ghostSize: 320, ghostOpacity: 0.25,
+            x: 52, y: 18, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
+            cardX: 53.7, cardY: 22,
+            ghostX: 49, ghostY: 13.5, ghostSize: 410, ghostOpacity: 0.25,
             lineStartX: 53, lineStartY: 27,
-            lineMidX: 48, lineMidY: 27,
-            lineEndX: 48, lineEndY: 17,
-            pathStartX: 22.7, pathStartY: 12.5,
-            pathEndX: 44.9, pathEndY: 12.5,
-            pathOpacity: 0.4
+            lineMidX: 49.3, lineMidY: 27,
+            lineEndX: 49.3, lineEndY: 17,
+            pathStartX: 23.7, pathStartY: 11.4,
+            pathEndX: 45.2, pathEndY: 11.4,
+            pathOpacity: 0.8
         },
         camera: { position: [4.73, 1.62, 0.05], rotation: [-88.4, 71.1, 88.3], fov: 45 }
+    },
+    {
+        id: 4.5,
+        title: "",
+        subtitle: "",
+        drone: {
+            x: 68, y: 5, rotateX: 90, rotateY: 90, rotateZ: 0, size: 990,
+            cardX: 0, cardY: 0,
+            ghostX: 50, ghostY: 18, ghostSize: 320, ghostOpacity: 0.25,
+            lineStartX: 0, lineStartY: 0,
+            lineMidX: 0, lineMidY: 0,
+            lineEndX: 0, lineEndY: 0,
+            pathStartX: 52.7, pathStartY: 11.4,
+            pathEndX: 63.8, pathEndY: 11.4,
+            pathOpacity: 0.8
+        },
+        camera: { position: [4.78, 0.36, 0.19], rotation: [-62.2, 85.4, 62.2], fov: 45 }
     },
     {
         id: 5,
         title: "DECELERATES AND TRANSITIONS TO VERTICAL FLIGHT",
         subtitle: "Re-entry and landing preparation",
         drone: {
-            x: 83, y: 7.8, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
-            cardX: 59, cardY: 21.7,
-            ghostX: 83.3, ghostY: 13, ghostSize: 360, ghostOpacity: 0.25,
-            lineStartX: 83, lineStartY: 19.8,
+            x: 83, y: 6.5, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
+            cardX: 59, cardY: 22.9,
+            ghostX: 83.3, ghostY: 13.5, ghostSize: 420, ghostOpacity: 0.25,
+            lineStartX: 83, lineStartY: 21.7,
             lineMidX: 83, lineMidY: 28,
             lineEndX: 76, lineEndY: 28,
-            pathStartX: 53, pathStartY: 12.5,
-            pathEndX: 76.5, pathEndY: 12.5,
-            pathOpacity: 0.4
+            pathStartX: 64.2, pathStartY: 11.4,
+            pathEndX: 74.9, pathEndY: 11.4,
+            pathOpacity: 0.8
         },
         camera: { position: [0, 5.0, 0.01], rotation: [-90, 0, -0.6], fov: 45 }
     },
@@ -98,15 +115,15 @@ const PHASES = [
         subtitle: "Toward flight deck target landing zone",
         drone: {
             x: 83, y: 42, rotateX: 0, rotateY: 90,
-            rotateZ: 0, size: 770,
-            cardX: 63.5, cardY: 27,
-            ghostX: 83.2, ghostY: 48.3, ghostSize: 360, ghostOpacity: 0.25,
-            lineStartX: 76.5, lineStartY: 46,
+            rotateZ: 0, size: 990,
+            cardX: 63, cardY: 27,
+            ghostX: 83.2, ghostY: 48.3, ghostSize: 420, ghostOpacity: 0.25,
+            lineStartX: 74.9, lineStartY: 46,
             lineMidX: 69, lineMidY: 46,
             lineEndX: 69, lineEndY: 35,
             pathStartX: 83, pathStartY: 17.8,
             pathEndX: 83, pathEndY: 41.8,
-            pathOpacity: 0.4
+            pathOpacity: 0.8
         },
         camera: { position: [0, 5.0, 0.01], rotation: [-90, 0, 0], fov: 45 }
     },
@@ -115,14 +132,14 @@ const PHASES = [
         title: "CONTACTS LRV AND ENGAGES LATCH",
         subtitle: "Secure recovery sequence completed",
         drone: {
-            x: 83, y: 77.7, rotateX: 0, rotateY: 90, rotateZ: 0, size: 770,
-            cardX: 60, cardY: 60,
-            lineStartX: 76.5, lineStartY: 82,
+            x: 83, y: 77.7, rotateX: 0, rotateY: 90, rotateZ: 0, size: 990,
+            cardX: 60, cardY: 61.4,
+            lineStartX: 74.9, lineStartY: 82,
             lineMidX: 65.5, lineMidY: 82,
             lineEndX: 65.5, lineEndY: 68,
             pathStartX: 82.9, pathStartY: 53,
             pathEndX: 83, pathEndY: 77.7,
-            pathOpacity: 0.4
+            pathOpacity: 0.8
         },
         camera: { position: [0, 5.0, 0.01], rotation: [-90, 0, 0], fov: 45 }
     }
@@ -130,6 +147,7 @@ const PHASES = [
 
 export default function Bat3DSequence() {
     const [currentPhase, setCurrentPhase] = useState(0);
+    const [prevPhaseIndex, setPrevPhaseIndex] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
     const [isManualMode, setIsManualMode] = useState(false);
     const [scrollTicks, setScrollTicks] = useState(0);
@@ -141,60 +159,33 @@ export default function Bat3DSequence() {
     const [cameraStats, setCameraStats] = useState({ pos: { x: 0, y: 0, z: 5 }, rot: { x: 0, y: 0, z: 0 } });
 
     // Dedicated state for ghosts so they can be adjusted globally
-    const [ghostConfigs, setGhostConfigs] = useState<{ [key: number]: any }>({
-        1: {
-            x: PHASES[0].drone.ghostX ?? 12.5,
-            y: PHASES[0].drone.ghostY ?? 82,
-            size: PHASES[0].drone.ghostSize ?? 250,
-            opacity: PHASES[0].drone.ghostOpacity ?? 0.35
-        },
-        2: {
-            x: PHASES[1].drone.ghostX ?? 20,
-            y: PHASES[1].drone.ghostY ?? 47.5,
-            size: PHASES[1].drone.ghostSize ?? 360,
-            opacity: PHASES[1].drone.ghostOpacity ?? 0.35
-        },
-        3: {
-            x: PHASES[2].drone.ghostX ?? 23,
-            y: PHASES[2].drone.ghostY ?? 18,
-            size: PHASES[2].drone.ghostSize ?? 770,
-            opacity: PHASES[2].drone.ghostOpacity ?? 0.35
-        },
-        4: {
-            x: PHASES[3].drone.ghostX ?? 50,
-            y: PHASES[3].drone.ghostY ?? 18,
-            size: PHASES[3].drone.ghostSize ?? 770,
-            opacity: PHASES[3].drone.ghostOpacity ?? 0.35
-        },
-        5: {
-            x: PHASES[4].drone.ghostX ?? 83,
-            y: PHASES[4].drone.ghostY ?? 7.8,
-            size: PHASES[4].drone.ghostSize ?? 320,
-            opacity: PHASES[4].drone.ghostOpacity ?? 0.35
-        },
-        6: {
-            x: PHASES[5].drone.ghostX ?? 83,
-            y: PHASES[5].drone.ghostY ?? 42,
-            size: PHASES[5].drone.ghostSize ?? 320,
-            opacity: PHASES[5].drone.ghostOpacity ?? 0.35
-        }
-    });
+    const [ghostConfigs, setGhostConfigs] = useState<{ [key: string]: any }>({});
+
+    // Helper to build ghost configs from PHASES
+    const getInitialGhostConfigs = () => {
+        const configs: { [key: string]: any } = {};
+        PHASES.slice(0, -1).forEach((p) => {
+            configs[p.id.toString()] = {
+                x: p.drone.ghostX ?? p.drone.x,
+                y: p.drone.ghostY ?? p.drone.y,
+                size: p.drone.ghostSize ?? 320,
+                opacity: p.drone.ghostOpacity ?? 0.35
+            };
+        });
+        return configs;
+    };
+
+    useLayoutEffect(() => {
+        setGhostConfigs(getInitialGhostConfigs());
+    }, []);
 
     // Sync state with code configuration when not in manual mode
     useEffect(() => {
         if (!isManualMode) {
             setLiveDrone({ ...PHASES[currentPhase].drone });
-            setGhostConfigs({
-                1: { x: PHASES[0].drone.ghostX ?? 12.5, y: PHASES[0].drone.ghostY ?? 82, size: PHASES[0].drone.ghostSize ?? 250, opacity: PHASES[0].drone.ghostOpacity ?? 0.35 },
-                2: { x: PHASES[1].drone.ghostX ?? 20, y: PHASES[1].drone.ghostY ?? 47.5, size: PHASES[1].drone.ghostSize ?? 360, opacity: PHASES[1].drone.ghostOpacity ?? 0.35 },
-                3: { x: PHASES[2].drone.ghostX ?? 20, y: PHASES[2].drone.ghostY ?? 14, size: PHASES[2].drone.ghostSize ?? 320, opacity: PHASES[2].drone.ghostOpacity ?? 0.35 },
-                4: { x: PHASES[3].drone.ghostX ?? 50, y: PHASES[3].drone.ghostY ?? 14, size: PHASES[3].drone.ghostSize ?? 320, opacity: PHASES[3].drone.ghostOpacity ?? 0.35 },
-                5: { x: PHASES[4].drone.ghostX ?? 83, y: PHASES[4].drone.ghostY ?? 7.8, size: PHASES[4].drone.ghostSize ?? 320, opacity: PHASES[4].drone.ghostOpacity ?? 0.35 },
-                6: { x: PHASES[5].drone.ghostX ?? 83, y: PHASES[5].drone.ghostY ?? 42, size: PHASES[5].drone.ghostSize ?? 320, opacity: PHASES[5].drone.ghostOpacity ?? 0.35 }
-            });
+            setGhostConfigs(getInitialGhostConfigs());
         }
     }, [isManualMode, currentPhase,
-        // Track the JSON of the drone data to force a re-sync when the file is edited
         JSON.stringify(PHASES.map(p => p.drone))
     ]);
 
@@ -205,12 +196,19 @@ export default function Bat3DSequence() {
         // Reset scroll ticks whenever phase changes (scrolling or button click)
         setScrollTicks(0);
 
-        // Transition durations synced for premium, slower feel
-        const isFastPhase = (currentPhase === 3 && index === 4) || (currentPhase === 4 && index === 3);
-        const duration = isFastPhase ? 800 : 2500; // Increased to 2.5s for epic pacing
+        // Transition durations synced for premium pacing
+        const phaseA = PHASES[currentPhase].id;
+        const phaseB = PHASES[index].id;
+
+        // Fast transitions for cruise adjustments (4 to 4.5 is still relatively quick, but 4.5 to 5 is slow)
+        const isFastPhase = (phaseA === 4 && phaseB === 4.5) || (phaseA === 4.5 && phaseB === 4);
+        const isVerySlowPhase = (phaseA === 4.5 && phaseB === 5) || (phaseA === 5 && phaseB === 4.5);
+
+        const duration = isVerySlowPhase ? 3500 : (isFastPhase ? 1200 : 2500);
 
         setIsAnimating(true);
         setIsManualMode(false);
+        setPrevPhaseIndex(currentPhase);
         setCurrentPhase(index);
         setLiveDrone(PHASES[index].drone);
 
@@ -310,7 +308,7 @@ export default function Bat3DSequence() {
     }, [currentPhase, isAnimating, scrollTicks]);
 
     const activePhase = PHASES[currentPhase];
-    const isFastTransition = (currentPhase === 3 && isAnimating) || (currentPhase === 4 && isAnimating);
+    const isFastTransition = ([4].includes(PHASES[currentPhase].id) && isAnimating && PHASES[currentPhase + (isAnimating ? 0 : 0)]?.id !== 5);
 
     return (
         <section
@@ -336,15 +334,18 @@ export default function Bat3DSequence() {
             <div className="absolute top-[100px] left-[50px] z-50 flex flex-col gap-2">
                 <div className="text-black text-[12px] font-bold tracking-[2px]">INDEX</div>
                 <div className="flex flex-col gap-2">
-                    {PHASES.map((p, i) => (
-                        <button
-                            key={i}
-                            onClick={() => handlePhaseChange(i)}
-                            className={`text-[12px] text-left transition-all ${currentPhase === i ? "text-black font-bold translate-x-1" : "text-gray-300 hover:text-gray-400"}`}
-                        >
-                            0{p.id}
-                        </button>
-                    ))}
+                    {PHASES.map((p, i) => {
+                        if (p.id === 4.5) return null;
+                        return (
+                            <button
+                                key={i}
+                                onClick={() => handlePhaseChange(i)}
+                                className={`text-[12px] text-left transition-all ${currentPhase === i ? "text-black font-bold translate-x-1" : "text-gray-300 hover:text-gray-400"}`}
+                            >
+                                {p.id < 10 && p.id % 1 === 0 ? `0${p.id}` : p.id}
+                            </button>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -352,26 +353,26 @@ export default function Bat3DSequence() {
             <div className="absolute inset-0 z-5">
                 {/* Multi-Ghost Previews */}
                 <AnimatePresence>
-                    {[1, 2, 3, 4, 5, 6].map(id => (
-                        currentPhase >= id && ghostConfigs[id] && (
+                    {PHASES.slice(0, -1).map((p, idx) => (
+                        currentPhase > idx && p.id !== 4.5 && ghostConfigs[p.id.toString()] && (
                             <motion.div
-                                key={`ghost-${id}`}
+                                key={`ghost-${p.id}`}
                                 initial={{ opacity: 0 }}
-                                animate={{ opacity: ghostConfigs[id].opacity }}
+                                animate={{ opacity: ghostConfigs[p.id.toString()].opacity }}
                                 exit={{ opacity: 0 }}
                                 className="absolute pointer-events-none"
                                 style={{
-                                    left: `${ghostConfigs[id].x}%`,
-                                    top: `${ghostConfigs[id].y}%`,
-                                    width: ghostConfigs[id].size,
-                                    height: ghostConfigs[id].size,
+                                    left: `${ghostConfigs[p.id.toString()].x}%`,
+                                    top: `${ghostConfigs[p.id.toString()].y}%`,
+                                    width: ghostConfigs[p.id.toString()].size,
+                                    height: ghostConfigs[p.id.toString()].size,
                                     x: "-50%",
                                     y: "-50%",
                                 }}
                             >
                                 <img
-                                    src={`/images/Bat/phases/phase-${id}.png`}
-                                    alt={`Phase ${id} Ghost`}
+                                    src={`/images/Bat/phases/phase-${p.id}.png`}
+                                    alt={`Phase ${p.id} Ghost`}
                                     className="w-full h-full object-contain brightness-110 contrast-125"
                                 />
                             </motion.div>
@@ -412,6 +413,7 @@ export default function Bat3DSequence() {
                         </Suspense>
                         <CameraController
                             activePhase={activePhase}
+                            prevPhase={PHASES[prevPhaseIndex]}
                             onUpdate={setCameraStats}
                             isManualMode={isManualMode}
                             isAnimating={isAnimating}
@@ -446,42 +448,42 @@ export default function Bat3DSequence() {
                         )}
                         fill="none"
                         stroke="#A0A0A0"
-                        strokeWidth="0.11"
-                        strokeDasharray="0.1 0.1"
-                        initial={{ pathLength: 0, opacity: 0 }}
-                        animate={{ pathLength: 1, opacity: (currentPhase === 1 ? liveDrone.pathOpacity : PHASES[1].drone.pathOpacity) ?? 0.4 }}
+                        strokeWidth="0.7"
+                        strokeDasharray="9 9"
+                        style={{ vectorEffect: "non-scaling-stroke" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: (currentPhase === 1 ? liveDrone.pathOpacity : PHASES[1].drone.pathOpacity) ?? 0.9 }}
                         transition={{ duration: 1.7, delay: 0.8, ease: "easeOut" }}
-                        strokeLinecap="butt"
+                        strokeLinecap="round"
                     />
                 )}
 
-                {/* Additional 2-Point Paths for Phases 3, 4, 5, 6, 7 */}
-                {[2, 3, 4, 5, 6].map(phaseIdx => {
-                    const phaseId = phaseIdx + 1; // 3, 4, 5, 6, 7
-                    if (currentPhase < phaseIdx) return null;
+                {/* Additional 2-Point Paths for subsequent phases */}
+                {PHASES.map((p, idx) => {
+                    if (idx < 2 || currentPhase < idx) return null;
 
-                    const pConfig = currentPhase === phaseIdx ? liveDrone : PHASES[phaseIdx].drone;
-                    // Fallback to PHASES if liveDrone doesn't have the props yet (during transition)
-                    const startX = pConfig.pathStartX ?? PHASES[phaseIdx].drone.pathStartX;
-                    const startY = pConfig.pathStartY ?? PHASES[phaseIdx].drone.pathStartY;
-                    const endX = pConfig.pathEndX ?? PHASES[phaseIdx].drone.pathEndX;
-                    const endY = pConfig.pathEndY ?? PHASES[phaseIdx].drone.pathEndY;
+                    const pConfig = currentPhase === idx ? liveDrone : p.drone;
+                    const startX = pConfig.pathStartX;
+                    const startY = pConfig.pathStartY;
+                    const endX = pConfig.pathEndX;
+                    const endY = pConfig.pathEndY;
                     const opacity = pConfig.pathOpacity ?? 0.4;
 
                     if (startX === undefined) return null;
 
                     return (
                         <motion.path
-                            key={`path-${phaseId}`}
+                            key={`path-${p.id}`}
                             d={`M ${startX} ${startY} L ${endX} ${endY}`}
                             fill="none"
                             stroke="#A0A0A0"
-                            strokeWidth="0.11"
-                            strokeDasharray="0.1 0.1"
-                            initial={{ pathLength: 0, opacity: 0 }}
-                            animate={{ pathLength: 1, opacity: opacity }}
+                            strokeWidth="0.7"
+                            strokeDasharray="9 9"
+                            style={{ vectorEffect: "non-scaling-stroke" }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: opacity > 0.4 ? opacity : 0.8 }}
                             transition={{ duration: 2.0, delay: 0.8, ease: "easeOut" }}
-                            strokeLinecap="butt"
+                            strokeLinecap="round"
                         />
                     );
                 })}
@@ -489,7 +491,7 @@ export default function Bat3DSequence() {
 
             {/* Dotted Line for Phases 1-6 */}
             <AnimatePresence>
-                {[1, 2, 3, 4, 5, 6, 7].includes(activePhase.id) && (
+                {[1, 2, 3, 4, 5, 6, 7].includes(activePhase.id) && activePhase.id !== 4.5 && (
                     <motion.svg
                         key={currentPhase}
                         exit={{ opacity: 0, transition: { duration: 0.2 } }}
@@ -550,287 +552,49 @@ export default function Bat3DSequence() {
 
             {/* Floating Phase Cards (Active Phase Only) */}
             <AnimatePresence mode="wait">
-                <motion.div
-                    key={currentPhase}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 10, transition: { duration: 0.2 } }}
-                    transition={{ duration: 1.8, delay: ([1, 2, 3, 4, 5, 6, 7].includes(activePhase.id) && !isManualMode) ? 1.4 : 0 }}
-                    style={{
-                        position: 'absolute',
-                        left: `${liveDrone.cardX}%`,
-                        top: `${liveDrone.cardY}%`,
-                        transform: 'translate(-50%, -50%)',
-                        zIndex: 40,
-                        pointerEvents: 'none'
-                    }}
-                    className="flex flex-col gap-0 min-w-[300px]"
-                >
-                    {/* Current Phase Number */}
-                    <div className={`${activePhase.id === 2 ? "pl-[200px]" :
-                        activePhase.id === 5 ? "pl-[345px]" :
-                            activePhase.id === 6 ? "pl-[227px]" :
-                                activePhase.id === 7 ? "pl-[225px]" : ""
-                        }`}>
-                        <span className="text-[#5ce1e6] font-extrabold text-[16px]">
-                            0{activePhase.id}
-                        </span>
-                    </div>
-
-                    {/* Content Block */}
-                    <div className="flex flex-col gap-0.5">
-                        <div className={`text-black font-bold text-[14px] uppercase tracking-wide leading-tight ${activePhase.id === 6 ? "pl-4" : ""}`}>
-                            {activePhase.title}
-                        </div>
-                        <div className={`text-gray-400 font-medium text-[11px] uppercase tracking-widest ${activePhase.id === 5 ? "pl-12" : ""}`}>
-                            {activePhase.subtitle}
-                        </div>
-                    </div>
-                </motion.div>
-            </AnimatePresence>
-
-            {/* Manual Adjust Controls */}
-            <AnimatePresence>
-                {false && currentPhase !== 0 && (
+                {activePhase.id !== 4.5 && (
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: 50 }}
-                        drag
-                        dragMomentum={false}
-                        className="absolute bottom-6 left-[5%] bg-white/95 border border-gray-200 p-4 pt-7 rounded-xl shadow-xl z-50 flex gap-5 text-[10px] items-start backdrop-blur-md text-black cursor-default scale-90 origin-bottom-left"
+                        key={currentPhase}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 10, transition: { duration: 0.2 } }}
+                        transition={{ duration: 1.8, delay: ([1, 2, 3, 4, 5, 6, 7].includes(activePhase.id) && !isManualMode) ? 1.4 : 0 }}
+                        style={{
+                            position: 'absolute',
+                            left: `${liveDrone.cardX}%`,
+                            top: `${liveDrone.cardY}%`,
+                            transform: 'translate(-50%, -50%)',
+                            zIndex: 40,
+                            pointerEvents: 'none'
+                        }}
+                        className="flex flex-col gap-0 min-w-[300px]"
                     >
-                        {/* Drag Handle */}
-                        <div className="absolute top-0 left-0 right-0 h-5 flex items-center justify-center cursor-grab active:cursor-grabbing hover:bg-gray-50/50 rounded-t-xl border-b border-gray-100">
-                            <div className="w-8 h-1 bg-gray-200 rounded-full" />
+                        {/* Current Phase Number */}
+                        <div className={`${activePhase.id === 2 ? "pl-[200px]" :
+                            activePhase.id === 5 ? "pl-[345px]" :
+                                activePhase.id === 6 ? "pl-[227px]" :
+                                    activePhase.id === 7 ? "pl-[225px]" : ""
+                            }`}>
+                            <span className="text-[#5ce1e6] font-extrabold text-[16px]">
+                                {activePhase.id < 10 && activePhase.id % 1 === 0 ? `0${activePhase.id}` : activePhase.id}
+                            </span>
                         </div>
 
-                        <div className="flex flex-col gap-2">
-                            <div className="text-blue-600 font-bold mb-0.5 border-b border-blue-50 pb-0.5 uppercase tracking-wide">Drone</div>
-                            <div className="grid grid-cols-2 gap-x-3 gap-y-1.5">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">Model X %</span>
-                                    <input type="number" step="0.5" value={liveDrone.x} onChange={(e) => handleOverrideChange("x", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded focus:outline-blue-500" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">Model Y %</span>
-                                    <input type="number" step="0.5" value={liveDrone.y} onChange={(e) => handleOverrideChange("y", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5 col-span-2">
-                                    <span className="text-gray-400 text-[9px]">Size px</span>
-                                    <input type="number" step="10" value={liveDrone.size} onChange={(e) => handleOverrideChange("size", parseFloat(e.target.value))} className="w-full bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
+                        {/* Content Block */}
+                        <div className="flex flex-col gap-0.5">
+                            <div className={`text-black font-bold text-[14px] uppercase tracking-wide leading-tight ${activePhase.id === 6 ? "pl-4" : ""}`}>
+                                {activePhase.title}
                             </div>
-
-                            {/* Ghost 5 Controls */}
-                            <div className="text-gray-500 font-bold mt-2 mb-0.5 border-b border-gray-50 pb-0.5 uppercase tracking-wide">Ghost 5</div>
-                            <div className="grid grid-cols-2 gap-2">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G5 X %</span>
-                                    <input type="number" step="0.5" value={ghostConfigs[5]?.x} onChange={(e) => handleOverrideChange("ghost5X", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded focus:outline-blue-500" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G5 Y %</span>
-                                    <input type="number" step="0.5" value={ghostConfigs[5]?.y} onChange={(e) => handleOverrideChange("ghost5Y", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G5 Size</span>
-                                    <input type="number" step="10" value={ghostConfigs[5]?.size} onChange={(e) => handleOverrideChange("ghost5Size", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                            </div>
-
-                            {/* Ghost 6 Controls */}
-                            <div className="text-gray-500 font-bold mt-1 mb-0.5 border-b border-gray-50 pb-0.5 uppercase tracking-wide">Ghost 6</div>
-                            <div className="grid grid-cols-2 gap-2">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G6 X %</span>
-                                    <input type="number" step="0.5" value={ghostConfigs[6]?.x} onChange={(e) => handleOverrideChange("ghost6X", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G6 Y %</span>
-                                    <input type="number" step="0.5" value={ghostConfigs[6]?.y} onChange={(e) => handleOverrideChange("ghost6Y", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">G6 Size</span>
-                                    <input type="number" step="10" value={ghostConfigs[6]?.size} onChange={(e) => handleOverrideChange("ghost6Size", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-2">
-                            <div className="text-purple-600 font-bold mb-0.5 border-b border-purple-50 pb-0.5 uppercase tracking-wide">Card</div>
-                            <div className="grid grid-cols-2 gap-2">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">Card X %</span>
-                                    <input type="number" step="0.5" value={liveDrone.cardX} onChange={(e) => handleOverrideChange("cardX", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[9px]">Card Y %</span>
-                                    <input type="number" step="0.5" value={liveDrone.cardY} onChange={(e) => handleOverrideChange("cardY", parseFloat(e.target.value))} className="w-16 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                </label>
-                            </div>
-
-                            <div className="text-blue-600 font-bold mt-1 mb-0.5 border-b border-blue-50 pb-0.5 uppercase tracking-wide">Line Points</div>
-                            <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">Start X/Y</span>
-                                    <div className="flex gap-1">
-                                        <input type="number" step="0.5" value={liveDrone.lineStartX ?? liveDrone.x} onChange={(e) => handleOverrideChange("lineStartX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                        <input type="number" step="0.5" value={liveDrone.lineStartY ?? liveDrone.y} onChange={(e) => handleOverrideChange("lineStartY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                    </div>
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">Mid X/Y</span>
-                                    <div className="flex gap-1">
-                                        <input type="number" step="0.5" value={liveDrone.lineMidX ?? 50} onChange={(e) => handleOverrideChange("lineMidX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                        <input type="number" step="0.5" value={liveDrone.lineMidY ?? 50} onChange={(e) => handleOverrideChange("lineMidY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                    </div>
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">End X/Y</span>
-                                    <div className="flex gap-1">
-                                        <input type="number" step="0.5" value={liveDrone.lineEndX ?? liveDrone.cardX} onChange={(e) => handleOverrideChange("lineEndX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                        <input type="number" step="0.5" value={liveDrone.lineEndY ?? liveDrone.cardY} onChange={(e) => handleOverrideChange("lineEndY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                    </div>
-                                </label>
-                            </div>
-
-                            {/* Path Points Controls (Phase 2 Only) */}
-                            {currentPhase === 1 && (
-                                <>
-                                    <div className="text-gray-500 font-bold mt-1 mb-0.5 border-b border-gray-50 pb-0.5 uppercase tracking-wide">Path Points</div>
-                                    <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Start X/Y</span>
-                                            <div className="flex gap-1">
-                                                <input type="number" step="0.5" value={liveDrone.pathStartX ?? 0} onChange={(e) => handleOverrideChange("pathStartX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                                <input type="number" step="0.5" value={liveDrone.pathStartY ?? 0} onChange={(e) => handleOverrideChange("pathStartY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                            </div>
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Mid X/Y</span>
-                                            <div className="flex gap-1">
-                                                <input type="number" step="0.5" value={liveDrone.pathMidX ?? 0} onChange={(e) => handleOverrideChange("pathMidX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                                <input type="number" step="0.5" value={liveDrone.pathMidY ?? 0} onChange={(e) => handleOverrideChange("pathMidY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                            </div>
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">End X/Y</span>
-                                            <div className="flex gap-1">
-                                                <input type="number" step="0.5" value={liveDrone.pathEndX ?? 0} onChange={(e) => handleOverrideChange("pathEndX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                                <input type="number" step="0.5" value={liveDrone.pathEndY ?? 0} onChange={(e) => handleOverrideChange("pathEndY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                            </div>
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Opacity</span>
-                                            <input type="number" step="0.1" value={liveDrone.pathOpacity ?? 0.4} onChange={(e) => handleOverrideChange("pathOpacity", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Curve</span>
-                                            <input type="number" step="0.05" value={liveDrone.pathCurve ?? 0.1} onChange={(e) => handleOverrideChange("pathCurve", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                        </label>
-                                    </div>
-                                </>
-                            )}
-
-                            {/* 2-Point Path Controls (Phases 3,4,5,6,7) */}
-                            {currentPhase >= 2 && currentPhase <= 6 && (
-                                <>
-                                    <div className="text-gray-500 font-bold mt-1 mb-0.5 border-b border-gray-50 pb-0.5 uppercase tracking-wide">Path Points</div>
-                                    <div className="grid grid-cols-2 gap-x-2 gap-y-1">
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Start X/Y</span>
-                                            <div className="flex gap-1">
-                                                <input type="number" step="0.5" value={liveDrone.pathStartX ?? 0} onChange={(e) => handleOverrideChange("pathStartX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                                <input type="number" step="0.5" value={liveDrone.pathStartY ?? 0} onChange={(e) => handleOverrideChange("pathStartY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                            </div>
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">End X/Y</span>
-                                            <div className="flex gap-1">
-                                                <input type="number" step="0.5" value={liveDrone.pathEndX ?? 0} onChange={(e) => handleOverrideChange("pathEndX", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                                <input type="number" step="0.5" value={liveDrone.pathEndY ?? 0} onChange={(e) => handleOverrideChange("pathEndY", parseFloat(e.target.value))} className="w-10 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                            </div>
-                                        </label>
-                                        <label className="flex flex-col gap-0.5">
-                                            <span className="text-gray-400 text-[8px]">Opacity</span>
-                                            <input type="number" step="0.1" value={liveDrone.pathOpacity ?? 0.4} onChange={(e) => handleOverrideChange("pathOpacity", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1.5 py-0.5 rounded" />
-                                        </label>
-                                    </div>
-                                </>
-                            )}
-
-                            <div className="text-blue-600 font-bold mt-1 mb-0.5 border-b border-blue-50 pb-0.5 uppercase tracking-wide">Rotation</div>
-                            <div className="grid grid-cols-3 gap-1.5">
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">X</span>
-                                    <input type="number" step="1" value={liveDrone.rotateX} onChange={(e) => handleOverrideChange("rotateX", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">Y</span>
-                                    <input type="number" step="1" value={liveDrone.rotateY} onChange={(e) => handleOverrideChange("rotateY", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                </label>
-                                <label className="flex flex-col gap-0.5">
-                                    <span className="text-gray-400 text-[8px]">Z</span>
-                                    <input type="number" step="1" value={liveDrone.rotateZ} onChange={(e) => handleOverrideChange("rotateZ", parseFloat(e.target.value))} className="w-12 bg-gray-50 border border-gray-200 px-1 py-0.5 rounded" />
-                                </label>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col gap-1 border-l border-gray-100 pl-4 min-w-[130px]">
-                            <div className="text-orange-600 font-bold mb-0.5 border-b border-orange-50 pb-0.5 uppercase tracking-wide">Camera</div>
-                            <div className="grid grid-cols-2 gap-x-3 gap-y-1 font-mono text-gray-500 text-[9px]">
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">PX</span>
-                                    <span className="font-bold">{cameraStats.pos.x}</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">RX</span>
-                                    <span className="font-bold">{cameraStats.rot.x}</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">PY</span>
-                                    <span className="font-bold">{cameraStats.pos.y}</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">RY</span>
-                                    <span className="font-bold">{cameraStats.rot.y}</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">PZ</span>
-                                    <span className="font-bold">{cameraStats.pos.z}</span>
-                                </div>
-                                <div className="flex flex-col">
-                                    <span className="text-[7px] text-gray-400">RZ</span>
-                                    <span className="font-bold">{cameraStats.rot.z}</span>
-                                </div>
-                            </div>
-
-                            <div className="mt-auto pt-2 flex flex-col gap-2">
-                                <div className="bg-black text-white px-2 py-0.5 rounded text-[8px] font-bold text-center">
-                                    PHASE {currentPhase + 1}
-                                </div>
-                                <button
-                                    onClick={() => {
-                                        console.log('Stats:', {
-                                            drone: liveDrone,
-                                            camera: {
-                                                position: [cameraStats.pos.x, cameraStats.pos.y, cameraStats.pos.z],
-                                                rotation: [cameraStats.rot.x, cameraStats.rot.y, cameraStats.rot.z]
-                                            }
-                                        });
-                                        alert('Stats logged.');
-                                    }}
-                                    className="bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700 transition-colors text-[9px] font-bold"
-                                >
-                                    Log Stats
-                                </button>
+                            <div className={`text-gray-400 font-medium text-[11px] uppercase tracking-widest ${activePhase.id === 5 ? "pl-12" : ""}`}>
+                                {activePhase.subtitle}
                             </div>
                         </div>
                     </motion.div>
                 )}
             </AnimatePresence>
-        </section>
+
+            {/* Manual Adjust Controls Removed */}
+        </section >
     );
 }
 
@@ -860,7 +624,7 @@ function SmoothDrone({ drone, isManualMode, isFastTransition }: { drone: any, is
 }
 
 // Camera Controller
-function CameraController({ activePhase, onUpdate, isManualMode, isAnimating }: { activePhase: any, onUpdate: (stats: any) => void, isManualMode: boolean, isAnimating: boolean }) {
+function CameraController({ activePhase, prevPhase, onUpdate, isManualMode, isAnimating }: { activePhase: any, prevPhase: any, onUpdate: (stats: any) => void, isManualMode: boolean, isAnimating: boolean }) {
     const { camera } = useThree();
     const frameCount = useRef(0);
     const wasAnimating = useRef(isAnimating);
@@ -889,8 +653,10 @@ function CameraController({ activePhase, onUpdate, isManualMode, isAnimating }: 
         );
 
         if (isAnimating) {
-            const isFast = (activePhase.id === 5 || activePhase.id === 4);
-            const lerpFactor = isFast ? 0.25 : 0.06; // Weighted camera movement for slower speed
+            const isSlow = (activePhase.id === 5 && prevPhase.id === 4.5) || (activePhase.id === 4.5 && prevPhase.id === 5);
+            const isFast = (activePhase.id === 4 && prevPhase.id !== 4.5);
+
+            const lerpFactor = isSlow ? 0.03 : (isFast ? 0.25 : 0.04);
             camera.position.lerp(targetPos, lerpFactor);
             camera.rotation.x = THREE.MathUtils.lerp(camera.rotation.x, targetRot.x, lerpFactor);
             camera.rotation.y = THREE.MathUtils.lerp(camera.rotation.y, targetRot.y, lerpFactor);

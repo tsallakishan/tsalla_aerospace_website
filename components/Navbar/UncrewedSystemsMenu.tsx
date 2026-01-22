@@ -105,7 +105,7 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                 }}
                                 className={cn(
                                     "group relative flex items-center justify-between p-4 rounded-sm transition-all duration-300 border border-transparent cursor-pointer",
-                                    isActive ? "bg-white/5 border-[#0b4a9a]/20" : "hover:bg-white/5"
+                                    isActive ? "bg-[#5ce1e6]/10 border-[#5ce1e6]/20" : "hover:bg-white/5"
                                 )}
                             >
                                 {isActive && (
@@ -121,7 +121,7 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
                                 <div className="relative z-10">
                                     <div className={cn(
                                         "text-sm font-semibold tracking-widest transition-all duration-300 font-orbit uppercase",
-                                        isActive ? "text-[#0b4a9a] translate-x-1" : "text-white/60 group-hover:text-[#0b4a9a]"
+                                        isActive ? "text-[#5ce1e6] translate-x-1" : "text-white/60 group-hover:text-white"
                                     )}>
                                         {link.name}
                                     </div>
@@ -132,13 +132,13 @@ export const HangarMenu: React.FC<HangarMenuProps> = ({
 
                                 <div className="flex items-center gap-3">
                                     {isActive && (
-                                        <motion.div initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-[8px] text-[#0b4a9a]/60 font-mono">
+                                        <motion.div initial={{ opacity: 0, x: -5 }} animate={{ opacity: 1, x: 0 }} className="text-[8px] text-[#5ce1e6]/60 font-mono">
                                             [ONLINE]
                                         </motion.div>
                                     )}
                                     <ArrowRight className={cn(
                                         "w-3 h-3 transition-all duration-300",
-                                        isActive ? "text-[#0b4a9a]" : "text-white/20 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
+                                        isActive ? "text-[#5ce1e6]" : "text-white/20 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
                                     )} />
                                 </div>
                             </Link>

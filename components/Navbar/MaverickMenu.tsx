@@ -99,7 +99,7 @@ export const MaverickMenu: React.FC<MaverickMenuProps> = ({ onClose }) => {
 
                             {/* Content */}
                             <div className="relative z-10 w-full">
-                                <h4 className="text-xl lg:text-3xl font-light mb-1 group-hover:text-[#0b4a9a] transition-colors duration-300 font-orbit">{item.title}</h4>
+                                <h4 className="text-xl lg:text-3xl font-light mb-1 group-hover:text-[#5ce1e6] transition-colors duration-300 font-orbit">{item.title}</h4>
                                 <p className="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-mono group-hover:text-black transition-colors delay-75">{item.subtitle}</p>
                             </div>
                         </Link>
