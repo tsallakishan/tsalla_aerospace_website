@@ -521,7 +521,7 @@ video[data-loading="true"] {
     }
 
     100% {
-      transform: translateX(-1.4rem);
+      transform: translateX(-5.4rem);
     }
   }
 }
