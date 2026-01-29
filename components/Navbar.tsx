@@ -366,7 +366,9 @@ export default function Navbar() {
                     `}
                   >
                     <span
-                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems"))) ? "text-[#5ce1e6]" : "text-white hover:text-[#5ce1e6]"
+                      className={`animated-underline font-orbit font-normal ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems")))
+                        ? (["MAVERICK", "UNCREWED SYSTEMS", "COUNTER SYSTEMS"].includes(item.name.toUpperCase()) ? "text-[#60a5fa]" : "text-[#5ce1e6]")
+                        : `text-white ${["MAVERICK", "UNCREWED SYSTEMS", "COUNTER SYSTEMS"].includes(item.name.toUpperCase()) ? "hover:text-[#60a5fa]" : "hover:text-[#5ce1e6]"}`
                         }`}
                     >
                       {item.name}
@@ -622,8 +624,8 @@ export default function Navbar() {
                     }}
                     className={`px-6 py-5 text-base font-medium border-b border-white/10 transition-colors flex justify-between items-center font-orbit w-full text-left
                       ${(pathname === item.href || (item.name === "UNCREWED SYSTEMS" && pathname.startsWith("/uncrewedsystems")))
-                        ? "text-[#5ce1e6] bg-white/5"
-                        : "text-white hover:text-[#5ce1e6] hover:bg-white/5"
+                        ? (["MAVERICK", "UNCREWED SYSTEMS", "COUNTER SYSTEMS"].includes(item.name.toUpperCase()) ? "text-[#60a5fa] bg-white/5" : "text-[#5ce1e6] bg-white/5")
+                        : `text-white ${["MAVERICK", "UNCREWED SYSTEMS", "COUNTER SYSTEMS"].includes(item.name.toUpperCase()) ? "hover:text-[#60a5fa]" : "hover:text-[#5ce1e6]"} hover:bg-white/5`
                       }
                     `}
                   >
