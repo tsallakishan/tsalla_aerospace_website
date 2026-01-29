@@ -41,7 +41,7 @@ export default function InitialLoader() {
                                 alt="Tsalla Aerospace Logo"
                                 className="w-32 h-32 md:w-[12rem] md:h-[12rem] filter drop-shadow-lg absolute"
                                 style={{
-                                    animation: "planeFlyDown 2.5s ease-in-out forwards, logoMoveLeft 1s ease-in-out 2.5s forwards",
+                                    animation: "planeFlyDown 2.5s easjke-in-out forwards, logoMoveLeft 1s ease-in-out 2.5s forwards",
                                 }}
                             />
 

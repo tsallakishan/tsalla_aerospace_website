@@ -521,7 +521,7 @@ video[data-loading="true"] {
     }
 
     100% {
-      transform: translateX(-4.4rem);
+      transform: translateX(-5.5rem);
     }
   }
 }
@@ -534,7 +534,7 @@ video[data-loading="true"] {
     }
 
     100% {
-      transform: translateX(-4.8rem);
+      transform: translateX(-6rem);
     }
   }
 }
